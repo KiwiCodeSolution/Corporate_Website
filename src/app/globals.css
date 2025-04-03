@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/*Вместо файла tailwind.config.js настраиваем все свои кастомизации прямо здесь в global.css  */
 
 body {
   background: #ffffff;

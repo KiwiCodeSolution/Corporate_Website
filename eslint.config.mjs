@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
@@ -22,11 +20,12 @@ const eslintConfig = [
       'no-unused-vars': 'warn',
       'no-debugger': 'error',
       // 'no-console': 'warn',
-      eqeqeq: 'error',
       'prefer-const': 'error',
+      eqeqeq: 'error',
       'import/order': ['warn', { groups: ['builtin', 'external', 'internal'] }],
       'import/no-unresolved': 'error',
     },
+    ignores: ['**.mjs'],
   }),
 ];
 
