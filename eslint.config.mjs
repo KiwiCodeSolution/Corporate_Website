@@ -25,7 +25,6 @@ const eslintConfig = [
       'import/order': ['warn', { groups: ['builtin', 'external', 'internal'] }],
       'import/no-unresolved': 'error',
     },
-    ignores: ['**.mjs'],
   }),
 ];
 

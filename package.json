@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run lint && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -24,6 +24,17 @@
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "tailwindcss": "^4"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": "eslint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged",
+      "pre-push": "npm run lint"
+    }
   }
 }
