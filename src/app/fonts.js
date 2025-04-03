@@ -1,9 +1,9 @@
-import { Montserrat } from "next/font/google";
+import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
-  weight: ["400", "500", "700"],
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
+  weight: ['400', '500', '700'],
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
   variable: true,
 });
 

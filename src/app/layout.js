@@ -1,10 +1,10 @@
-import "./globals.css";
+import './globals.css';
 
-import { montserrat } from "./fonts";
+import { montserrat } from './fonts';
 
 export const metadata = {
-  title: "KiWiCode Solutions",
-  description: "",
+  title: 'KiWiCode Solutions',
+  description: '',
   icons: {},
 };
 
