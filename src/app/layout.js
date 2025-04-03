@@ -2,7 +2,7 @@ import './globals.css';
 
 import { montserrat } from './fonts';
 
-let str = 'Hallo';
+let str1 = 'Hallo';
 
 export const metadata = {
   title: 'KiWiCode Solutions',
