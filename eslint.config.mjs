@@ -25,6 +25,14 @@ const eslintConfig = [
       'import/order': ['warn', { groups: ['builtin', 'external', 'internal'] }],
       'import/no-unresolved': 'error',
     },
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [['@', './src']],
+          extentions: ['.js', '.jsx', '.css'],
+        },
+      },
+    },
   }),
 ];
 
