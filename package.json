@@ -29,7 +29,10 @@
     "tailwindcss": "^4"
   },
   "lint-staged": {
-    "**/*.{js,jsx}": "eslint --fix"
+    "**/*.{js,jsx}": [
+      "eslint --fix",
+      "eslint --max-warnings 0"
+    ]
   },
   "husky": {
     "hooks": {
