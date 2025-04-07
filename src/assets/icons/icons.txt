@@ -1,0 +1,36 @@
+Іконки у файлі icons.jsx: 
+
+Іконки для розділу Our principles. Збережені тільки зображення, без фонового кольору.
+1. Expertise - для першого розділу, експертизи
+2. Approach - другий розділ, Individual approach
+3. Innovation - інновації
+4. Partnership - Reliable Partnership.
+
+Стрілочки:
+1. Bracket - стрілочка - дужка (у круглих кнопках, для навігації). Має такі варіанти:
+- greenMini (зелена, w 8.3 h 14.6, використовується у кнопках навігації),
+- green (зелена, w 21 h 10.5, використовується у кнопці Learn more секції Hero, при ховері повертається на 90 градусів),
+- white (біла, w 8.3 h 14.6, використовується у кнопках навігації)
+
+2. Arrow - повноцінна стрілочка. Має такі варіанти:
+- s (біла, довжина 10, використана у кнопці Learn more, при ховері повертається на 45 градусів), 
+- m (зелена, довжина 12, використана у кнопці Learn more картки новин, повернута на 45 градусів), 
+- l (біла, довжина 20, використана у кнопці All cases, All news, Send, при ховері повертається на 45 градусів), 
+- xl (біла, довжина 28, використана у овальних кнопках Get in touch, Let’s work, при ховері повертається на 45 градусів)
+
+Іконки у окремих файлах:
+
+Іконки для розділу Our services:
+1. development.svg - Software Development
+2. design.svg - Design and SMM Services
+3. marketing.svg - Marketing and PR
+4. ba.svg - Business Consulting
+5. startup.svg - Turnkey Startup
+6. projects.svg - National Projects
+
+Іконки для перемикача тем
+1. dark.svg - місяць
+2. light.svg - сонечко
+
+
+cross.svg іконка закриття вікна 
