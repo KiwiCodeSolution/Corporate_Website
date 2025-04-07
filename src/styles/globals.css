@@ -10,11 +10,6 @@
   --lite-gray: #fbfbfb; /* колір використовується на текстах у кнопках*/
 }
 
-.dark {
-  --background: #0c1719;
-  --foreground: #fff;
-}
-
 @theme inline {
   --color-bgColor: var(--background);
   --color-main: var(--foreground);
@@ -25,6 +20,11 @@
   --color-lite-gray: var(--lite-gray);
   --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1);
   --radius-base: 20px;
+}
+
+.dark {
+  --background: #0c1719;
+  --foreground: #fff;
 }
 
 html {
@@ -56,18 +56,6 @@ input {
   cursor: text;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-  margin: 0px;
-  padding: 0px;
-}
-
 a {
   outline: none;
   display: inline-block;
@@ -96,16 +84,9 @@ img {
   display: block;
 }
 
-svg {
-  color: inherit;
-}
-
 ul,
 li,
 ol {
-  padding: 0px;
-  margin: 0px;
-
   list-style: none;
 }
 
