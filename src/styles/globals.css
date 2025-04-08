@@ -129,4 +129,14 @@ button:hover .arrow {
   transform: rotate(45deg);
 }
 
-/*  */
+.card-wrapper {
+  background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
+  padding: 2px;
+  border-radius: 16px;
+}
+
+.service-item {
+  background: white;
+  border-radius: 14px;
+  padding: 20px 32px 20px 24px;
+}

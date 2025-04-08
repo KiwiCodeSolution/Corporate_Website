@@ -1,10 +1,14 @@
+import OurServicesSection from '@/components/sections/OurServices';
 import Title from '@/components/Title';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 ">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Title tag={'h1'}>KiWiCode Solutions</Title>
+    <div className="w-screen h-full overflow-x-hidden">
+      <main className="relative ">
+        <Title tag={'h1'} styles={'text-center my-[50px]'}>
+          KiWiCode Solutions
+        </Title>
+        <OurServicesSection />
       </main>
     </div>
   );
