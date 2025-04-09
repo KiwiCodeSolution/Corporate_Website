@@ -1,9 +1,10 @@
-import '@/styles/globals.css';
-
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
-import { montserrat } from './fonts';
 
-// let str3 = 'Hallo';
+import { routing } from '@/i18n/routing';
+import { montserrat } from './fonts';
+import '@/styles/globals.css';
 
 export const metadata = {
   title: 'KiWiCode Solutions',
@@ -11,12 +12,18 @@ export const metadata = {
   icons: {},
 };
 
-export default function RootLayout({ children }) {
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${montserrat.className} antialiased `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
