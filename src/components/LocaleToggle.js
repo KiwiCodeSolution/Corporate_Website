@@ -6,7 +6,7 @@ import { useRouter, usePathname } from '@/i18n/navigation';
 
 const localeStyle = 'group flex items-center cursor-pointer';
 const localeTextStyle =
-  'text-[20px] leading-tight font-normal transition duration-200 ease-in-out group-hover:text-[var(--accent)]';
+  'h-[20px] text-[20px] leading-[1] font-normal transition-all duration-200 ease-in-out group-hover:border-b-1 peer-focus:border-b-1';
 
 export default function LocaleToggle() {
   const params = useParams();
@@ -22,28 +22,32 @@ export default function LocaleToggle() {
   return (
     <div className="flex h-6 ">
       <label className={clsx(localeStyle, 'border-r-[0.5px] pr-[3px]')}>
-        <span className={clsx(localeTextStyle, params.locale === 'ua' && 'text-[var(--accent)]')}>
-          UA
-        </span>
         <input
           type="radio"
           name="locale"
           value="ua"
+          checked={params.locale === 'ua'}
+          tabIndex={params.locale === 'ua' ? 0 : 1}
           onChange={localeChangeHandler}
-          className="sr-only"
+          className="sr-only peer"
         />
+        <span className={clsx(localeTextStyle, params.locale === 'ua' && 'text-[var(--accent)]')}>
+          UA
+        </span>
       </label>
       <label className={clsx(localeStyle, 'border-l-[0.5px] pl-[3px]')}>
-        <span className={clsx(localeTextStyle, params.locale === 'en' && 'text-[var(--accent)]')}>
-          EN
-        </span>
         <input
           type="radio"
           name="locale"
           value="en"
+          checked={params.locale === 'en'}
+          tabIndex={params.locale === 'en' ? 0 : 1}
           onChange={localeChangeHandler}
-          className="sr-only"
+          className="sr-only peer"
         />
+        <span className={clsx(localeTextStyle, params.locale === 'en' && 'text-[var(--accent)]')}>
+          EN
+        </span>
       </label>
     </div>
   );

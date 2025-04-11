@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 import Title from '@/components/Title';
-import LocaleToggle from '@/components/LanguageToggle';
+import LocaleToggle from '@/components/LocaleToggle';
 
 export default function Home() {
   // throw Error('test error');
