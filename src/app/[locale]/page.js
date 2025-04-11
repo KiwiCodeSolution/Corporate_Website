@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import Title from '@/components/Title';
 import LocaleToggle from '@/components/LocaleToggle';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Home() {
   // throw Error('test error');
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Title tag={'h1'}>{t('title')}</Title>
         <LocaleToggle />
+        <ThemeToggle />
       </main>
     </div>
   );
