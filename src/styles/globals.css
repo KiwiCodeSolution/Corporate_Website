@@ -164,4 +164,17 @@ button:hover .arrow {
 .hww-section-gradient {
   background: linear-gradient(270deg, #38ef7d -122%, #227d94 214%);
 }
+
+.hww-gallery-gradient {
+  background: linear-gradient(
+    356.86deg,
+    rgba(1, 60, 52, 0.2) 0.66%,
+    rgba(63, 167, 142, 0.2) 18.07%,
+    rgba(71, 199, 193, 0.2) 32.1%,
+    rgba(77, 222, 229, 0.2) 48.54%,
+    rgba(57, 181, 187, 0.2) 61.6%,
+    rgba(34, 136, 141, 0.2) 75.63%,
+    rgba(12, 73, 78, 0.2) 97.39%
+  );
+}
 /*  */
