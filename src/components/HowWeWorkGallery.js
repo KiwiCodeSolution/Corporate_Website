@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import Title from './Title';
+import HowWeWorkSwiper from './HowWeWorkSwiper';
+import HowWeWorkImgBlock from './HowWeWorkImgBlock';
 
 const HowWeWorkGallery = ({ items }) => {
   const { theme } = useTheme();
@@ -71,9 +73,9 @@ const HowWeWorkGallery = ({ items }) => {
       </ul>
 
       <div
-        className={`w- [345px] h-[697px] md:w-[704px] md:h-[524px] xl:w-[630px] xl:h-[461px] flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
+        className={`hidden xl:w-[630px] xl:h-[461px] xl:flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
       >
-        <Image
+        {/* <Image
           src={items[currentItem].img}
           width={1000}
           height={1000}
@@ -107,8 +109,10 @@ const HowWeWorkGallery = ({ items }) => {
         >
           <Title styles={'xl:hidden font-semibold mb-2'}>{items[currentItem].title}</Title>
           <p>{items[currentItem].text}</p>
-        </div>
+        </div> */}
+        <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
       </div>
+      <HowWeWorkSwiper items={items} />
     </div>
   );
 };

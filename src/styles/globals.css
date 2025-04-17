@@ -177,4 +177,13 @@ button:hover .arrow {
     rgba(12, 73, 78, 0.2) 97.39%
   );
 }
-/*  */
+
+.hww .slick-list,
+.hww .slick-track,
+.hww .slick-slide > div {
+  height: 100%;
+}
+
+.hww .slick-slide .swiper-container {
+  display: flex !important;
+}
