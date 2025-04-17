@@ -8,7 +8,7 @@ const Title = ({ tag, children, styles, section }) => {
 
   const marginBottom = clsx({
     'mb-[30px]': section === 'contact',
-    'mb-12': section !== 'contact',
+    'mb-10 xl:mb-12': section !== 'contact',
   });
 
   if (tag === 'h1') {
@@ -16,7 +16,18 @@ const Title = ({ tag, children, styles, section }) => {
   }
 
   if (tag === 'h2') {
-    return <h2 className={clsx(styles, 'text-[52px]', commonStyles, marginBottom)}>{children}</h2>;
+    return (
+      <h2
+        className={clsx(
+          styles,
+          'text-[32px] md:text-[44px] xl:text-[52px]',
+          commonStyles,
+          marginBottom
+        )}
+      >
+        {children}
+      </h2>
+    );
   }
 
   return <h3 className={clsx(styles, 'text-2xl leading-[1.3]')}>{children}</h3>;

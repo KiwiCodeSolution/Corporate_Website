@@ -5,21 +5,25 @@
 :root {
   --background: #d3cfcfab;
   --foreground: #0c1719;
+  --main: #0c1719;
   --accent: #4ab88b;
   --bright-green: #38ee7d;
   --turquoise: #5bd1c5;
   --blue: #227d94;
-  --lite-gray: #fbfbfb; /* колір використовується на текстах у кнопках*/
+  --lite-grey: #fbfbfb;
+  --grey: #909da2 /* колір використовується на текстах у кнопках*/;
 }
 
 @theme inline {
   --color-bgColor: var(--background);
   --color-main: var(--foreground);
+  --color-dark: var(--main);
+  --color-main-grey: var(--grey);
   --color-accent: var(--accent);
   --color-bright-green: var(--bright-green);
   --color-turquoise: var(--turquoise);
   --color-blue: var(--blue);
-  --color-lite-gray: var(--lite-gray);
+  --color-lite-grey: var(--lite-grey);
   --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1);
   --radius-base: 20px;
 }
@@ -131,4 +135,43 @@ button:hover .arrow {
   transform: rotate(45deg);
 }
 
-/*  */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 2.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.btn-swiper {
+  width: 50px;
+  height: 50px;
+  gap: 10px;
+  border-radius: 25px;
+  border-width: 2px;
+
+  background: rgba(74, 184, 139, 1);
+  border: 2px solid rgba(74, 184, 139, 1);
+}
