@@ -5,6 +5,7 @@
 :root {
   --background: #d3cfcfab;
   --foreground: #0c1719;
+  --main: #0c1719;
   --accent: #4ab88b;
   --bright-green: #38ee7d;
   --turquoise: #5bd1c5;
@@ -16,6 +17,7 @@
 @theme inline {
   --color-bgColor: var(--background);
   --color-main: var(--foreground);
+  --color-dark: var(--main);
   --color-main-grey: var(--grey);
   --color-accent: var(--accent);
   --color-bright-green: var(--bright-green);
@@ -163,29 +165,13 @@ button:hover .arrow {
   }
 }
 
-.hww-section-gradient {
-  background: linear-gradient(270deg, #38ef7d -122%, #227d94 214%);
-}
+.btn-swiper {
+  width: 50px;
+  height: 50px;
+  gap: 10px;
+  border-radius: 25px;
+  border-width: 2px;
 
-.hww-gallery-gradient {
-  background: linear-gradient(
-    356.86deg,
-    rgba(1, 60, 52, 0.2) 0.66%,
-    rgba(63, 167, 142, 0.2) 18.07%,
-    rgba(71, 199, 193, 0.2) 32.1%,
-    rgba(77, 222, 229, 0.2) 48.54%,
-    rgba(57, 181, 187, 0.2) 61.6%,
-    rgba(34, 136, 141, 0.2) 75.63%,
-    rgba(12, 73, 78, 0.2) 97.39%
-  );
-}
-
-.hww .slick-list,
-.hww .slick-track,
-.hww .slick-slide > div {
-  height: 100%;
-}
-
-.hww .slick-slide .swiper-container {
-  display: flex !important;
+  background: rgba(74, 184, 139, 1);
+  border: 2px solid rgba(74, 184, 139, 1);
 }
