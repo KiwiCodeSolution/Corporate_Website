@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #d3cfcfab;
+  --background: #fff;
   --foreground: #0c1719;
   --main: #0c1719;
   --accent: #4ab88b;
@@ -142,9 +142,10 @@ button:hover .arrow {
 }
 
 .service-item {
-  background: white;
   border-radius: 14px;
   padding: 20px 32px 20px 24px;
+}
+
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 1.5s ease forwards;

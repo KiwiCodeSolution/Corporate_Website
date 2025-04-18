@@ -22,5 +22,35 @@
   },
   "Home": {
     "title": "Home Page of KiWiCode Solutions"
+  },
+  "OurServices": {
+    "title": "Our services",
+    "btn": "Learn more",
+    "services": [
+      {
+        "title": "Software Development",
+        "details": "Creating efficient and reliable software solutions tailored to meet your business objectives and drive success."
+      },
+      {
+        "title": "Design and SMM Services",
+        "details": "Delivering creative designs and impactful social media strategies that elevate your brand and engage your target audience."
+      },
+      {
+        "title": "Marketing and PR",
+        "details": "Crafting successful marketing campaigns and PR strategies that boost brand recognition and solidify your market presence."
+      },
+      {
+        "title": "Business Consulting",
+        "details": "Offering expert advice and analysis to optimize business processes and fuel strategic growth."
+      },
+      {
+        "title": "Turnkey Startup",
+        "details": "Guiding your startup from concept to launch, ensuring success at every stage of development."
+      },
+      {
+        "title": "National Projects",
+        "details": "Contributing to the development and execution of large-scale projects that are pivotal to the national economy and society."
+      }
+    ]
   }
 }
