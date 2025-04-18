@@ -29,7 +29,7 @@ const eslintConfig = [
       'import/resolver': {
         alias: {
           map: [['@', './src']],
-          extentions: ['.js', '.jsx', '.css'],
+          extensions: ['.js', '.jsx', '.css'],
         },
       },
     },
