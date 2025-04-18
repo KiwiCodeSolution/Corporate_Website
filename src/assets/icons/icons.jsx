@@ -78,7 +78,7 @@ export const Arrow = ({ s, m, l, xl }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className={clsx(
-      s && 'w-[10px] h-[16px] arrow',
+      s && 'w-[12px] h-[16px] arrow',
       m && 'w-[12px] h-[16px] rotate-45',
       l && 'w-[20px] h-[16px] arrow',
       xl && 'w-[28px] h-[16px] arrow'
