@@ -64,7 +64,6 @@ input {
 
 a {
   outline: none;
-  display: inline-block;
 
   color: inherit;
   text-decoration: none;
@@ -74,7 +73,6 @@ a {
 }
 
 button {
-  display: block;
   box-sizing: border-box;
 
   outline: 0;
@@ -124,14 +122,16 @@ ol {
 
 button:hover .bracket {
   rotate: 90deg;
-  animation: bounce-slow 2s infinite ease-in-out;
+  animation: bounce-slow 1s infinite ease-in-out;
 }
 
-button .arrow {
+button .arrow,
+a .arrow {
   transition: transform 0.5s ease-in-out;
 }
 
-button:hover .arrow {
+button:hover .arrow,
+a:hover .arrow {
   transform: rotate(45deg);
 }
 

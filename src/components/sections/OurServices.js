@@ -5,9 +5,9 @@ import Marketing from '@/assets/icons/marketing.svg';
 import Ba from '@/assets/icons/ba.svg';
 import Startup from '@/assets/icons/startup.svg';
 import Projects from '@/assets/icons/projects.svg';
-import { Link } from '@/i18n/navigation';
 import ServicesList from '../ServicesList';
 import Title from '../Title';
+import LearnMoreLink from '../LearnMoreLink';
 
 const OurServicesSection = ({ locale }) => {
   const t = useTranslations('OurServices');
@@ -57,9 +57,7 @@ const OurServicesSection = ({ locale }) => {
         <div className="w-full px-[15px] md:px-8 xl:px-0 xl:w-[1066px] mx-auto min-h-[603px]">
           <div className="flex items-center justify-between">
             <Title tag={'h2'}>{t('title')}</Title>
-            <Link href={'/services'} locale={locale}>
-              {t('btn')}
-            </Link>
+            <LearnMoreLink href={'/services'} locale={locale} label={t('btn')} />
           </div>
           <ServicesList items={SERVICES} />
         </div>
