@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-const Title = ({ tag, children, styles, section }) => {
+const Title = ({
+  tag,
+  styles,
+  section,
+  children,
+}: {
+  tag: string;
+  styles?: string;
+  section?: string;
+  children: React.ReactNode;
+}) => {
   const commonStyles = 'font-semibold leading-[1.2]';
 
   // у всіх секціях, окрім Contact us, відступ знизу складає 48 пікселів. У секції Contact us він 30 пікселів. Для коректного відображення у пропсі section потрібно передати "contact" у секції Contact us
