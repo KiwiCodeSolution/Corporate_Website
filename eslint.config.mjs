@@ -13,11 +13,13 @@ const eslintConfig = [
   ...compat.config({
     extends: [
       'next/core-web-vitals',
+      'next/typescript',
       'plugin:@next/next/recommended',
       'plugin:prettier/recommended',
     ],
     rules: {
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
       'no-debugger': 'error',
       // 'no-console': 'warn',
       'prefer-const': 'error',
