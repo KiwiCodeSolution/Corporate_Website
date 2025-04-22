@@ -4,8 +4,7 @@ import LocaleToggle from '@/components/LocaleToggle';
 import ThemeToggle from '@/components/ThemeToggle';
 // import OurServicesSection from '@/components/sections/OurServices';
 
-export default async function Home({ params }) {
-  const { locale } = await params;
+export default async function Home() {
   // throw Error('test error');
 
   const t = await getTranslations('Home');
