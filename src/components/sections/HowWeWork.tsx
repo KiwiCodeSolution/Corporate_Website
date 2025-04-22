@@ -2,9 +2,17 @@ import { useTranslations } from 'next-intl';
 import HowWeWorkGallery from '../HowWeWorkGallery';
 import Title from '../Title';
 
+export type IPrinciple = {
+  id: string;
+  title: string;
+  text: string;
+  img: string;
+  component?: string;
+};
+
 const HowWeWorkSection = () => {
   const t = useTranslations('HowWeWorks');
-  const PRINCIPLES = [
+  const PRINCIPLES: IPrinciple[] = [
     {
       id: '835sjHPnt6E',
       title: t('principles.0.title'),

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import React from 'react';
 
 const Title = ({
   tag,
@@ -7,7 +7,7 @@ const Title = ({
   section,
   children,
 }: {
-  tag: string;
+  tag?: string;
   styles?: string;
   section?: string;
   children: React.ReactNode;
@@ -41,12 +41,6 @@ const Title = ({
   }
 
   return <h3 className={clsx(styles, 'text-2xl leading-[1.3]')}>{children}</h3>;
-};
-
-Title.propTypes = {
-  tag: PropTypes.oneOf(['h1', 'h2']),
-  children: PropTypes.node.isRequired,
-  styles: PropTypes.string,
 };
 
 export default Title;

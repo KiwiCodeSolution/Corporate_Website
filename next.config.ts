@@ -2,6 +2,17 @@ import { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
 
-export default withNextIntl(nextConfig);
+    return config;
+  },
+};
+
+// export default withNextIntl(nextConfig);
+export default withNextIntl(() => nextConfig);

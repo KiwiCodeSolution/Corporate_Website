@@ -141,6 +141,12 @@ a:hover .arrow {
   border-radius: 16px;
 }
 
+.card-wrapper-footer {
+  background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
+  padding: 1px;
+  border-radius: 16px;
+}
+
 .service-item {
   border-radius: 14px;
   padding: 20px 32px 20px 24px;

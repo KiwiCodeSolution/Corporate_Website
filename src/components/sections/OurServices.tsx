@@ -1,52 +1,53 @@
 import { useTranslations } from 'next-intl';
-import Development from '@/assets/icons/development.svg';
-import Design from '@/assets/icons/design.svg';
-import Marketing from '@/assets/icons/marketing.svg';
-import Ba from '@/assets/icons/ba.svg';
-import Startup from '@/assets/icons/startup.svg';
-import Projects from '@/assets/icons/projects.svg';
 import ServicesList from '../ServicesList';
 import Title from '../Title';
 import LearnMoreLink from '../LearnMoreLink';
 
+export type IService = {
+  id: string;
+  title: string;
+  details: string;
+  icon: string;
+};
+
 const OurServicesSection = ({ locale }) => {
   const t = useTranslations('OurServices');
-  const SERVICES = [
+  const SERVICES: IService[] = [
     {
       id: 'ncRJ8473rB',
       title: t('services.0.title'),
       details: t('services.0.details'),
-      icon: Development,
+      icon: '/images/services/development.svg',
     },
     {
       id: 'i78T9Dze4Y',
       title: t('services.1.title'),
       details: t('services.1.details'),
-      icon: Design,
+      icon: '/images/services/design.svg',
     },
     {
       id: '5r454MvxBN',
       title: t('services.2.title'),
       details: t('services.2.details'),
-      icon: Marketing,
+      icon: '/images/services/marketing.svg',
     },
     {
       id: 'Kn23X26xjF',
       title: t('services.3.title'),
       details: t('services.3.details'),
-      icon: Ba,
+      icon: '/images/services/ba.svg',
     },
     {
       id: '6gYki44FZ7',
       title: t('services.4.title'),
       details: t('services.4.details'),
-      icon: Startup,
+      icon: '/images/services/startup.svg',
     },
     {
       id: 'j9HG26uZy5',
       title: t('services.5.title'),
       details: t('services.5.details'),
-      icon: Projects,
+      icon: '/images/services/projects.svg',
     },
   ];
   return (
