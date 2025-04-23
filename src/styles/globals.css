@@ -14,6 +14,11 @@
   --grey: #909da2 /* колір використовується на текстах у кнопках*/;
 }
 
+.dark {
+  --background: #0c1719;
+  --foreground: #fff;
+}
+
 @theme inline {
   --color-bgColor: var(--background);
   --color-main: var(--foreground);
@@ -26,11 +31,6 @@
   --color-lite-grey: var(--lite-grey);
   --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1);
   --radius-base: 20px;
-}
-
-.dark {
-  --background: #0c1719;
-  --foreground: #fff;
 }
 
 html {

@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 
+import DarkModeIcon from '../assets/icons/dark.svg';
+import LightModeIcon from '../assets/icons/light.svg';
+
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   function themaToggleHandler() {
@@ -30,9 +33,9 @@ export default function ThemeToggle() {
       />
       <span className="absolute flex justify-center items-center size-[20px] bg-accent rounded-full transition-all duration-500 dark:bg-[#1f1f1f] dark:translate-x-[100%]">
         {theme === 'dark' ? (
-          <Image src="/images/icons/dark.svg" alt="dark mode icon" width={16} height={16} />
+          <Image src={DarkModeIcon} alt="dark mode icon" width={16} height={16} />
         ) : (
-          <Image src="/images/icons/light.svg" alt="light mode icon" width={16} height={16} />
+          <Image src={LightModeIcon} alt="light mode icon" width={16} height={16} />
         )}
       </span>
     </label>

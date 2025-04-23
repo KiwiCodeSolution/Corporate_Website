@@ -51,7 +51,17 @@ export const Partnership = () => (
   </svg>
 );
 
-export const Bracket = ({ white, green, greenMini, className }) => (
+export const Bracket = ({
+  white,
+  green,
+  greenMini,
+  className,
+}: {
+  white?: boolean;
+  green?: boolean;
+  greenMini?: boolean;
+  className?: string;
+}) => (
   <svg
     viewBox="0 0 10 16"
     fill="none"

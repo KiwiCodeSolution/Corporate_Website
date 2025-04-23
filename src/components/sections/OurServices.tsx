@@ -10,7 +10,7 @@ export type IService = {
   icon: string;
 };
 
-const OurServicesSection = ({ locale }) => {
+const OurServicesSection = ({ locale }: { locale: 'ua' | 'en' }) => {
   const t = useTranslations('OurServices');
   const SERVICES: IService[] = [
     {
@@ -52,10 +52,10 @@ const OurServicesSection = ({ locale }) => {
   ];
   return (
     <>
-      {/* <div className="w-[597px] h-[597px] pb-[30px] rounded-br-full bg-[linear-gradient(180deg,_#65B6F3_0%,_#7365F3_100%)] blur-[1000px] absolute left-[828px] z-0" /> */}
+      <div className="w-[597px] h-[597px] pb-[30px] rounded-br-full bg-[linear-gradient(180deg,_#65B6F3_0%,_#7365F3_100%)] blur-[1000px] absolute left-[828px] z-0" />
 
-      <section className="w-full h-fit relative">
-        <div className="w-full px-[15px] md:px-8 xl:px-0 xl:w-[1066px] mx-auto min-h-[603px]">
+      <section className="w-full min-h-[603px] relative">
+        <div className="w-full px-[15px] md:px-8 xl:w-[1064px] xl:px-0 mx-auto">
           <div className="flex items-center justify-between">
             <Title tag={'h2'}>{t('title')}</Title>
             <LearnMoreLink href={'/services'} locale={locale} label={t('btn')} />

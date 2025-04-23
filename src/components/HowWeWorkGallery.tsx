@@ -63,7 +63,7 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
   return (
     <div
       ref={containerRef}
-      className="flex items-center xl:ml-[47px] xl:gap-x-[74px] justify-between relative z-[10] mb-20"
+      className="flex items-center xl:ml-[47px] xl:gap-x-[74px] justify-between relative z-[10] mb-20 w-full"
     >
       <div className="hidden xl:inline-block w-[1px] h-[440px] rounded-[1px] absolute top-1/2 -translate-y-1/2 -left-[42px] bg-[#E6E9EA]" />
 
