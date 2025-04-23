@@ -1,8 +1,9 @@
-import { NextConfig } from 'next';
+// next.config.ts
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
-const nextConfig: NextConfig = {
+
+const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -14,5 +15,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-// export default withNextIntl(nextConfig);
-export default withNextIntl(() => nextConfig);
+export default withNextIntl(nextConfig);

@@ -12,8 +12,8 @@ import Image from 'next/image';
 type ISocIcon = {
   id: string;
   link: string;
-  img: string;
-  img_hover?: string;
+  Icon: string;
+  Iconhover?: string;
   label: string;
 };
 
@@ -22,22 +22,22 @@ const SocIconsList = () => {
     {
       id: 'a3NZb7b3R8Pz',
       link: 'https://www.instagram.com/',
-      img: Insta,
-      img_hover: InstaHover,
+      Icon: Insta,
+      Iconhover: InstaHover,
       label: 'instagram',
     },
     {
       id: 'g4Rts8Bv9NA2',
       link: 'https://web.telegram.org/',
-      img: Telegram,
-      img_hover: TelegramHover,
+      Icon: Telegram,
+      Iconhover: TelegramHover,
       label: 'telegram',
     },
     {
       id: '4dGGzg5G4K3s',
       link: 'https://ua.linkedin.com/',
-      img: Linkedin,
-      img_hover: LinkedinHover,
+      Icon: Linkedin,
+      Iconhover: LinkedinHover,
       label: 'linkedin',
     },
   ];
@@ -46,7 +46,7 @@ const SocIconsList = () => {
 
   return (
     <div className="w-[138px] flex items-center justify-between gap-x-[30px]">
-      {SOCIALICONSLIST.map(({ id, link, img, img_hover, label }) => (
+      {SOCIALICONSLIST.map(({ id, link, Icon, Iconhover, label }) => (
         <a
           key={id}
           href={link}
@@ -55,22 +55,23 @@ const SocIconsList = () => {
           onMouseEnter={() => setHoveredId(id)}
           onMouseLeave={() => setHoveredId(null)}
         >
-          <Image
-            src={img}
+          {/* <Insta /> */}
+          {/* <Image
+            src={Icon}
             width={40}
             height={40}
             alt={`social network icon image ${label}`}
             className={`w-[26px] h-[26px] xl:w-8 xl:h-8 absolute transition-opacity duration-500`}
           />
           <Image
-            src={img_hover || img}
+            src={Iconhover || Icon}
             width={40}
             height={40}
             alt={`social network icon hover image ${label}`}
             className={`w-[26px] h-[26px] xl:w-8 xl:h-8 absolute transition-opacity duration-500 ${
               hoveredId === id ? 'opacity-100' : 'opacity-0'
             }`}
-          />
+          /> */}
         </a>
       ))}
     </div>

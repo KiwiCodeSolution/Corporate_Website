@@ -4,6 +4,7 @@ import LocaleToggle from '@/components/LocaleToggle';
 import ThemeToggle from '@/components/ThemeToggle';
 import HowWeWorkSection from '@/components/sections/HowWeWork';
 import OurServicesSection from '@/components/sections/OurServices';
+import TestPrinciples from '@/components/sections/OurPrincipes';
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -17,8 +18,9 @@ export default async function Home({ params }) {
       <Title tag={'h1'}>{t('title')}</Title>
       <LocaleToggle />
       <ThemeToggle />
-      <OurServicesSection locale={locale} />
-      <HowWeWorkSection />
+      <TestPrinciples />
+      {/* <OurServicesSection locale={locale} /> */}
+      {/* <HowWeWorkSection /> */}
     </main>
   );
 }
