@@ -4,7 +4,6 @@ import LocaleToggle from '@/components/LocaleToggle';
 import ThemeToggle from '@/components/ThemeToggle';
 import HowWeWorkSection from '@/components/sections/HowWeWork';
 import OurServicesSection from '@/components/sections/OurServices';
-import TestPrinciples from '@/components/sections/OurPrincipes';
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -14,13 +13,13 @@ export default async function Home({ params }) {
   const t = await getTranslations('Home');
 
   return (
-    <main className="">
+    <main className="overflow-hidden mx-auto relative">
       <Title tag={'h1'}>{t('title')}</Title>
       <LocaleToggle />
       <ThemeToggle />
-      <TestPrinciples />
-      {/* <OurServicesSection locale={locale} /> */}
-      {/* <HowWeWorkSection /> */}
+
+      <OurServicesSection locale={locale} />
+      <HowWeWorkSection />
     </main>
   );
 }

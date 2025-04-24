@@ -42,7 +42,7 @@ const HowWeWorkSection = () => {
   ];
   return (
     <section className="w-full min-h-[700px] relative hww">
-      <div className="w-full px-[15px] md:px-8 xl:w-[1064px] xl:px-0 mx-auto">
+      <div className="wrapper mx-auto">
         <Title tag={'h2'}>{t('title')}</Title>
         <HowWeWorkGallery items={PRINCIPLES} />
       </div>

@@ -15,6 +15,7 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
   const [currentItem, setCurrentItem] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [visible, setVisible] = useState(true);
   const containerRef = useRef(null);
   const isScrolling = useRef(false);
@@ -83,12 +84,14 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
         ))}
       </ul>
 
-      <div
-        className={`hidden xl:w-[630px] xl:h-[461px] xl:flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
-      >
-        <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
-      </div>
-      <HowWeWorkSwiper items={items} theme={theme} />
+      {isMounted && (
+        <div
+          className={`hidden xl:w-[630px] xl:h-[461px] xl:flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
+        >
+          <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
+        </div>
+      )}
+      {isMounted && <HowWeWorkSwiper items={items} theme={theme} />}
     </div>
   );
 };

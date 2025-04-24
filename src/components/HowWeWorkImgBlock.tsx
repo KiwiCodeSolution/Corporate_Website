@@ -17,7 +17,7 @@ const HowWeWorkImgBlock = ({
   section,
   item,
 }: HowWeWorkImgBlockProps) => {
-  const source = section === 'swiper' ? item : items[currentItem];
+  const source = section === 'swiper' ? item : (item ?? items?.[currentItem]);
 
   return (
     <>

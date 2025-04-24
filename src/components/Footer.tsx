@@ -24,7 +24,7 @@ const Footer = ({ locale }: { locale: string }) => {
     <footer
       className={`w-full ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px]`}
     >
-      <div className="w-full px-[15px] md:px-8 xl:w-[1064px] xl:px-0 pt-20 pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
+      <div className="wrapper pt-20 pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
         <div className="w-full border-b border-[rgba(144,157,162,0.3)] flex justify-between pb-8">
           <div className="w-[340px] xl:w-[408px] flex gap-x-6 xl:gap-x-8">
             <h3 className="text-sm font-medium leading-[1.2] uppercase">Тут буде меню </h3>
@@ -39,6 +39,7 @@ const Footer = ({ locale }: { locale: string }) => {
               ©<span>{year}</span>, All right reserved
             </p>
           </div>
+
           <SocIconsList />
         </div>
       </div>

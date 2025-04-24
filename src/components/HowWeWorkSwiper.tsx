@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
