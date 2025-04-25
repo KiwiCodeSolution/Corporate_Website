@@ -1,15 +1,21 @@
 'use client';
-import PropTypes from 'prop-types';
+
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import Title from './Title';
 import HowWeWorkSwiper from './HowWeWorkSwiper';
 import HowWeWorkImgBlock from './HowWeWorkImgBlock';
+import { IPrinciple } from './sections/HowWeWork';
 
-const HowWeWorkGallery = ({ items }) => {
+type HowWeWorkGalleryProps = {
+  items: IPrinciple[];
+};
+
+const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
   const [currentItem, setCurrentItem] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [visible, setVisible] = useState(true);
   const containerRef = useRef(null);
   const isScrolling = useRef(false);
@@ -29,7 +35,7 @@ const HowWeWorkGallery = ({ items }) => {
     const isDesktop = window.innerWidth >= 1280;
     if (!isDesktop) return;
 
-    const handleScroll = (e) => {
+    const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
       if (isScrolling.current) return;
 
@@ -58,7 +64,7 @@ const HowWeWorkGallery = ({ items }) => {
   return (
     <div
       ref={containerRef}
-      className="flex items-center xl:ml-[47px] xl:gap-x-[74px] justify-between relative z-[10] mb-20"
+      className="flex items-center xl:ml-[47px] xl:gap-x-[74px] justify-between relative z-[10] mb-20 w-full"
     >
       <div className="hidden xl:inline-block w-[1px] h-[440px] rounded-[1px] absolute top-1/2 -translate-y-1/2 -left-[42px] bg-[#E6E9EA]" />
 
@@ -78,26 +84,16 @@ const HowWeWorkGallery = ({ items }) => {
         ))}
       </ul>
 
-      <div
-        className={`hidden xl:w-[630px] xl:h-[461px] xl:flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
-      >
-        <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
-      </div>
-      <HowWeWorkSwiper items={items} theme={theme} />
+      {isMounted && (
+        <div
+          className={`hidden xl:w-[630px] xl:h-[461px] xl:flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
+        >
+          <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
+        </div>
+      )}
+      {isMounted && <HowWeWorkSwiper items={items} theme={theme} />}
     </div>
   );
-};
-
-HowWeWorkGallery.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-      component: PropTypes.string,
-    })
-  ),
 };
 
 export default HowWeWorkGallery;

@@ -1,9 +1,23 @@
 import Image from 'next/image';
-import PropTypes from 'prop-types';
 import Title from './Title';
+import { IPrinciple } from './sections/HowWeWork';
 
-const HowWeWorkImgBlock = ({ items, currentItem, theme, section, item }) => {
-  const source = section === 'swiper' ? item : items[currentItem];
+type HowWeWorkImgBlockProps = {
+  items?: IPrinciple[];
+  currentItem: number;
+  theme: string;
+  section?: 'swiper' | 'gallery';
+  item?: IPrinciple;
+};
+
+const HowWeWorkImgBlock = ({
+  items,
+  currentItem,
+  theme,
+  section,
+  item,
+}: HowWeWorkImgBlockProps) => {
+  const source = section === 'swiper' ? item : (item ?? items?.[currentItem]);
 
   return (
     <>
@@ -44,21 +58,6 @@ const HowWeWorkImgBlock = ({ items, currentItem, theme, section, item }) => {
       </div>
     </>
   );
-};
-
-HowWeWorkImgBlock.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-      component: PropTypes.string,
-    })
-  ),
-  currentItem: PropTypes.number.isRequired,
-  theme: PropTypes.string.isRequired,
-  section: PropTypes.string,
 };
 
 export default HowWeWorkImgBlock;

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
 
 import { routing } from '@/i18n/routing';
+import Footer from '@/components/Footer';
 import { montserrat } from './fonts';
 import '@/styles/globals.css';
 
@@ -29,7 +30,10 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={`${montserrat.className} antialiased `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            {children}
+            <Footer locale={locale} />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

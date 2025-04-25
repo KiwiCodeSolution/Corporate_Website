@@ -2,9 +2,17 @@ import { useTranslations } from 'next-intl';
 import HowWeWorkGallery from '../HowWeWorkGallery';
 import Title from '../Title';
 
+export type IPrinciple = {
+  id: string;
+  title: string;
+  text: string;
+  img: string;
+  component?: string;
+};
+
 const HowWeWorkSection = () => {
   const t = useTranslations('HowWeWorks');
-  const PRINCIPLES = [
+  const PRINCIPLES: IPrinciple[] = [
     {
       id: '835sjHPnt6E',
       title: t('principles.0.title'),
@@ -34,11 +42,11 @@ const HowWeWorkSection = () => {
   ];
   return (
     <section className="w-full min-h-[700px] relative hww">
-      <div className="w-full px-[15px] md:px-8 xl:px-0 xl:w-[1066px] mx-auto">
+      <div className="wrapper mx-auto">
         <Title tag={'h2'}>{t('title')}</Title>
         <HowWeWorkGallery items={PRINCIPLES} />
       </div>
-      {/* <div className="absolute -left-[311px] top-[397px] w-[604px] h-[604px] rounded-full hww-section-gradient blur-[1000px] z-0" /> */}
+      <div className="absolute -left-[311px] top-[397px] w-[604px] h-[604px] rounded-full hww-section-gradient blur-[1000px] z-0" />
     </section>
   );
 };

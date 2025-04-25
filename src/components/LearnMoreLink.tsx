@@ -4,8 +4,15 @@ import clsx from 'clsx';
 import { Link } from '@/i18n/navigation';
 import { Arrow } from '@/assets/icons/icons';
 
-export default function LearnMoreLink({ locale, href, label }) {
-  const [hovered, setHovered] = useState(false);
+type LearnMoreLinkProps = {
+  locale: 'ua' | 'en';
+  href: string;
+  label: string;
+};
+
+export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [hovered, setHovered] = useState<boolean>(false);
 
   return (
     <Link
