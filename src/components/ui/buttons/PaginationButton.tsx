@@ -9,7 +9,7 @@ type PaginationButtonProps = {
   disabled?: boolean;
   isCurrent?: boolean; //only for number
   Icon?: React.FC<{ className?: string }>;
-  pageNumber?: string;
+  pageNumber?: string | number;
   onClick?: () => void;
 };
 
@@ -24,7 +24,7 @@ export default function PaginationButton({
   disabled = false,
   isCurrent = false,
   Icon,
-  pageNumber,
+  pageNumber = 1,
   onClick,
 }: PaginationButtonProps) {
   function clickHandler(e) {
