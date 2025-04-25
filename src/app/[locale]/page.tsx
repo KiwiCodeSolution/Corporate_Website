@@ -6,6 +6,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 export default async function Home() {
   // throw Error('test error');
+  // console.log('icon: ', Icon);
 
   const t = await getTranslations('Home');
 
