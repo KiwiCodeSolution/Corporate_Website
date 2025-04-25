@@ -1,29 +1,69 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { IPoint } from './Footer';
+
+type PointType = 'link' | 'modal' | 'download';
+
+interface IPoint {
+  id: string;
+  label: string;
+  link: string;
+  type: PointType;
+}
 
 const UsefulLinks = ({ locale }: { locale: string }) => {
   const t = useTranslations('Footer');
 
   const USEFULLINKS: IPoint[] = [
-    { id: '1125455', label: t('useful_links.0'), link: '/terms' },
-    { id: '8565478', label: t('useful_links.1'), link: '/privacy' },
-    { id: '6635987', label: t('useful_links.2'), link: '/faq' },
-    { id: '0245876', label: t('useful_links.3'), link: '/integration' },
+    { id: '1125455', label: t('useful_links.0'), link: '/terms', type: 'link' },
+    { id: '8565478', label: t('useful_links.1'), link: '/privacy', type: 'link' },
+    { id: '6635987', label: t('useful_links.2'), link: '/faq', type: 'modal' },
+    { id: '0245876', label: t('useful_links.3'), link: '/files/integration.pdf', type: 'download' },
   ];
+
+  function openModal(type: string) {
+    console.log(`Open modal with link: ${type}`);
+  }
+
   return (
     <div className={`w-[188px] xl:w-[192px] flex flex-col gap-y-6`}>
       <h3 className="text-sm font-medium leading-[1.2] uppercase">{t('useful_links_title')}</h3>
       <div className="flex flex-col gap-y-3">
-        {USEFULLINKS.map((el) => (
-          <Link href={el.link} locale={locale} key={el.label}>
-            <div className="relative group w-fit">
-              <p className="relative text-main after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100">
-                {el.label}
-              </p>
+        {USEFULLINKS.map((el) => {
+          const commonContent = (
+            <p className="relative text-main after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100">
+              {el.label}
+            </p>
+          );
+
+          return (
+            <div className="relative group w-fit" key={el.id}>
+              {(() => {
+                switch (el.type) {
+                  case 'link':
+                    return (
+                      <Link href={el.link} locale={locale}>
+                        {commonContent}
+                      </Link>
+                    );
+                  case 'modal':
+                    return (
+                      <button onClick={() => openModal('faq')} className="focus:outline-none">
+                        {commonContent}
+                      </button>
+                    );
+                  case 'download':
+                    return (
+                      <a href={el.link} download className="focus:outline-none">
+                        {commonContent}
+                      </a>
+                    );
+                  default:
+                    return null;
+                }
+              })()}
             </div>
-          </Link>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
