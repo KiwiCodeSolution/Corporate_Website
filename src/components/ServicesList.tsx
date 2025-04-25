@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import Title from './Title';
 import { IService } from './sections/OurServices';
@@ -40,12 +39,7 @@ const ServicesList = ({ items }: ServicesListProps) => {
                 className="w-full rounded-base bg-bgColor flex flex-col min-h-[199px] transition-all duration-300 cursor-pointer service-item text-main"
                 onClick={() => setIsOpen(isOpen === el.id ? '' : el.id)}
               >
-                <Image
-                  src={el.icon}
-                  alt={`іконка, що описує таку послугу, як ${el.title}`}
-                  width={45}
-                  height={45}
-                />
+                {el.icon}
 
                 <Title styles={'mt-[20px]'}>{el.title}</Title>
 

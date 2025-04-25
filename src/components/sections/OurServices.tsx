@@ -1,10 +1,6 @@
 import { useTranslations } from 'next-intl';
-import DevelopmentIcon from '@/assets/icons/development.svg?url';
-import DesignIcon from '@/assets/icons/design.svg?url';
-import MarketingIcon from '@/assets/icons/marketing.svg?url';
-import BaIcon from '@/assets/icons/ba.svg?url';
-import StartupIcon from '@/assets/icons/startup.svg?url';
-import ProjectsIcon from '@/assets/icons/projects.svg?url';
+import { JSX } from 'react';
+import * as Icons from '@/assets/icons/icons';
 import ServicesList from '../ServicesList';
 import Title from '../Title';
 import LearnMoreLink from '../LearnMoreLink';
@@ -13,7 +9,7 @@ export type IService = {
   id: string;
   title: string;
   details: string;
-  icon: string;
+  icon: JSX.Element;
 };
 
 const OurServicesSection = ({ locale }: { locale: 'ua' | 'en' }) => {
@@ -23,37 +19,37 @@ const OurServicesSection = ({ locale }: { locale: 'ua' | 'en' }) => {
       id: 'ncRJ8473rB',
       title: t('services.0.title'),
       details: t('services.0.details'),
-      icon: DevelopmentIcon,
+      icon: <Icons.DevelopmentIcon />,
     },
     {
       id: 'i78T9Dze4Y',
       title: t('services.1.title'),
       details: t('services.1.details'),
-      icon: DesignIcon,
+      icon: <Icons.DesignIcon />,
     },
     {
       id: '5r454MvxBN',
       title: t('services.2.title'),
       details: t('services.2.details'),
-      icon: MarketingIcon,
+      icon: <Icons.MarketingIcon />,
     },
     {
       id: 'Kn23X26xjF',
       title: t('services.3.title'),
       details: t('services.3.details'),
-      icon: BaIcon,
+      icon: <Icons.BusinessAnalyticsIcon />,
     },
     {
       id: '6gYki44FZ7',
       title: t('services.4.title'),
       details: t('services.4.details'),
-      icon: StartupIcon,
+      icon: <Icons.StartupIcon />,
     },
     {
       id: 'j9HG26uZy5',
       title: t('services.5.title'),
       details: t('services.5.details'),
-      icon: ProjectsIcon,
+      icon: <Icons.ProjectsIcon />,
     },
   ];
   return (
