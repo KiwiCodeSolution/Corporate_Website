@@ -72,7 +72,7 @@ export const Bracket = ({
     xmlns="http://www.w3.org/2000/svg"
     className={clsx(
       greenMini && 'w-[10px] h-[16px]',
-      green && 'w-[10.5px] h-[21px] bracket',
+      green && 'w-[10.5px] h-[21px]',
       white && 'w-[10px] h-[16px]',
       className
     )}
