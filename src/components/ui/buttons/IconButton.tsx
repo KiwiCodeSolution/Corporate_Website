@@ -1,40 +1,49 @@
 'use client';
 
-import { Arrow } from '@/assets/icons/icons';
+import clsx from 'clsx';
+
+import { ComponentType, SVGProps } from 'react';
 
 type IconButtonProps = {
-  label: string;
+  size?: 's' | 'm' | 'l';
   disabled?: boolean;
+  className?: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   onClick?: () => void;
 };
 
-export default function IconButton({ label, disabled = false, onClick }: IconButtonProps) {
+const sizeMap = {
+  s: 'w-[44px] h-[44px]',
+  m: 'w-[48px] h-[48px]',
+  l: 'w-[50px] h-[50px]',
+};
+
+export default function IconButton({
+  size = 's',
+  disabled = false,
+  className = '',
+  icon: Icon,
+  onClick,
+}: IconButtonProps) {
   function clickHandler(e) {
     e.currentTarget.blur();
     onClick();
   }
 
   return (
-    <div
-      className="group relative flex justify-end items-center pl-[56px] pr-[48px] h-[48px] min-w-[150px] rounded-full cursor-pointer 
-                outline-[2px] outline-offset-[2px] outline-transparent focus-within:outline-blue base-transition"
+    <button
+      type="button"
+      className={clsx(
+        sizeMap[size],
+        'flex justify-center items-center rounded-full bg-accent hover:shadow-base cursor-pointer base-transition',
+        'disabled:bg-disabled disabled: cursor-default disabled:hover:shadow-none',
+        'outline-[2px] outline-offset-[2px] outline-transparent focus:outline-blue',
+        className
+      )}
+      disabled={disabled}
+      onClick={clickHandler}
     >
-      <div className="overflow-hidden absolute left-0 top-0 flex items-center justify-end pr-[48px] h-[48px] w-[48px] bg-accent rounded-full group-hover:w-[100%] base-transition">
-        <span className=" text-[18px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 base-transition">
-          {label}
-        </span>
-      </div>
-      <button
-        type="button"
-        disabled={disabled}
-        onClick={clickHandler}
-        className="absolute left-0 flex justify-center items-center size-[48px] rounded-full bg-accent cursor-pointer base-transition
-        disabled:bg-disabled disabled:shadow-none disabled:cursor-default focus:outline-none"
-      >
-        {<Arrow />}
-      </button>
-
-      <span className="text-[18px] text-main">{label}</span>
-    </div>
+      <Icon />
+    </button>
   );
 }
