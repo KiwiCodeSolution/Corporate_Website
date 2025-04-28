@@ -1,25 +1,29 @@
 'use client';
-import PropTypes from 'prop-types';
+
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import Title from './Title';
+import { IService } from './sections/OurServices';
 
-const ServicesList = ({ items }) => {
-  const [isMounted, setIsMounted] = useState(false);
+type ServicesListProps = {
+  items: IService[];
+};
+
+const ServicesList = ({ items }: ServicesListProps) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const [isOpen, setIsOpen] = useState('');
+  const [isOpen, setIsOpen] = useState<IService['id'] | ''>('');
 
   const windowWidth = useWindowWidth();
   const columnCountValue = windowWidth < 768 ? 1 : windowWidth < 1280 ? 2 : 3;
 
   if (!isMounted) return null;
 
-  const columns = Array.from({ length: columnCountValue }, () => []);
+  const columns: IService[][] = Array.from({ length: columnCountValue }, () => []);
 
   items.forEach((item, i) => {
     columns[i % columnCountValue].push(item);
@@ -35,7 +39,7 @@ const ServicesList = ({ items }) => {
                 className="w-full rounded-base bg-bgColor flex flex-col min-h-[199px] transition-all duration-300 cursor-pointer service-item text-main"
                 onClick={() => setIsOpen(isOpen === el.id ? '' : el.id)}
               >
-                <Image src={el.icon} alt={`іконка, що описує таку послугу, як ${el.title}`} />
+                {el.icon}
 
                 <Title styles={'mt-[20px]'}>{el.title}</Title>
 
@@ -53,17 +57,6 @@ const ServicesList = ({ items }) => {
       ))}
     </div>
   );
-};
-
-ServicesList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      details: PropTypes.string.isRequired,
-      icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-    })
-  ).isRequired,
 };
 
 export default ServicesList;

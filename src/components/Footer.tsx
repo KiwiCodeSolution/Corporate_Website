@@ -1,0 +1,50 @@
+'use client';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import Logo from './Logo';
+import SocIconsList from './SocIconsList';
+import OurSpecialize from './OurSpecialize';
+import UsefulLinks from './UsefulLinks';
+
+export type IPoint = { id: string; label: string; link?: string; order?: string };
+
+const Footer = ({ locale }: { locale: string }) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
+  const year = new Date().getFullYear();
+
+  return (
+    <footer
+      className={`w-full ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px]`}
+    >
+      <div className="wrapper pt-20 pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
+        <div className="w-full border-b border-[rgba(144,157,162,0.3)] flex justify-between pb-8">
+          <div className="w-[340px] xl:w-[408px] flex gap-x-6 xl:gap-x-8">
+            <h3 className="text-sm font-medium leading-[1.2] uppercase">Тут буде меню </h3>
+            <UsefulLinks locale={locale} />
+          </div>
+          <OurSpecialize />
+        </div>
+        <div className="w-full h-14 flex items-center justify-between">
+          <Logo locale={locale} />
+          <div>
+            <p className="text-[#8D8D8D] text-base leading-[1.35]">
+              ©<span>{year}</span>, All right reserved
+            </p>
+          </div>
+
+          <SocIconsList />
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

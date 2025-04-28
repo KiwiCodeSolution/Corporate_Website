@@ -52,5 +52,19 @@
         "details": "Contributing to the development and execution of large-scale projects that are pivotal to the national economy and society."
       }
     ]
+  },
+  "Footer": {
+    "specialize_list": [
+      "UI/UX Design",
+      "Development",
+      "SMM",
+      "Marketing",
+      "Branding",
+      "Optimization",
+      "Creative  Solutions"
+    ],
+    "specialize_list_title": "We specialise in",
+    "useful_links": ["Terms of Use Policy", "Privacy Policy", "FAQ", "Integration"],
+    "useful_links_title": "We specialise in"
   }
 }

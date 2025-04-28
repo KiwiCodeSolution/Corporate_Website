@@ -1,13 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/how-we-work.css';
-import PropTypes from 'prop-types';
+
 import { Bracket } from '@/assets/icons/icons';
 import HowWeWorkImgBlock from './HowWeWorkImgBlock';
+import { IPrinciple } from './sections/HowWeWork';
 
-function SampleNextArrow(props) {
+type ArrowProps = {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+};
+
+type HowWeWorkSwiperProps = {
+  items?: IPrinciple[];
+  theme: string;
+};
+
+function SampleNextArrow(props: ArrowProps) {
   const { className, style, onClick } = props;
   return (
     <div className={`hww-slick-next btn-swiper`} onClick={onClick}>
@@ -16,7 +29,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props: ArrowProps) {
   const { className, style, onClick } = props;
   return (
     <div className={'hww-slick-prev btn-swiper'} onClick={onClick}>
@@ -25,7 +38,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-function HowWeWorkSwiper({ items, theme }) {
+function HowWeWorkSwiper({ items, theme }: HowWeWorkSwiperProps) {
   const settings = {
     dots: true,
     infinite: true,
@@ -53,18 +66,5 @@ function HowWeWorkSwiper({ items, theme }) {
     </div>
   );
 }
-
-HowWeWorkSwiper.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-      component: PropTypes.string,
-    })
-  ),
-  theme: PropTypes.string.isRequired,
-};
 
 export default HowWeWorkSwiper;
