@@ -21,11 +21,10 @@ export default async function Home({ params }) {
     <main className="overflow-hidden mx-auto relative">
       <Title tag={'h1'}>{t('title')}</Title>
       <LocaleToggle />
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       {/* <PaginationButton variant="number" direction="left" /> */}
       {/* <IconButton label="Learn more"> */}
       {/* </IconButton> */}
-      {/* <OurServicesSectio  n locale={locale} /> */}
 
       <OurServicesSection locale={locale} />
       <HowWeWorkSection />

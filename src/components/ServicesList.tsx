@@ -5,6 +5,7 @@ import useWindowWidth from '@/hooks/useWindowWidth';
 import { Bracket } from '@/assets/icons/icons';
 import Title from './Title';
 import { IService } from './sections/OurServices';
+import Modal from './Modal';
 
 type ServicesListProps = {
   items: IService[];
@@ -12,7 +13,7 @@ type ServicesListProps = {
 
 const ServicesList = ({ items }: ServicesListProps) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
-
+  const [isOpenModal, setIsOpenModal] = useState(false);
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -36,6 +37,13 @@ const ServicesList = ({ items }: ServicesListProps) => {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 relative z-1">
+      <button className="w-full h-10 my-20" onClick={() => setIsOpenModal(true)}>
+        MODAL
+      </button>
+      <Modal onClose={() => setIsOpenModal(false)} isOpen={isOpenModal}>
+        <h1 className="text-2xl font-bold">Modal Content</h1>
+        <p>This is the content of the modal.</p>
+      </Modal>
       {columns.map((column, colIndex) => (
         <div key={colIndex} className="flex flex-col gap-4 w-full cursor-pointer">
           {column.map((el) => (

@@ -4,6 +4,13 @@ type SocIconProps = {
   type?: string;
 } & React.SVGProps<SVGSVGElement>;
 
+type ArrowProps = {
+  s?: boolean;
+  m?: boolean;
+  l?: boolean;
+  xl?: boolean;
+};
+
 export const Expertise = () => (
   <svg width="28" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -86,13 +93,6 @@ export const Bracket = ({
   </svg>
 );
 
-type ArrowProps = {
-  s?: boolean;
-  m?: boolean;
-  l?: boolean;
-  xl?: boolean;
-};
-
 export const Arrow = ({ s = true, m = false, l = false, xl = false }: ArrowProps) => (
   <svg
     viewBox="0 0 16 16"
@@ -132,14 +132,16 @@ export const Next = ({ className = '' }: { className?: string }) => (
   </svg>
 );
 export const Cross = () => {
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M1.7071 0.342941C1.31658 -0.0475828 0.683414 -0.0475829 0.292891 0.342941C-0.0976343 0.733466 -0.0976344 1.36663 0.29289 1.75716L6.11076 7.57503L0.292889 13.3929C-0.0976359 13.7834 -0.0976349 14.4166 0.292889 14.8071C0.683414 15.1976 1.31658 15.1976 1.7071 14.8071L7.52498 8.98924L13.3428 14.8071C13.7334 15.1976 14.3665 15.1976 14.7571 14.8071C15.1476 14.4166 15.1476 13.7834 14.7571 13.3929L8.93919 7.57503L14.7571 1.75716C15.1476 1.36663 15.1476 0.733466 14.7571 0.342942C14.3665 -0.0475823 13.7334 -0.0475823 13.3428 0.342942L7.52498 6.16081L1.7071 0.342941Z"
-      fill="white"
-    />
-  </svg>;
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.7071 0.342941C1.31658 -0.0475828 0.683414 -0.0475829 0.292891 0.342941C-0.0976343 0.733466 -0.0976344 1.36663 0.29289 1.75716L6.11076 7.57503L0.292889 13.3929C-0.0976359 13.7834 -0.0976349 14.4166 0.292889 14.8071C0.683414 15.1976 1.31658 15.1976 1.7071 14.8071L7.52498 8.98924L13.3428 14.8071C13.7334 15.1976 14.3665 15.1976 14.7571 14.8071C15.1476 14.4166 15.1476 13.7834 14.7571 13.3929L8.93919 7.57503L14.7571 1.75716C15.1476 1.36663 15.1476 0.733466 14.7571 0.342942C14.3665 -0.0475823 13.7334 -0.0475823 13.3428 0.342942L7.52498 6.16081L1.7071 0.342941Z"
+        fill="white"
+      />
+    </svg>
+  );
 };
 
 export const DevelopmentIcon = () => {

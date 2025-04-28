@@ -33,6 +33,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider>
             {children}
             <Footer locale={locale} />
+            <div id="modal-root"></div>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
