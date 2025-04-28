@@ -49,7 +49,7 @@ export default function ThemeToggle() {
       className="group relative p-[1px] h-[24px] w-[44px] rounded-full shadow-[inset_0_0_0_1px_var(--accent)] bg-white cursor-pointer
       outline-[2px] outline-offset-[2px] outline-transparent focus-within:outline-blue
       hover:shadow-[inset_0_0_0_1px_var(--accent),0_0_14px_0_var(--accent)]
-      dark:shadow-none dark:bg-gradient-to-b dark:from-[#5BD187] dark:to-blue da  base-transition
+      dark:shadow-none dark:bg-gradient-to-b dark:from-[#5BD187] dark:to-blue  base-transition
       dark:hover:shadow-[0_0_14px_0_var(--accent)]"
     >
       <input

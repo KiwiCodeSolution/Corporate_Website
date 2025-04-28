@@ -72,7 +72,14 @@ export const Bracket = ({ white, green, greenMini, className }) => (
   </svg>
 );
 
-export const Arrow = ({ s, m, l, xl }) => (
+type ArrowProps = {
+  s?: boolean;
+  m?: boolean;
+  l?: boolean;
+  xl?: boolean;
+};
+
+export const Arrow = ({ s = true, m = false, l = false, xl = false }: ArrowProps) => (
   <svg
     viewBox="0 0 16 16"
     fill="none"
