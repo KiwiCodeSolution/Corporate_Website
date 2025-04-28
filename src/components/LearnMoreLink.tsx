@@ -21,7 +21,7 @@ export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProp
       href={href}
       locale={locale}
       className={clsx(
-        'relative group flex items-center h-12 pl-16 pr-4 overflow-hidden rounded-full transition-colors duration-400',
+        'absolute bottom-[60px] md:relative md:bottom-auto group flex items-center h-12 pl-16 pr-4 overflow-hidden rounded-full transition-colors duration-400',
         'bg-transparent text-dark',
         locale === 'ua' ? 'w-[250px]' : 'w-[207px]'
       )}
@@ -32,7 +32,9 @@ export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProp
         <Arrow s />
       </span>
 
-      <span className="relative z-10 transition-colors duration-300 group-hover:text-white font-semibold leading-[1.2]">
+      <span
+        className={`relative z-10 transition-colors duration-300 text-main  group-hover:text-white font-semibold leading-[1.2]`}
+      >
         {label}
       </span>
     </Link>
