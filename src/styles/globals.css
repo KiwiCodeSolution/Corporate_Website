@@ -3,6 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --disabled: #c1c7ca;
   --background: #fff;
   --foreground: #0c1719;
   --main: #0c1719;
@@ -20,6 +21,7 @@
 }
 
 @theme inline {
+  --color-disabled: var(--disabled);
   --color-bgColor: var(--background);
   --color-main: var(--foreground);
   --color-dark: var(--main);
@@ -126,6 +128,12 @@ html {
 
 .base-gradient {
   background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
+}
+
+/* базовий перехід */
+
+.base-transition {
+  transition: all 200ms ease-in-out;
 }
 
 /* стилі для іконок, які є у наших кнопок. налаштовано підскакування для іконки у секції Hero + поворіт іконок при ховері на кнопках. */
