@@ -74,5 +74,8 @@
   },
   "buttons": {
     "loadMore": "Показати більше"
+  },
+  "links": {
+    "allCases": "Усі кейси"
   }
 }

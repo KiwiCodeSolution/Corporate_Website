@@ -69,5 +69,8 @@
   },
   "buttons": {
     "loadMore": "Load more"
+  },
+  "links": {
+    "allCases": "All cases"
   }
 }
