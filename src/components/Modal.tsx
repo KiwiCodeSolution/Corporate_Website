@@ -2,24 +2,31 @@
 
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Cross } from '@/assets/icons/icons';
 import useScrollBlock from '@/hooks/useScrollBlock';
 
 type ModalProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   type?: 'lets_work' | 'news' | 'portfolio' | 'faq' | 'notification';
+  mode?: 'url' | 'local';
 };
 
-const Modal = ({ children, isOpen, onClose, type }: ModalProps) => {
+const Modal = ({ children, isOpen, onClose, type, mode = 'local' }: ModalProps) => {
   const [blockScroll, allowScroll] = useScrollBlock();
   const [mounted, setMounted] = useState(false);
-  const [modalRoot, setModalRoot] = useState(null);
+  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
+  const router = useRouter();
 
   function closeModal() {
     allowScroll();
-    onClose();
+    if (mode === 'url') {
+      router.back();
+    } else {
+      onClose();
+    }
   }
 
   useEffect(() => {
@@ -28,20 +35,20 @@ const Modal = ({ children, isOpen, onClose, type }: ModalProps) => {
 
     if (isOpen) {
       blockScroll();
-      history.pushState({ modal: true }, '');
+      if (mode === 'local') {
+        history.pushState({ modal: true }, '');
+      }
     } else {
       allowScroll();
     }
 
-    function keyDown(e: { code: string }) {
+    const keyDown = (e: KeyboardEvent) => {
       if (e.code === 'Escape') closeModal();
-    }
+    };
 
-    function handlePopState(_e) {
-      if (isOpen) {
-        closeModal();
-      }
-    }
+    const handlePopState = () => {
+      if (isOpen) closeModal();
+    };
 
     window.addEventListener('keydown', keyDown);
     window.addEventListener('popstate', handlePopState);
@@ -51,35 +58,31 @@ const Modal = ({ children, isOpen, onClose, type }: ModalProps) => {
       window.removeEventListener('popstate', handlePopState);
       allowScroll();
     };
-  }, [isOpen, blockScroll, allowScroll, onClose]);
+  }, [isOpen, blockScroll, allowScroll, mode]);
 
   if (!mounted || !isOpen || !modalRoot) return null;
 
-  function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
-  }
+  };
 
   return createPortal(
-    isOpen ? (
-      <div
-        className="fixed w-full h-screen top-0 left-0 bg-main/60 flex items-center justify-center z-[19]"
-        onClick={handleOverlayClick}
-      >
-        <div
-          className={`flex flex-col min-w-3/5 max-w-4/5 bg-white rounded-base mx-auto relative py-12 px-20`}
+    <div
+      className="fixed w-full h-screen top-0 left-0 bg-main/60 flex items-center justify-center z-[19]"
+      onClick={handleOverlayClick}
+    >
+      <div className="flex flex-col min-w-3/5 max-w-4/5 bg-white rounded-base mx-auto relative py-12 px-20">
+        <button
+          onClick={closeModal}
+          className="absolute top-8 right-8 w-[44px] h-[44px] rounded-full bg-accent flex items-center justify-center"
         >
-          <button
-            onClick={closeModal}
-            className="absolute top-8 right-8 w-[44px] h-[44px] rounded-full bg-accent flex items-center justify-center"
-          >
-            <Cross />
-          </button>
-          {children}
-        </div>
+          <Cross />
+        </button>
+        {children}
       </div>
-    ) : null,
+    </div>,
     modalRoot
   );
 };
