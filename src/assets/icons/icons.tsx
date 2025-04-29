@@ -1,6 +1,10 @@
 import clsx from 'clsx';
 
-type SocIconProps = {
+export type BaseIconProps = {
+  className?: string;
+};
+
+export type SocIconProps = {
   type?: string;
 } & React.SVGProps<SVGSVGElement>;
 
@@ -81,7 +85,12 @@ export const Bracket = ({
       fillRule="evenodd"
       clipRule="evenodd"
       d="M2.61142 14.9862C2.20462 15.393 1.54508 15.393 1.13828 14.9862C0.731486 14.5795 0.731486 13.9199 1.13828 13.5131L6.65171 7.99967L1.13828 2.48625C0.731486 2.07945 0.731486 1.4199 1.13828 1.01311C1.54508 0.606309 2.20462 0.606309 2.61142 1.01311L8.86141 7.2631C9.2682 7.6699 9.2682 8.32945 8.86141 8.73625L2.61142 14.9862Z"
-      className={clsx(greenMini && 'fill-accent', green && 'fill-accent', white && 'fill-white')}
+      className={clsx(
+        greenMini && 'fill-accent',
+        green && 'fill-accent',
+        white && 'fill-white',
+        className
+      )}
     />
   </svg>
 );
@@ -91,28 +100,41 @@ type ArrowProps = {
   m?: boolean;
   l?: boolean;
   xl?: boolean;
+  className?: string;
 };
 
-export const Arrow = ({ s = true, m = false, l = false, xl = false }: ArrowProps) => (
+export const Arrow = ({
+  s = true,
+  m = false,
+  l = false,
+  xl = false,
+  className = '',
+}: ArrowProps) => (
   <svg
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className={clsx(
       s && 'w-[12px] h-[16px] arrow',
-      m && 'w-[12px] h-[16px] rotate-45',
+      m && 'w-[12px] h-[16px] rotate-45 ',
       l && 'w-[20px] h-[16px] arrow',
       xl && 'w-[28px] h-[16px] arrow'
     )}
   >
     <path
       d="M0.292893 14.2929C-0.0976311 14.6834 -0.0976311 15.3166 0.292893 15.7071C0.683418 16.0976 1.31658 16.0976 1.70711 15.7071L0.292893 14.2929ZM16 0.999999C16 0.447715 15.5523 -2.87362e-07 15 -5.40243e-07L6 2.60547e-07C5.44772 -7.66277e-08 5 0.447715 5 1C5 1.55228 5.44772 2 6 2L14 2L14 10C14 10.5523 14.4477 11 15 11C15.5523 11 16 10.5523 16 10L16 0.999999ZM1.70711 15.7071L15.7071 1.70711L14.2929 0.292893L0.292893 14.2929L1.70711 15.7071Z"
-      className={clsx(s && 'fill-white', m && 'fill-accent', l && 'fill-white', xl && 'fill-white')}
+      className={clsx(
+        s && 'fill-white',
+        m && 'fill-accent',
+        l && 'fill-white',
+        xl && 'fill-white',
+        className
+      )}
     />
   </svg>
 );
 
-export const Prev = ({ className = '' }: { className?: string }) => (
+export const Prev = ({ className = '' }: BaseIconProps) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className={className}>
     <path
       fillRule="evenodd"
@@ -122,7 +144,7 @@ export const Prev = ({ className = '' }: { className?: string }) => (
   </svg>
 );
 
-export const Next = ({ className = '' }: { className?: string }) => (
+export const Next = ({ className = '' }: BaseIconProps) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className={className}>
     <path
       fillRule="evenodd"
@@ -131,16 +153,35 @@ export const Next = ({ className = '' }: { className?: string }) => (
     />
   </svg>
 );
-export const Cross = () => {
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+export const Cross = ({ className = '' }: BaseIconProps) => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" className={className}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
       d="M1.7071 0.342941C1.31658 -0.0475828 0.683414 -0.0475829 0.292891 0.342941C-0.0976343 0.733466 -0.0976344 1.36663 0.29289 1.75716L6.11076 7.57503L0.292889 13.3929C-0.0976359 13.7834 -0.0976349 14.4166 0.292889 14.8071C0.683414 15.1976 1.31658 15.1976 1.7071 14.8071L7.52498 8.98924L13.3428 14.8071C13.7334 15.1976 14.3665 15.1976 14.7571 14.8071C15.1476 14.4166 15.1476 13.7834 14.7571 13.3929L8.93919 7.57503L14.7571 1.75716C15.1476 1.36663 15.1476 0.733466 14.7571 0.342942C14.3665 -0.0475823 13.7334 -0.0475823 13.3428 0.342942L7.52498 6.16081L1.7071 0.342941Z"
-      fill="white"
     />
-  </svg>;
-};
+  </svg>
+);
+
+export const ArrowUp = ({ className = '' }: { className: string }) => (
+  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" className={className}>
+    <path
+      d="M15.0282 22.1781L14.9721 7.82228"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M9.16284 13.6316L14.9721 7.82231L20.827 13.6772"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export const DevelopmentIcon = () => {
   return (

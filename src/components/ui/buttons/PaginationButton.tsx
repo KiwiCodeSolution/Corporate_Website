@@ -29,6 +29,7 @@ export default function PaginationButton({
 }: PaginationButtonProps) {
   function clickHandler(e) {
     e.currentTarget.blur();
+    if (!onClick) return;
     onClick();
   }
 
