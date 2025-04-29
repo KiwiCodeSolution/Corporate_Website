@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 export type BaseIconProps = {
-  className: string;
+  className?: string;
 };
 
 export type SocIconProps = {
