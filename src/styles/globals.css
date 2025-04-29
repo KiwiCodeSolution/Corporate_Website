@@ -148,7 +148,10 @@ html {
   }
 }
 
-button:hover .bracket {
+a:hover .bracket,
+a:focus .bracket,
+button:hover .bracket,
+button:focus .bracket {
   rotate: 90deg;
   animation: bounce-slow 1s infinite ease-in-out;
 }

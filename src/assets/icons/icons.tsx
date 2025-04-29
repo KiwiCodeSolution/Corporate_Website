@@ -85,7 +85,12 @@ export const Bracket = ({
       fillRule="evenodd"
       clipRule="evenodd"
       d="M2.61142 14.9862C2.20462 15.393 1.54508 15.393 1.13828 14.9862C0.731486 14.5795 0.731486 13.9199 1.13828 13.5131L6.65171 7.99967L1.13828 2.48625C0.731486 2.07945 0.731486 1.4199 1.13828 1.01311C1.54508 0.606309 2.20462 0.606309 2.61142 1.01311L8.86141 7.2631C9.2682 7.6699 9.2682 8.32945 8.86141 8.73625L2.61142 14.9862Z"
-      className={clsx(greenMini && 'fill-accent', green && 'fill-accent', white && 'fill-white')}
+      className={clsx(
+        greenMini && 'fill-accent',
+        green && 'fill-accent',
+        white && 'fill-white',
+        className
+      )}
     />
   </svg>
 );

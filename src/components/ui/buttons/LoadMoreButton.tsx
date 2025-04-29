@@ -30,7 +30,10 @@ export default function LoadMoreButton({ onClick, className = '' }: LoadMoreButt
     >
       <div className="flex items-center gap-3">
         <span className="text-[18px] text-main">{t('loadMore')}</span>
-        <Bracket green className="rotate-90 opacity-0 group-hover:opacity-100 base-transition" />
+        <Bracket
+          green
+          className="fill-transparent group-focus:fill-blue group-hover:fill-accent base-transition"
+        />
       </div>
     </button>
   );

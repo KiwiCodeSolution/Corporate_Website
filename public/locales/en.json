@@ -71,6 +71,7 @@
     "loadMore": "Load more"
   },
   "links": {
-    "allCases": "All cases"
+    "allCases": "All cases",
+    "learnMore": "Learn more"
   }
 }
