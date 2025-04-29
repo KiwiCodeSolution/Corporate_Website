@@ -145,14 +145,17 @@ html {
 @keyframes bounce-slow {
   0%,
   100% {
-    transform: translateX(0);
+    transform: translateX(-10px);
   }
   50% {
     transform: translateX(10px); /* Невеликий підскок */
   }
 }
 
-button:hover .bracket {
+a:hover .bracket,
+a:focus .bracket,
+button:hover .bracket,
+button:focus .bracket {
   rotate: 90deg;
   animation: bounce-slow 1s infinite ease-in-out;
 }
