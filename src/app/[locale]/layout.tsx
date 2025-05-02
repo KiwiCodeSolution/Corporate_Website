@@ -15,10 +15,12 @@ export const metadata = {
 
 export default async function LocaleLayout({
   children,
+  modal,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  modal: React.ReactNode;
+  params: { locale: string };
 }) {
   const { locale } = await params;
 
@@ -32,7 +34,9 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider>
             {children}
+            {modal}
             <Footer locale={locale} />
+
             <div id="modal-root"></div>
           </NextIntlClientProvider>
         </ThemeProvider>
