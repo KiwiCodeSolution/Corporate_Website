@@ -1,4 +1,5 @@
 import { Cross } from '@/assets/icons/icons';
+import IconButton from '../buttons/IconButton';
 
 type ModalWrapperProps = {
   children: React.ReactNode;
@@ -14,15 +15,17 @@ const ModalWrapper = ({ children, closeModal, styles, type }: ModalWrapperProps)
     <div
       className={`flex flex-col bg-white rounded-base mx-auto relative py-12 px-20 h-4/5 ${styles} ${widthStyles} overflow-hidden`}
     >
-      <button
-        onClick={(e) => {
-          e.stopPropagation(); //запобігає спливанню подій, важливе для RouteModal.
-          closeModal();
-        }}
-        className="absolute top-8 right-8 w-[44px] h-[44px] rounded-full bg-accent flex items-center justify-center"
-      >
-        <Cross />
-      </button>
+      <IconButton
+        // onClick={(e) => {
+        //   e.stopPropagation();
+        //   closeModal();
+        // }}
+        onClick={closeModal}
+        size="s"
+        disabled={false}
+        className="absolute top-8 right-8"
+        icon={Cross}
+      />
       <div className="overflow-auto">{children}</div>
     </div>
   );
