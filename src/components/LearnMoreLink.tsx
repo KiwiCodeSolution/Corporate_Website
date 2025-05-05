@@ -15,7 +15,7 @@ export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProp
       href={href}
       locale={locale}
       className={clsx(
-        'relative group flex items-center min-w-38 h-12 pl-14 pr-11 overflow-hidden rounded-full transition-colors duration-400',
+        'absolute bottom-[60px] md:relative md:bottom-auto group flex items-center min-w-38 h-12 pl-14 pr-11 overflow-hidden rounded-full transition-colors duration-400',
         'text-dark outline-[2px] outline-offset-[2px] outline-transparent focus:outline-blue'
 
         // locale === 'ua' ? 'w-[250px]' : 'w-[207px]'
