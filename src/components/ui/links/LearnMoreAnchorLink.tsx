@@ -21,7 +21,8 @@ export default function LearnMoreAnchorLink({
     <Link
       href={href}
       locale={locale}
-      className={clsx('group h-12 px-2 flex items-center gap-4', className)}
+      // className={clsx('group h-12 px-2 flex items-center gap-4', className)}
+      className={clsx('group h-fit flex items-center gap-4', className)}
     >
       <span
         className="text-4 box-content font-medium text-accent border-b-[1px] border-b-transparent base-transition

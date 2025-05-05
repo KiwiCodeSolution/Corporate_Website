@@ -1,0 +1,64 @@
+.news .slick-list,
+.news .slick-track,
+.news .slick-slide > div {
+  height: 100%;
+}
+
+.news .slick-list {
+  margin-left: -5px;
+}
+.news .slick-slide {
+  width: 368px !important;
+  padding: 0 20px;
+}
+
+.news .slick-track {
+  margin-left: 0 !important;
+}
+
+.news .slick-slide .swiper-container {
+  display: flex !important;
+}
+
+.news-slick-next,
+.news-slick-prev {
+  position: absolute;
+  bottom: -98px;
+  z-index: 15;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-slick-next {
+  left: 124px;
+}
+
+.news-slick-prev {
+  left: 0px;
+}
+
+.news .slick-dots {
+  bottom: -70px !important;
+  width: 54px;
+  left: 60px;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.news .slick-dots li,
+.news .slick-dots li button {
+  width: 6px;
+  height: 6px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.news .slick-dots li button:before {
+  color: var(--color-accent) !important;
+  width: 6px;
+  height: 6px;
+}
