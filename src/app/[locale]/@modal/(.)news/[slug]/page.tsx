@@ -1,4 +1,5 @@
-import NewsModal from '@/components/NewsModal';
+import NewsModalComponent from '@/components/NewsPageComponent';
+import { RouteModal } from '@/components/ui/modal/RouteModal';
 
 import allNews from '@/data/news.json';
 
@@ -6,8 +7,11 @@ export default async function NewsModalSlotPage({ params }: { params: { slug: st
   const { slug } = await params;
   const currentNews = allNews.find((news) => news.slug === slug);
 
-  // console.log('hi i am Intercepting NewsModalPage', currentNews);
   if (!currentNews) return null;
 
-  return <NewsModal news={currentNews} />;
+  return (
+    <RouteModal>
+      <NewsModalComponent news={currentNews} />
+    </RouteModal>
+  );
 }

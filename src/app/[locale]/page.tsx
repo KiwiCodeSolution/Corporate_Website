@@ -22,14 +22,14 @@ export default async function Home({ params }) {
     <main className="overflow-hidden mx-auto relative">
       <Title tag={'h1'}>{t('title')}</Title>
       <LocaleToggle />
-      {/* <ThemeToggle /> */}
+      <ThemeToggle />
       {/* <PaginationButton variant="number" direction="left" /> */}
       {/* <IconButton label="Learn more"> */}
       {/* </IconButton> */}
-      <TestModal locale={locale} />
+      {/* <TestModal locale={locale} /> */}
 
-      {/* <OurServicesSection locale={locale} /> */}
-      {/* <HowWeWorkSection /> */}
+      <OurServicesSection locale={locale} />
+      <HowWeWorkSection />
     </main>
   );
 }
