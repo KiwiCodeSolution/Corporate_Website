@@ -8,7 +8,7 @@ import UsefulLinks from './UsefulLinks';
 
 export type IPoint = { id: string; label: string; link?: string; order?: string };
 
-const Footer = ({ locale }: { locale: string }) => {
+const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const { theme } = useTheme();
 

@@ -27,7 +27,9 @@ export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProp
         <Arrow s />
       </span>
 
-      <span className="relative transition-colors duration-300 group-hover:text-white font-semibold leading-[1.2]">
+      <span
+        className={`relative z-10 transition-colors duration-300 text-main  group-hover:text-white font-semibold leading-[1.2]`}
+      >
         {label}
       </span>
     </Link>
