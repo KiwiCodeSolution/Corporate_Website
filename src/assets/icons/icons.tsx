@@ -76,7 +76,7 @@ export const Bracket = ({
     xmlns="http://www.w3.org/2000/svg"
     className={clsx(
       greenMini && 'w-[10px] h-[16px]',
-      green && 'w-[10.5px] h-[21px] bracket',
+      green && 'w-[10.5px] h-[21px]',
       white && 'w-[10px] h-[16px]',
       className
     )}
@@ -153,35 +153,18 @@ export const Next = ({ className = '' }: BaseIconProps) => (
     />
   </svg>
 );
-
-export const Cross = ({ className = '' }: BaseIconProps) => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" className={className}>
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M1.7071 0.342941C1.31658 -0.0475828 0.683414 -0.0475829 0.292891 0.342941C-0.0976343 0.733466 -0.0976344 1.36663 0.29289 1.75716L6.11076 7.57503L0.292889 13.3929C-0.0976359 13.7834 -0.0976349 14.4166 0.292889 14.8071C0.683414 15.1976 1.31658 15.1976 1.7071 14.8071L7.52498 8.98924L13.3428 14.8071C13.7334 15.1976 14.3665 15.1976 14.7571 14.8071C15.1476 14.4166 15.1476 13.7834 14.7571 13.3929L8.93919 7.57503L14.7571 1.75716C15.1476 1.36663 15.1476 0.733466 14.7571 0.342942C14.3665 -0.0475823 13.7334 -0.0475823 13.3428 0.342942L7.52498 6.16081L1.7071 0.342941Z"
-    />
-  </svg>
-);
-
-export const ArrowUp = ({ className = '' }: { className: string }) => (
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" className={className}>
-    <path
-      d="M15.0282 22.1781L14.9721 7.82228"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M9.16284 13.6316L14.9721 7.82231L20.827 13.6772"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+export const Cross = () => {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.7071 0.342941C1.31658 -0.0475828 0.683414 -0.0475829 0.292891 0.342941C-0.0976343 0.733466 -0.0976344 1.36663 0.29289 1.75716L6.11076 7.57503L0.292889 13.3929C-0.0976359 13.7834 -0.0976349 14.4166 0.292889 14.8071C0.683414 15.1976 1.31658 15.1976 1.7071 14.8071L7.52498 8.98924L13.3428 14.8071C13.7334 15.1976 14.3665 15.1976 14.7571 14.8071C15.1476 14.4166 15.1476 13.7834 14.7571 13.3929L8.93919 7.57503L14.7571 1.75716C15.1476 1.36663 15.1476 0.733466 14.7571 0.342942C14.3665 -0.0475823 13.7334 -0.0475823 13.3428 0.342942L7.52498 6.16081L1.7071 0.342941Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
 
 export const DevelopmentIcon = () => {
   return (

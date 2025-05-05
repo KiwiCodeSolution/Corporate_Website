@@ -10,7 +10,7 @@ interface IPoint {
   type: PointType;
 }
 
-const UsefulLinks = ({ locale }: { locale: string }) => {
+const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
   const t = useTranslations('Footer');
 
   const USEFULLINKS: IPoint[] = [
