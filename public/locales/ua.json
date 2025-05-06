@@ -80,5 +80,6 @@
     "allNews": "Усі новини",
     "learnMore": "Дізнатися більше"
   },
-  "News": { "title": "Новини" }
+
+  "News": { "title_home": "Новини", "title_page_by_slug": "Інші Новини" }
 }

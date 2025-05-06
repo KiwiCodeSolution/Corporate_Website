@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { IPoint } from './Footer';
+import { IPoint, TitleFooter } from './Footer';
 
 const OurSpecialize = () => {
   const t = useTranslations('Footer');
@@ -15,7 +15,8 @@ const OurSpecialize = () => {
 
   return (
     <div className="w-[340px] xl:w-[408px] flex flex-col gap-y-6">
-      <h3 className="text-sm font-medium leading-[1.2] uppercase">{t('specialize_list_title')}</h3>
+      <TitleFooter text={t('specialize_list_title')} />
+
       <ul className="w-full flex flex-wrap gap-x-4 gap-y-3">
         {SPECIALISELIST.map((el) => (
           <li key={el.id} className={`card-wrapper-footer ${el.order}`}>

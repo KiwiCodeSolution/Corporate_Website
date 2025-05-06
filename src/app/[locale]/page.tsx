@@ -31,7 +31,7 @@ export default async function Home({ params }) {
 
       <OurServicesSection locale={locale} />
       <HowWeWorkSection />
-      <NewsSection locale={locale} />
+      <NewsSection locale={locale} page="home" />
     </main>
   );
 }

@@ -46,9 +46,9 @@ const NewsCard = ({ news, locale, section }: NewsCardProps) => {
       </div>
     </article>
   ) : (
-    <article className="">
+    <article className="w-full md:w-[340px] xl:w-full mx-auto">
       <h2 className="text-xl font-semibold leading-[1.4] mb-10 text-center">{titleByLocale}</h2>
-      <div className="w-full flex gap-x-10">
+      <div className="w-full flex flex-col xl:flex-row gap-x-10">
         <div className="flex flex-col">
           <NewsCardImgBlock
             image={image}
@@ -56,7 +56,7 @@ const NewsCard = ({ news, locale, section }: NewsCardProps) => {
             className="float-left mr-4 mb-2 w-[340px]"
           />
         </div>
-        <div className=" flex flex-col gap-y-5">
+        <div className=" flex flex-col gap-y-5 text-left">
           <p className="text-lg font-medium text-main-grey leading-[1.35]">{formattedDate}</p>
           <p className="text-lg font-medium leading-[1.35]">{descriptionByLocale}</p>
         </div>
