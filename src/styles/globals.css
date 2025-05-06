@@ -114,6 +114,20 @@ html {
       width: 1064px;
     }
   }
+
+  .swiper-pagination-bullet {
+    width: 6px !important;
+    height: 6px !important;
+    background: var(--color-accent) !important;
+    opacity: 0.3;
+    cursor: pointer;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--color-accent) !important;
+    width: 6px !important;
+    height: 6px !important;
+  }
 }
 
 .body-scroll-lock {
@@ -223,7 +237,7 @@ a:hover .arrow {
   }
 }
 
-.btn-swiper {
+/* .btn-swiper {
   width: 50px;
   height: 50px;
   gap: 10px;
@@ -232,4 +246,4 @@ a:hover .arrow {
 
   background: rgba(74, 184, 139, 1);
   border: 2px solid rgba(74, 184, 139, 1);
-}
+} */

@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import Title from './Title';
-import HowWeWorkSwiper from './HowWeWorkSwiper';
 import HowWeWorkImgBlock from './HowWeWorkImgBlock';
 import { IPrinciple } from './sections/HowWeWork';
+import HowWeWorkCarrouselComponent from './HowWeWorkCarrouselComponent';
 
 type HowWeWorkGalleryProps = {
   items: IPrinciple[];
@@ -64,7 +64,7 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
   return (
     <div
       ref={containerRef}
-      className="flex items-center xl:ml-[47px] xl:gap-x-[74px] justify-between relative z-[10] mb-20 w-full"
+      className="flex items-center xl:ml-[47px] xl:gap-x-[74px] justify-between relative z-[10] w-full mx-auto"
     >
       <div className="hidden xl:inline-block w-[1px] h-[440px] rounded-[1px] absolute top-1/2 -translate-y-1/2 -left-[42px] bg-[#E6E9EA]" />
 
@@ -91,7 +91,8 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
           <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
         </div>
       )}
-      {isMounted && <HowWeWorkSwiper items={items} theme={theme} />}
+
+      {isMounted && <HowWeWorkCarrouselComponent items={items} theme={theme} />}
     </div>
   );
 };

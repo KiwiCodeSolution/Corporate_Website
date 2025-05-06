@@ -72,6 +72,8 @@
   },
   "links": {
     "allCases": "All cases",
+    "allNews": "All news",
     "learnMore": "Learn more"
-  }
+  },
+  "News": { "title": "News" }
 }

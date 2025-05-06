@@ -41,9 +41,11 @@ const HowWeWorkSection = () => {
     },
   ];
   return (
-    <section className="w-full min-h-[700px] relative hww">
+    <section className="w-full h-[865px] md:h-[707px] relative mb-[64px] md:mb-[72px] hww">
       <div className="wrapper mx-auto">
-        <Title tag={'h2'}>{t('title')}</Title>
+        <Title tag={'h2'} styles={'mb-10 xl:mb-12'}>
+          {t('title')}
+        </Title>
         <HowWeWorkGallery items={PRINCIPLES} />
       </div>
       <div className="absolute -left-[311px] top-[397px] w-[604px] h-[604px] rounded-full hww-section-gradient blur-[1000px] z-0" />
