@@ -100,7 +100,7 @@ html {
     list-style: none;
   }
 
-  /* .wrapper {
+  .wrapper {
     margin: 0 auto;
     padding: 0 15px;
     width: 100%;
@@ -113,9 +113,9 @@ html {
       padding: 0;
       width: 1064px;
     }
-  } */
+  }
 
-  .wrapper {
+  /* .wrapper {
     width: 100%;
     margin: 0 auto;
 
@@ -133,7 +133,7 @@ html {
       max-width: 1280px;
       padding: 0 108px;
     }
-  }
+  } */
 }
 
 /* стилі для текстів: для заголовку є окремий компонент, для підзаголовку стиль нижче, для інших текстів базові налаштування прописані у стилізуванні body вище*/
