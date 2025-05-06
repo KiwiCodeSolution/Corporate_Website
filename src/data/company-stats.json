@@ -1,0 +1,6 @@
+[
+  { "statNumber": 87, "statCaption": "companyStats.implemented-projects", "isAccented": false },
+  { "statNumber": 10, "statCaption": "companyStats.experts", "isAccented": false },
+  { "statNumber": 211, "statCaption": "companyStats.happy-customers", "isAccented": true },
+  { "statNumber": 3, "statCaption": "companyStats.years-of-partnership", "isAccented": false }
+]
