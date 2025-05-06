@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 
-const Logo = ({ locale }: { locale: string }) => {
+const Logo = ({ locale }: { locale: 'ua' | 'en' }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState<boolean>(false);
 

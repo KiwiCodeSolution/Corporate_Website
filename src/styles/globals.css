@@ -136,6 +136,15 @@ html {
   } */
 }
 
+.body-scroll-lock {
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+}
+
 /* стилі для текстів: для заголовку є окремий компонент, для підзаголовку стиль нижче, для інших текстів базові налаштування прописані у стилізуванні body вище*/
 
 .subtitle {
