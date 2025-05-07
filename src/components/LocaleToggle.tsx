@@ -31,9 +31,7 @@ export default function LocaleToggle() {
           onChange={localeChangeHandler}
           className="sr-only peer"
         />
-        <span className={clsx(localeTextStyle, params.locale === 'ua' && 'text-[var(--accent)]')}>
-          UA
-        </span>
+        <span className={clsx(localeTextStyle, params.locale === 'ua' && 'text-accent')}>UA</span>
       </label>
       <label className={clsx(localeStyle, 'border-l-[0.5px] pl-[3px]')}>
         <input
@@ -45,9 +43,7 @@ export default function LocaleToggle() {
           onChange={localeChangeHandler}
           className="sr-only peer"
         />
-        <span className={clsx(localeTextStyle, params.locale === 'en' && 'text-[var(--accent)]')}>
-          EN
-        </span>
+        <span className={clsx(localeTextStyle, params.locale === 'en' && 'text-accent')}>EN</span>
       </label>
     </div>
   );

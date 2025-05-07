@@ -114,6 +114,26 @@ html {
       width: 1064px;
     }
   }
+
+  /* .wrapper {
+    width: 100%;
+    margin: 0 auto;
+
+    @media screen and (min-width: 375px) {
+      max-width: 375px;
+      padding: 0 15px;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: 768px;
+      padding: 0 32px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 1280px;
+      padding: 0 108px;
+    }
+  } */
 }
 
 .body-scroll-lock {
