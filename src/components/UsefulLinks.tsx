@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { TitleFooter } from './Footer';
+import FAQModalFooter from './FAQModalFooter';
 
 type PointType = 'link' | 'modal' | 'download';
 
@@ -21,12 +22,8 @@ const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
     { id: '0245876', label: t('useful_links.3'), link: '/files/integration.pdf', type: 'download' },
   ];
 
-  function openModal(type: string) {
-    console.log(`Open modal with link: ${type}`);
-  }
-
   return (
-    <div className={`w-[177px] md:w-[188px] xl:w-[192px] flex flex-col gap-y-6`}>
+    <div className={`w-[197px] md:w-[188px] xl:w-[192px] flex flex-col gap-y-6`}>
       <TitleFooter text={t('useful_links_title')} />
 
       <div className="flex flex-col gap-y-3">
@@ -48,11 +45,7 @@ const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
                       </Link>
                     );
                   case 'modal':
-                    return (
-                      <button onClick={() => openModal('faq')} className="focus:outline-none">
-                        {commonContent}
-                      </button>
-                    );
+                    return <FAQModalFooter commonContent={commonContent} />;
                   case 'download':
                     return (
                       <a href={el.link} download className="focus:outline-none">

@@ -26,13 +26,13 @@ const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
 
   return (
     <footer
-      className={`w-full ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px]`}
+      className={`w-full h-fit ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px]`}
     >
-      <div className="wrapper pt-12 xl:pt-20 pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
+      <div className="wrapper pt-12 xl:pt-20 pb-6 md:pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
         <div className="w-full border-b border-[rgba(144,157,162,0.3)] flex flex-col md:flex-row justify-between pb-8">
           {/* розділ із лінками та сторінками */}
-          <div className="w-full md:w-[340px] xl:w-[408px] flex gap-x-2 md:gap-x-6 xl:gap-x-8">
-            <div className="w-[160px]">
+          <div className="w-full md:w-[340px] xl:w-[408px] flex gap-x-2 md:gap-x-6 xl:gap-x-8 mb-8 md:mb-0">
+            <div className="w-[140px]">
               <TitleFooter text="Menu" />
             </div>
 
@@ -44,10 +44,10 @@ const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
         </div>
 
         {/* блок із логотипом та соцмережами */}
-        <div className="w-full h-14 flex items-center justify-between">
-          <Logo locale={locale} />
-          <div>
-            <p className="text-[#8D8D8D] text-base leading-[1.35]">
+        <div className="w-full h-14 flex flex-wrap md:flex-nowrap items-center justify-between gap-y-4 md:gap-y-0">
+          <Logo locale={locale} className={'order-1'} />
+          <div className="w-full md:w-fit order-3 md:order-2 flex items-center justify-center">
+            <p className="text-[#8D8D8D] text-sm md:text-base font-medium leading-[1.35]">
               ©<span>{year}</span>, All right reserved
             </p>
           </div>
