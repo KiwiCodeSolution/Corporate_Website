@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 
 const NewsCardImgBlock = ({
@@ -11,7 +12,10 @@ const NewsCardImgBlock = ({
 }) => {
   return (
     <div
-      className={`w-full md:w-[340px] xl:w-[328px] h-[277px] p-[2px] rounded-base mb-6 ${className}`}
+      className={clsx(
+        'w-full md:w-[340px] xl:w-[328px] h-[277px] p-[2px] rounded-base mb-6',
+        className
+      )}
       style={{
         background: 'linear-gradient(176.74deg, #5BD187 2.69%, #227D94 97.32%)',
       }}

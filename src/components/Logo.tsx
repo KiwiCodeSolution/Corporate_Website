@@ -31,7 +31,7 @@ const Logo = ({
         width={132}
         height={54}
         priority
-        className={`${section === 'header' ? 'w-[117x] h-[48px] xl:w-[132px] xl:h-[54px]' : 'w-[132px] h-[54px]'} `}
+        className={`${section === 'header' ? 'w-[117px] h-[48px] xl:w-[132px] xl:h-[54px]' : 'w-[132px] h-[54px]'} `}
       />
     </Link>
   );

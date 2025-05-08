@@ -67,7 +67,7 @@ export default function NewsCarrouselComponent({ newsArray, locale }: NewsCarrou
         href="/news"
         locale={locale}
         className={
-          'w-full md:w-fit xl:w-[345px] absolute bottom-[-80px] md:bottom-0 right-0 z-[10]'
+          'w-full md:w-fit xl:w-[345px] absolute bottom-[-80px] md:bottom-0 right-0 z-[10] justify-center'
         }
         section="news"
       />

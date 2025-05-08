@@ -371,7 +371,7 @@ export const LinkedinIcon = ({ type, ...props }: SocIconProps) => {
   );
 };
 
-export const TelegramHoverIcon = ({ type, ...props }: SocIconProps) => {
+export const TelegramHoverIcon = ({ ...props }: SocIconProps) => {
   return (
     <svg
       // width="36"
@@ -402,7 +402,7 @@ export const TelegramHoverIcon = ({ type, ...props }: SocIconProps) => {
   );
 };
 
-export const InstagramHoverIcon = ({ type, ...props }: SocIconProps) => {
+export const InstagramHoverIcon = ({ ...props }: SocIconProps) => {
   return (
     <svg
       // width="32"
@@ -433,7 +433,7 @@ export const InstagramHoverIcon = ({ type, ...props }: SocIconProps) => {
   );
 };
 
-export const LinkedinHoverIcon = ({ type, ...props }: SocIconProps) => {
+export const LinkedinHoverIcon = ({ ...props }: SocIconProps) => {
   return (
     <svg
       // width="32"

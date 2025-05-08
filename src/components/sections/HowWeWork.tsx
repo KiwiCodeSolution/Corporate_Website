@@ -41,7 +41,7 @@ const HowWeWorkSection = () => {
     },
   ];
   return (
-    <section className="w-full h-[865px] md:h-[707px] relative mb-[64px] md:mb-[72px] hww">
+    <section className="w-full h-[865px] md:h-[707px] relative mb-[64px] md:mb-[72px] xl:mb-[60px] hww">
       <div className="wrapper mx-auto">
         <Title tag={'h2'} styles={'mb-10 xl:mb-12'}>
           {t('title')}
