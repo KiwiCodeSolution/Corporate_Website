@@ -65,7 +65,7 @@
     ],
     "specialize_list_title": "We specialise in",
     "useful_links": ["Terms of Use Policy", "Privacy Policy", "FAQ", "Integration"],
-    "useful_links_title": "We specialise in"
+    "useful_links_title": "useful links"
   },
 
   "About": {
@@ -85,6 +85,8 @@
   },
   "links": {
     "allCases": "All cases",
+    "allNews": "All news",
     "learnMore": "Learn more"
-  }
+  },
+  "News": { "title_home": "News", "title_page_by_slug": "Other News" }
 }

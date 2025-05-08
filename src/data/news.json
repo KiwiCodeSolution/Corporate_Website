@@ -2,41 +2,51 @@
   {
     "id": 1,
     "title": "Кіт став головним редактором на сайті новин",
+    "title_en": "Cat Becomes Editor-in-Chief at News Website",
     "description": "Неочікуваний поворот: після того, як колишній редактор ненавмисно залишив двері відчиненими, кіт на ім'я Барсик зміг потрапити до офісу та зараз керує всім. Колеги стверджують, що він хороший керівник і не запізнюється на зустрічі.",
-    "image": "/images/cat_editor.jpg",
-    "date": "2025-04-29",
+    "description_en": "An unexpected twist: after the former editor accidentally left the door open, a cat named Barsik entered the office and is now in charge. Colleagues say he’s a good manager and never late for meetings.",
+    "image": "/images/news/cat_editor.jpg",
+    "date": "2025-04-30T18:27:00Z",
     "slug": "cat-editor"
   },
   {
     "id": 2,
     "title": "Науковці довели: сніданок з пиріжками робить день кращим",
+    "title_en": "Scientists Prove: Breakfast with Pastries Makes Your Day Better",
     "description": "Нове дослідження показало, що почати день з пиріжка може підняти настрій на цілий день. Вчені з університету Пиріжкової Науки виявили, що цей наїдок має не лише смакові переваги, але й позитивно впливає на психологічний стан.",
-    "image": "/images/pastries.jpg",
-    "date": "2025-04-28",
+    "description_en": "A new study shows that starting the day with a pastry can boost your mood all day long. Scientists from the University of Pastry Science found that this treat not only tastes great but also positively affects psychological well-being.",
+    "image": "/images/news/pastries.jpg",
+    "date": "2025-04-29T14:15:00Z",
     "slug": "pastry-breakfast"
   },
   {
     "id": 3,
     "title": "Міста, де коти стали туристичними атракціями",
+    "title_en": "Cities Where Cats Became Tourist Attractions",
     "description": "Новий тренд у світі туризму: кілька міст по всьому світу почали залучати туристів, пропонуючи унікальні тури з котами. У цих містах коти стають гідами, ведучи відвідувачів на екскурсії по місту, роблячи фотосесії та навіть підписуючи автентичні сувеніри.",
-    "image": "/images/cat_tour.jpg",
-    "date": "2025-04-27",
+    "description_en": "A new trend in tourism: several cities worldwide are attracting visitors with unique cat tours. In these cities, cats act as guides, leading city tours, posing for photos, and even signing authentic souvenirs.",
+    "image": "/images/news/cat_tour.jpg",
+    "date": "2025-04-27T16:45:00Z",
     "slug": "cat-tourism"
   },
   {
     "id": 4,
     "title": "Знайдено рецепт ідеальної кави: вона має бути з піною у формі серця",
+    "title_en": "Perfect Coffee Recipe Found: It Needs Heart-Shaped Foam",
     "description": "Нове відкриття в кавовому світі: науковці з університету Кави заявили, що ідеальна кава повинна мати піну у формі серця. Це не тільки красиво, але й підвищує рівень задоволення від напою на 87%. Тепер готуємо каву не лише з ароматом, а й з любов'ю!",
-    "image": "/images/coffee_heart.jpg",
-    "date": "2025-04-26",
+    "description_en": "A new coffee world discovery: scientists from the University of Coffee say the perfect coffee should have heart-shaped foam. Not only is it beautiful, but it also boosts drink satisfaction by 87%. Now we make coffee not just with aroma, but with love!",
+    "image": "/images/news/coffee_heart.jpg",
+    "date": "2025-04-26T11:00:00Z",
     "slug": "heart-coffee"
   },
   {
-    "id": "5",
+    "id": 5,
     "title": "Собака виграла вибори мера в місті",
+    "title_en": "Dog Wins Mayor Election in City",
     "description": "На останніх виборах в одному з міст США незвичайний кандидат — пес на ім'я Рекс — здобув перемогу. Замість політичних обіцянок він обіцяв багато гуляти в парку та годувати всіх смачними ласощами. Містяни були вражені його підходом до вирішення проблем.",
-    "image": "/images/dog_mayor.jpg",
-    "date": "2025-04-25",
+    "description_en": "In the latest elections in a U.S. city, an unusual candidate — a dog named Rex — won. Instead of political promises, he pledged lots of park walks and tasty treats for everyone. Residents were impressed by his problem-solving approach.",
+    "image": "/images/news/dog_mayor.jpg",
+    "date": "2025-04-25T18:20:00Z",
     "slug": "dog-mayor"
   }
 ]

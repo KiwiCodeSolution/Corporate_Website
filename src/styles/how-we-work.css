@@ -15,25 +15,29 @@
   );
 }
 
-.hww .slick-list,
-.hww .slick-track,
-.hww .slick-slide > div {
-  height: 100%;
+.hww-slick {
+  padding-bottom: 90px !important;
 }
 
-.hww .slick-slide .swiper-container {
-  display: flex !important;
+.hww-slick .swiper-pagination {
+  width: 90px;
+  bottom: 15px;
+  position: absolute;
+  left: 42px;
+  z-index: 10;
 }
 
 .hww-slick-next,
 .hww-slick-prev {
   position: absolute;
-  bottom: -90px;
+  bottom: 0px;
   z-index: 15;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 }
 
 .hww-slick-next {
@@ -42,28 +46,4 @@
 
 .hww-slick-prev {
   left: 0px;
-}
-
-.hww .slick-dots {
-  bottom: -62px !important;
-  width: 54px;
-  left: 60px;
-  display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.hww .slick-dots li,
-.hww .slick-dots li button {
-  width: 6px;
-  height: 6px;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-.hww .slick-dots li button:before {
-  color: var(--color-accent) !important;
-  width: 6px;
-  height: 6px;
 }

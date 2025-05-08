@@ -56,7 +56,7 @@ const OurServicesSection = ({ locale }: { locale: 'ua' | 'en' }) => {
     <>
       <div className="w-[597px] h-[597px] pb-[30px] rounded-br-full bg-[linear-gradient(180deg,_#65B6F3_0%,_#7365F3_100%)] blur-[1000px] absolute left-[828px] z-0" />
 
-      <section className="w-full min-h-[603px] relative pb-[60px] md:pb-0">
+      <section className="w-full min-h-[603px] relative pb-[60px] md:pb-0 mb-16 md:mb-[72px] xl:mb-12">
         <div className="wrapper mx-auto pb-[90px] md:pb-[73px]">
           <div className="mb-10 flex items-center justify-between">
             <Title tag={'h2'}>{t('title')}</Title>

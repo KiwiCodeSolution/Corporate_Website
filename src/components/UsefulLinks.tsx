@@ -1,5 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { TitleFooter } from './Footer';
+import FAQModalFooter from './FAQModalFooter';
 
 type PointType = 'link' | 'modal' | 'download';
 
@@ -20,17 +22,14 @@ const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
     { id: '0245876', label: t('useful_links.3'), link: '/files/integration.pdf', type: 'download' },
   ];
 
-  function openModal(type: string) {
-    console.log(`Open modal with link: ${type}`);
-  }
-
   return (
-    <div className={`w-[188px] xl:w-[192px] flex flex-col gap-y-6`}>
-      <h3 className="text-sm font-medium leading-[1.2] uppercase">{t('useful_links_title')}</h3>
+    <div className={`w-[197px] md:w-[188px] xl:w-[192px] flex flex-col gap-y-6`}>
+      <TitleFooter text={t('useful_links_title')} />
+
       <div className="flex flex-col gap-y-3">
         {USEFULLINKS.map((el) => {
           const commonContent = (
-            <p className="relative text-main after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100">
+            <p className="relative text-main after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100 text-lg font-medium leading-[1.4] cursor-pointer tracking-normal">
               {el.label}
             </p>
           );
@@ -46,11 +45,7 @@ const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
                       </Link>
                     );
                   case 'modal':
-                    return (
-                      <button onClick={() => openModal('faq')} className="focus:outline-none">
-                        {commonContent}
-                      </button>
-                    );
+                    return <FAQModalFooter commonContent={commonContent} />;
                   case 'download':
                     return (
                       <a href={el.link} download className="focus:outline-none">

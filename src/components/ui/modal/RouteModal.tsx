@@ -12,7 +12,7 @@ export function RouteModal({
   type = 'baseModal',
 }: {
   children: React.ReactNode;
-  type?: 'baseModal' | 'notification'; // 'baseModal'  - буде стилізовано як звичайну мадалку великого розміру| 'notification' - для сповіщень, маленька мадалка
+  type?: 'baseModal' | 'notification' | 'modalOnPage'; // 'baseModal'  - буде стилізовано як звичайну мадалку великого розміру| 'notification' - для сповіщень, маленька мадалка
 }) {
   const router = useRouter();
   const [blockScroll, allowScroll] = useScrollBlock();

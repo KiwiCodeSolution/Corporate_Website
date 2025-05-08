@@ -9,6 +9,7 @@ type IconButtonProps = {
   disabled?: boolean;
   className?: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
+  iconProps?: Record<string, unknown>;
   onClick?: () => void;
 };
 
@@ -24,10 +25,11 @@ export default function IconButton({
   className = '',
   icon: Icon,
   onClick,
+  iconProps,
 }: IconButtonProps) {
   function clickHandler(e) {
     e.currentTarget.blur();
-    onClick();
+    onClick?.();
   }
 
   return (
@@ -43,7 +45,7 @@ export default function IconButton({
       disabled={disabled}
       onClick={clickHandler}
     >
-      <Icon />
+      <Icon {...iconProps} />
     </button>
   );
 }

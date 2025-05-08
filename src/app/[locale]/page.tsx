@@ -8,7 +8,8 @@ import IconButton from '@/components/ui/buttons/IconButton';
 
 import HowWeWorkSection from '@/components/sections/HowWeWork';
 import OurServicesSection from '@/components/sections/OurServices';
-import TestModal from '@/components/sections/OurPrincipes';
+import NewsSection from '@/components/sections/News';
+import AboutSection from '@/components/sections/About';
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -26,10 +27,10 @@ export default async function Home({ params }) {
       {/* <PaginationButton variant="number" direction="left" /> */}
       {/* <IconButton label="Learn more"> */}
       {/* </IconButton> */}
-      {/* <TestModal locale={locale} /> */}
-
+      <AboutSection />
       <OurServicesSection locale={locale} />
       <HowWeWorkSection />
+      <NewsSection locale={locale} page="home" />
     </main>
   );
 }
