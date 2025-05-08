@@ -12,12 +12,12 @@ import HowWeWorkImgBlock from './HowWeWorkImgBlock';
 import '../styles/how-we-work.css';
 import IconButton from './ui/buttons/IconButton';
 
-type HowWeWorkSwiperProps = {
+type HowWeWorkCarrouselProps = {
   items?: IPrinciple[];
   theme: string;
 };
 
-const HowWeWorkCarrouselComponent = ({ items, theme }: HowWeWorkSwiperProps) => {
+const HowWeWorkCarrouselComponent = ({ items, theme }: HowWeWorkCarrouselProps) => {
   return (
     <div className="xl:hidden flex flex-col">
       <Swiper
