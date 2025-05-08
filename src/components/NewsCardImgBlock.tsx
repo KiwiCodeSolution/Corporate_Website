@@ -22,7 +22,7 @@ const NewsCardImgBlock = ({
     >
       <div className="w-full h-full rounded-[18px] overflow-hidden">
         <Image
-          src={image}
+          src={image || '/images/not-found.png'}
           alt={`Image for ${title}`}
           width={328}
           height={270}
