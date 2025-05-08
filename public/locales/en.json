@@ -67,6 +67,19 @@
     "useful_links": ["Terms of Use Policy", "Privacy Policy", "FAQ", "Integration"],
     "useful_links_title": "useful links"
   },
+
+  "About": {
+    "companyStats": {
+      "implemented-projects": "Implemented projects",
+      "experts": "Experts with work experience more than 5 years",
+      "happy-customers": "Happy customers became ours friends and return to us again and again",
+      "years-of-partnership": "Fruitful years work with companies all over the world "
+    },
+    "description": {
+      "paragraph-1": "is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects.",
+      "paragraph-2": "We began with volunteer initiatives, which laid the foundation for our professional growth and inspired us to move forward."
+    }
+  },
   "buttons": {
     "loadMore": "Load more"
   },

@@ -2,8 +2,7 @@
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 
-import DarkModeIcon from '../assets/icons/dark.svg';
-import LightModeIcon from '../assets/icons/light.svg';
+import { DarkTheme, LitghtTheme } from '@/assets/icons/icons';
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
@@ -64,15 +63,9 @@ export default function ThemeToggle() {
         dark:bg-[#1f1f1f] dark:translate-x-[100%] base-transition"
       >
         {theme === 'dark' ? (
-          <DarkModeIcon
-            alt="dark mode icon"
-            className="size-[16px] fill-white group-hover:fill-[#F4D64F] base-transition"
-          />
+          <DarkTheme className="size-[16px] fill-white group-hover:fill-[#F4D64F] base-transition" />
         ) : (
-          <LightModeIcon
-            alt="light mode icon"
-            className="size-[16px] fill-white group-hover:fill-[#F4D64F] base-transition"
-          />
+          <LitghtTheme className="size-[16px] fill-white group-hover:fill-[#F4D64F] base-transition" />
         )}
       </span>
     </label>
