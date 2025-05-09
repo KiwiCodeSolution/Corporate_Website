@@ -10,7 +10,7 @@ export type AllCasesLinkProps = {
   href: string;
   locale: 'ua' | 'en';
   className?: string;
-  section: 'news' | 'cases';
+  section: 'news' | 'portfolio';
 };
 
 export default function AllCasesLink({ href, locale, className = '', section }: AllCasesLinkProps) {
@@ -22,7 +22,7 @@ export default function AllCasesLink({ href, locale, className = '', section }: 
       href={href}
       locale={locale}
       className={clsx(
-        'h-12 flex items-center gap-3 px-[30px] xl:px-8 rounded-full bg-accent hover:shadow-base base-transition',
+        'h-12 flex items-center gap-3 px-[30px] xl:px-0 rounded-full bg-accent hover:shadow-base base-transition',
         'outline-[2px] outline-offset-[2px] outline-transparent focus-within:outline-blue',
         className
       )}

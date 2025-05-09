@@ -10,6 +10,7 @@ import HowWeWorkSection from '@/components/sections/HowWeWork';
 import OurServicesSection from '@/components/sections/OurServices';
 import NewsSection from '@/components/sections/News';
 import AboutSection from '@/components/sections/About';
+import PortfolioSection from '@/components/sections/Portfolio';
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -29,7 +30,9 @@ export default async function Home({ params }) {
       {/* </IconButton> */}
       <AboutSection />
       <OurServicesSection locale={locale} />
+      <PortfolioSection locale={locale} />
       <HowWeWorkSection />
+
       <NewsSection locale={locale} page="home" />
     </main>
   );

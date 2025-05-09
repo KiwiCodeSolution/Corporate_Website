@@ -128,6 +128,36 @@ html {
     width: 6px !important;
     height: 6px !important;
   }
+
+  .custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .custom-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 4px;
+    cursor: pointer;
+  }
+
+  .swiper-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .swiper-controls .btn-swiper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .body-scroll-lock {

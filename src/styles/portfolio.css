@@ -1,0 +1,41 @@
+.portfolio .swiper {
+  padding: 10px 0 !important;
+  position: static;
+}
+
+.portfolio .swiper-slide {
+  width: 560px !important;
+  height: 384px !important;
+}
+
+.portfolio-slick .swiper-pagination {
+  width: fit-content;
+  bottom: 0;
+  position: absolute;
+  left: calc(50% - 482px);
+}
+
+.portfolio-slick .swiper-pagination-bullets {
+  width: fit-content !important;
+}
+
+.portfolio-slick-next,
+.portfolio-slick-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.portfolio-slick-next {
+  left: 204px;
+}
+
+.portfolio-slick-prev {
+  left: 0;
+}
+
+.portfolio .custom-pagination {
+  width: fit-content !important;
+}
