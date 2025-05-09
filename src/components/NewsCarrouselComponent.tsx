@@ -22,9 +22,6 @@ export default function NewsCarrouselComponent({ newsArray, locale }: NewsCarrou
     <div className="relative">
       <Swiper
         loop={true}
-        // pagination={{
-        //   clickable: true,
-        // }}
         pagination={{
           el: '.custom-pagination-news',
           clickable: true,

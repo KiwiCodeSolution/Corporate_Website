@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { IPoint, TitleFooter } from './Footer';
+import ServicePoint from './ServicePoint';
 
 const OurSpecialize = () => {
   const t = useTranslations('Footer');
@@ -19,11 +20,7 @@ const OurSpecialize = () => {
 
       <ul className="w-full flex flex-wrap gap-x-4 gap-y-3">
         {SPECIALISELIST.map((el) => (
-          <li key={el.id} className={`card-wrapper-footer ${el.order}`}>
-            <div className={`w-fit py-[2px] px-[19px] bg-bgColor text-main rounded-base`}>
-              {el.label}
-            </div>
-          </li>
+          <ServicePoint key={el.id} label={el.label} styles={el.order} />
         ))}
       </ul>
     </div>

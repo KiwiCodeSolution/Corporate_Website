@@ -1,6 +1,11 @@
 .portfolio .swiper {
   padding: 10px 0 !important;
+  margin-left: -290px !important;
   position: static;
+
+  @media screen and (min-width: 768px) {
+    margin-left: -150px !important;
+  }
 }
 
 .portfolio .swiper-slide {

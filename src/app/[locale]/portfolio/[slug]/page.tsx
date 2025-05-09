@@ -1,9 +1,16 @@
 import { PortfolioItem } from '@/components/PortfolioCard';
 import PortfolioPageComponent from '@/components/PortfolioPageComponent';
-import PortfolioSection from '@/components/sections/Portfolio';
-
-import allCases from '@/data/cases.json';
 import { Link } from '@/i18n/navigation';
+import { getCase } from '@/utils/api';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const findCase = getCase(params.slug);
+
+  return {
+    title: findCase.title,
+    description: findCase.description,
+  };
+}
 
 export default async function PortfolioPage({
   params,
@@ -11,7 +18,7 @@ export default async function PortfolioPage({
   params: { slug: string; locale: 'ua' | 'en' };
 }) {
   const { slug, locale } = await params;
-  const currentPortfolio = allCases.find((portfolio) => portfolio.slug === slug) as PortfolioItem;
+  const currentPortfolio = getCase(slug) as PortfolioItem;
 
   if (!currentPortfolio) return null;
 

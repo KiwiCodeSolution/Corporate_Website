@@ -1,7 +1,16 @@
 import { PortfolioItem } from '@/components/PortfolioCard';
 import PortfolioPageComponent from '@/components/PortfolioPageComponent';
 import { RouteModal } from '@/components/ui/modal/RouteModal';
-import allCases from '@/data/cases.json';
+import { getCase } from '@/utils/api';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const findCase = getCase(params.slug);
+
+  return {
+    title: findCase.title,
+    description: findCase.description,
+  };
+}
 
 export default async function PortfolioModalSlotPage({
   params,
@@ -9,13 +18,13 @@ export default async function PortfolioModalSlotPage({
   params: { slug: string; locale: 'ua' | 'en' };
 }) {
   const { slug, locale } = await params;
-  const currentCase = allCases.find((item) => item.slug === slug) as PortfolioItem;
+  const currentPortfolio = getCase(slug) as PortfolioItem;
 
-  if (!currentCase) return null;
+  if (!currentPortfolio) return null;
 
   return (
     <RouteModal type="modalOnPage">
-      <PortfolioPageComponent item={currentCase} locale={locale} />
+      <PortfolioPageComponent item={currentPortfolio} locale={locale} />
     </RouteModal>
   );
 }

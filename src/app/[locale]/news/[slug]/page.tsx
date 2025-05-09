@@ -1,8 +1,16 @@
 import NewsPageComponent from '@/components/NewsPageComponent';
 import NewsSection from '@/components/sections/News';
-// import AllCasesLink from '@/components/ui/links/AllCasesLink';
-import allNews from '@/data/news.json';
 import { Link } from '@/i18n/navigation';
+import { getNews } from '@/utils/api';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const findNews = getNews(params.slug);
+
+  return {
+    title: findNews.title,
+    description: findNews.description,
+  };
+}
 
 export default async function NewsPage({
   params,
@@ -10,7 +18,7 @@ export default async function NewsPage({
   params: { slug: string; locale: 'ua' | 'en' };
 }) {
   const { slug, locale } = await params;
-  const currentNews = allNews.find((news) => news.slug === slug);
+  const currentNews = getNews(slug);
   if (!currentNews) return null;
 
   return (
@@ -21,12 +29,6 @@ export default async function NewsPage({
       <section className="w-full py-10">
         <div className="wrapper mx-auto">
           <NewsPageComponent news={currentNews} locale={locale} />
-          {/* <AllCasesLink
-              href="/news"
-              locale={locale}
-              className={'w-fit mx-auto mb-10'}
-              section="news"
-            /> */}
         </div>
       </section>
       <NewsSection locale={locale} page="newsPage" />
