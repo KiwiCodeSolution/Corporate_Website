@@ -44,3 +44,27 @@
 .portfolio .custom-pagination {
   width: fit-content !important;
 }
+
+.link::before,
+.link::after {
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 35px;
+  border-radius: 40px;
+  box-shadow: 17px 16px 0 0px var(--color-bgColor);
+}
+
+.link::before {
+  left: 14px;
+  bottom: 63px;
+
+  /* box-shadow: 17px 16px 0 0px #f83232; */
+}
+
+.link::after {
+  right: 61px;
+  top: 29px;
+
+  /* box-shadow: 17px 16px 0 0px #8832f8; */
+}
