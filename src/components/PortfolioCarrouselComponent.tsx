@@ -28,6 +28,7 @@ export default function PortfolioCarrouselComponent({
         loop={true}
         slidesPerView={4}
         spaceBetween={24}
+        autoplay={{ delay: 3000 }}
         modules={[Autoplay, Navigation, Pagination]}
         pagination={{
           el: '.custom-pagination-portfolio',
@@ -95,7 +96,7 @@ export default function PortfolioCarrouselComponent({
           href="/portfolio"
           locale={locale}
           className={
-            'w-full md:w-fit xl:w-[156px] absolute bottom-[-80px] md:bottom-0 right-0 z-[10] justify-center'
+            'w-full md:w-fit xl:w-[170px] absolute bottom-[-80px] md:bottom-0 right-0 z-[10] justify-center'
           }
           section="portfolio"
         />

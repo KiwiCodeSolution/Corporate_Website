@@ -1,41 +1,48 @@
 'use client';
 
 import Image from 'next/image';
+import clsx from 'clsx';
+import { Arrow } from '@/assets/icons/icons';
 import { PortfolioItem } from './PortfolioCard';
 import ServicePoint from './ServicePoint';
 import Title from './Title';
 import IconLink from './ui/links/IconLink';
-import { Arrow } from '@/assets/icons/icons';
 import '../styles/portfolio.css';
 
 type PortfolioCasePreviewProps = {
   item: PortfolioItem;
   locale: 'ua' | 'en';
+  index: number;
 };
 
-const PortfolioCasePreview = ({ item, locale }: PortfolioCasePreviewProps) => {
+const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps) => {
   const titleByLocale = locale === 'ua' ? item.title : item.title_en;
   const descriptionByLocale = locale === 'ua' ? item.description : item.description_en;
   return (
-    <article className="w-full min-h-[634px] flex flex-col gap-y-8 group">
+    <article
+      className={clsx(
+        'w-full min-h-[634px] flex flex-col gap-y-8 group',
+        index % 2 === 1 && 'mt-[200px]' // для непарних
+      )}
+    >
       <div className="relative">
-        <div className="w-full rounded-[40px] overflow-hidden h-[400px] group-hover:rounded-br-[83px] transition-all duration-500 ease-in-out ">
+        <div className="w-full rounded-[40px] overflow-hidden h-[400px]">
           <Image
             src={item.image || '/images/not-found.png'}
             alt={`Image for ${item.title}`}
             width={512}
             height={400}
-            className="object-cover w-[512px] h-[400px] transition-all duration-500 ease-in-out"
+            className="object-cover w-[512px] h-[400px] "
           />
         </div>
-        <div className="link w-16 h-16 link-wrapper bg-bgColor flex items-end justify-end  absolute bottom-[0px] right-[0px] opacity-0 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+        <div className="link w-16 h-16 link-wrapper bg-bgColor flex items-end justify-end absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform">
           <IconLink
             size="m"
-            className="group-hover:shadow-2xl group-hover:shadow-bgColor"
+            className=""
             icon={Arrow}
             iconProps={{ s: false, base: true }}
             locale={locale}
-            href={item.slug}
+            href={`${locale}/portfolio/${item.slug}`}
           />
         </div>
       </div>

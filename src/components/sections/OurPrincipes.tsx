@@ -26,8 +26,8 @@ const PortfolioPageTest = ({ locale }: { locale: 'ua' | 'en' }) => {
   return (
     <section>
       <div className="wrapper mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        {castedCases.map((el) => (
-          <PortfolioCasePreview key={el.id} item={el} locale={locale} />
+        {castedCases.map((el, index) => (
+          <PortfolioCasePreview key={el.id} item={el} locale={locale} index={index} />
         ))}
       </div>
     </section>

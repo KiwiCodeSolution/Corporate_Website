@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export type PortfolioType =
   | 'UI/UX Design'
   | 'Development'
