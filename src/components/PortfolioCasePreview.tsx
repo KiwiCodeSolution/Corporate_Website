@@ -19,16 +19,16 @@ const PortfolioCasePreview = ({ item, locale }: PortfolioCasePreviewProps) => {
   return (
     <article className="w-full min-h-[634px] flex flex-col gap-y-8 group">
       <div className="relative">
-        <div className="w-full rounded-[40px] overflow-hidden h-[400px] group-hover:rounded-br-[70px]">
+        <div className="w-full rounded-[40px] overflow-hidden h-[400px] group-hover:rounded-br-[83px] transition-all duration-500 ease-in-out ">
           <Image
             src={item.image || '/images/not-found.png'}
             alt={`Image for ${item.title}`}
             width={512}
             height={400}
-            className="object-cover w-[512px] h-[400px]"
+            className="object-cover w-[512px] h-[400px] transition-all duration-500 ease-in-out"
           />
         </div>
-        <div className="link w-16 h-16 rounded-full bg-bgColor flex items-end justify-end opacity-0 group-hover:opacity-100 absolute bottom-[0px] right-[0px]">
+        <div className="link w-16 h-16 link-wrapper bg-bgColor flex items-end justify-end  absolute bottom-[0px] right-[0px] opacity-0 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
           <IconLink
             size="m"
             className="group-hover:shadow-2xl group-hover:shadow-bgColor"
