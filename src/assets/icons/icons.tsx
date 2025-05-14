@@ -95,6 +95,7 @@ type ArrowProps = {
   m?: boolean;
   l?: boolean;
   xl?: boolean;
+  base?: boolean;
   className?: string;
 };
 
@@ -103,6 +104,7 @@ export const Arrow = ({
   m = false,
   l = false,
   xl = false,
+  base = false,
   className = '',
 }: ArrowProps) => (
   <svg
@@ -113,7 +115,8 @@ export const Arrow = ({
       s && 'w-[12px] h-[16px] arrow',
       m && 'w-[12px] h-[16px] rotate-45 ',
       l && 'w-[20px] h-[16px] arrow',
-      xl && 'w-[28px] h-[16px] arrow'
+      xl && 'w-[28px] h-[16px] arrow',
+      base && 'w-[12px] h-[16px]'
     )}
   >
     <path
@@ -123,6 +126,7 @@ export const Arrow = ({
         m && 'fill-accent',
         l && 'fill-white',
         xl && 'fill-white',
+        base && 'fill-white',
         className
       )}
     />

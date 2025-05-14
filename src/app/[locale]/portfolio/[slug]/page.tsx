@@ -1,25 +1,26 @@
-import NewsPageComponent from '@/components/NewsPageComponent';
-import NewsSection from '@/components/sections/News';
+import { PortfolioItem } from '@/components/PortfolioCard';
+import PortfolioPageComponent from '@/components/PortfolioPageComponent';
 import { Link } from '@/i18n/navigation';
-import { getNews } from '@/utils/api';
+import { getCase } from '@/utils/api';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const findNews = getNews(params.slug);
+  const findCase = await getCase(params.slug);
 
   return {
-    title: findNews.title,
-    description: findNews.description,
+    title: findCase.title,
+    description: findCase.description,
   };
 }
 
-export default async function NewsPage({
+export default async function PortfolioPage({
   params,
 }: {
   params: { slug: string; locale: 'ua' | 'en' };
 }) {
   const { slug, locale } = await params;
-  const currentNews = getNews(slug);
-  if (!currentNews) return null;
+  const currentPortfolio = getCase(slug) as PortfolioItem;
+
+  if (!currentPortfolio) return null;
 
   return (
     <main className="w-full items-center justify-center bg-bgColor relative">
@@ -28,10 +29,9 @@ export default async function NewsPage({
       </Link>
       <section className="w-full py-10">
         <div className="wrapper mx-auto">
-          <NewsPageComponent news={currentNews} locale={locale} />
+          <PortfolioPageComponent item={currentPortfolio} locale={locale} />
         </div>
       </section>
-      <NewsSection locale={locale} page="newsPage" />
     </main>
   );
 }
