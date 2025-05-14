@@ -88,5 +88,18 @@
     "allNews": "All news",
     "learnMore": "Learn more"
   },
-  "News": { "title_home": "News", "title_page_by_slug": "Other News" }
+  "News": { "title_home": "News", "title_page_by_slug": "Other News" },
+  "Cases": {
+    "title_home": "Portfolio",
+    "title_page_by_slug": "Other Cases"
+  },
+  "technologies": {
+    "UI/UX Design": "UI/UX Design",
+    "Development": "Development",
+    "SMM": "SMM",
+    "Marketing": "Marketing",
+    "Branding": "Branding",
+    "Optimisation": "Optimisation",
+    "Creative Solutions": "Creative Solutions"
+  }
 }

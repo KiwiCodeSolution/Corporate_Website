@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { Arrow } from '@/assets/icons/icons';
 import { PortfolioItem } from './PortfolioCard';
 import ServicePoint from './ServicePoint';
@@ -15,9 +16,25 @@ type PortfolioCasePreviewProps = {
   index: number;
 };
 
+type Messages = {
+  technologies: {
+    [key: string]: string;
+  };
+};
+
 const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps) => {
+  const [messages, setMessages] = useState<Messages | null>(null);
   const titleByLocale = locale === 'ua' ? item.title : item.title_en;
   const descriptionByLocale = locale === 'ua' ? item.description : item.description_en;
+
+  useEffect(() => {
+    fetch(`/locales/${locale}.json`)
+      .then((res) => res.json())
+      .then((data) => setMessages(data));
+  }, [locale]);
+
+  if (!messages) return null;
+
   return (
     <article
       className={clsx(
@@ -46,9 +63,9 @@ const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps
           />
         </div>
       </div>
-      <ul className="flex flex-wrap items-center gap-x-4">
-        {item.type.map((type) => (
-          <ServicePoint key={item.title + type} label={type} />
+      <ul className="flex flex-wrap items-center gap-4">
+        {item.type.map((el) => (
+          <ServicePoint key={item.title + el} label={messages.technologies[el] || el} />
         ))}
       </ul>
       <div className="flex flex-col gap-y-2">

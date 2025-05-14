@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { getCase } from '@/utils/api';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const findCase = getCase(params.slug);
+  const findCase = await getCase(params.slug);
 
   return {
     title: findCase.title,

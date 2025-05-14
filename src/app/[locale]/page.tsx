@@ -1,17 +1,14 @@
-import PaginationButton from '@/components/ui/buttons/PaginationButton';
+import { getTranslations } from 'next-intl/server';
 import OurServicesSection from '@/components/sections/OurServices';
 import PortfolioSection from '@/components/sections/Portfolio';
-// import OurServicesSection from '@/components/sections/OurServices';
 import HowWeWorkSection from '@/components/sections/HowWeWork';
-import IconButton from '@/components/ui/buttons/IconButton';
+// import IconButton from '@/components/ui/buttons/IconButton';
 import AboutSection from '@/components/sections/About';
 import NewsSection from '@/components/sections/News';
 import LocaleToggle from '@/components/LocaleToggle';
 import ThemeToggle from '@/components/ThemeToggle';
-import { getTranslations } from 'next-intl/server';
+// import PaginationButton from '@/components/ui/buttons/PaginationButton';
 import Title from '@/components/Title';
-
-// import PortfolioPageTest from '@/components/sections/OurPrincipes';
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -30,7 +27,7 @@ export default async function Home({ params }) {
       {/* <IconButton label="Learn more"> */}
       {/* </IconButton> */}
       <AboutSection />
-      {/* <PortfolioPageTest locale={locale} /> */}
+
       <OurServicesSection locale={locale} />
       <PortfolioSection locale={locale} />
       <HowWeWorkSection />
