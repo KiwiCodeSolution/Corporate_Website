@@ -1,28 +1,41 @@
 'use client';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { ANIMATION_DURATION_MS } from '@/configs/animationConfig';
 import Img1 from '../../../public/images/principles/screen_2_lamp.png';
-import '../../styles/principles.css';
+
+const EXIT_ANIMATION_MS = 700;
 
 const MotionPrinciple3 = () => {
-  return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center phone-content">
-      <motion.p
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="text-white text-center mb-4"
-      >
-        Друге зображення
-      </motion.p>
+  const [visible, setVisible] = useState(false);
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        <Image src={Img1} alt="1" width={100} height={100} />
-      </motion.div>
+  useEffect(() => {
+    setVisible(true);
+
+    const visibleDuration = ANIMATION_DURATION_MS - EXIT_ANIMATION_MS;
+
+    const hideTimeout = setTimeout(() => {
+      setVisible(false);
+    }, visibleDuration);
+
+    return () => clearTimeout(hideTimeout);
+  }, []);
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center phone-content">
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: EXIT_ANIMATION_MS / 1000, ease: 'easeOut' }} // тут перевели мілісекунди в секунди
+          >
+            <Image src={Img1} alt="lamp" width={340} height={455} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

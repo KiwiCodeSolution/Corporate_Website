@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image';
 import { JSX, useEffect, useState } from 'react';
+import clsx from 'clsx';
+import { ANIMATION_DURATION_MS } from '@/configs/animationConfig';
 import IPhone from '../../public/images/iphone.png';
 import Title from './Title';
 import '../styles/principles.css';
-import clsx from 'clsx';
 import PhoneContent from './PhoneContent';
 
 export type PrinciplesItems = {
@@ -20,12 +21,12 @@ type PrinciplesProps = {
 };
 
 const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
-  const [currentItem, setCurrentItem] = useState<number>(0);
+  const [currentItem, setCurrentItem] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentItem((prev) => (prev + 1) % principles.length);
-    }, 6000);
+    }, ANIMATION_DURATION_MS);
 
     return () => clearInterval(interval);
   }, [principles.length]);
@@ -51,45 +52,58 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
       <div className="w-[616px] flex flex-col gap-y-12">
         <Title tag="h2">Our Principles</Title>
         <ul className="w-full flex flex-col gap-y-8">
-          {principles.map((item, index) => (
-            <li key={item.id} className="w-full flex gap-x-10">
-              <div
-                className={clsx(
-                  'w-[50px] h-[50px] rounded-full flex items-center justify-center',
-                  currentItem === index && 'base-gradient',
-                  currentItem !== index && 'bg-main-grey'
-                )}
-              >
-                {item.icon}
-              </div>
+          {principles.map((item, index) => {
+            const isActive = index === currentItem;
 
-              <div
+            return (
+              <li
+                key={item.id}
                 className={clsx(
-                  'w-[calc(100%-50px-40px)] flex flex-col gap-y-2',
-                  currentItem === index && 'opacity-100',
-                  currentItem !== index && 'opacity-50'
+                  'w-full flex gap-x-10',
+                  'transition-opacity duration-700 ease-in-out',
+                  isActive ? 'opacity-100' : 'opacity-50'
                 )}
               >
-                <Title
-                  tag="h3"
-                  styles={clsx(
-                    currentItem === index && 'text-main',
-                    currentItem !== index && 'text-[#22282B]'
-                  )}
-                >
-                  {item.title}
-                </Title>
-                <p
-                  className={clsx(
-                    currentItem === index && 'text-main-dark-grey',
-                    currentItem !== index && 'text-main'
-                  )}
-                >
-                  {item.description}
-                </p>
-              </div>
-            </li>
-          ))}
+                <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden">
+                  <div
+                    className={clsx(
+                      'absolute inset-0 transition-opacity duration-700 ease-in-out',
+                      isActive ? 'opacity-100 base-gradient' : 'opacity-0'
+                    )}
+                  />
+                  <div
+                    className={clsx(
+                      'absolute inset-0 transition-opacity duration-700 ease-in-out',
+                      isActive ? 'opacity-0 bg-main-grey' : 'opacity-100 bg-main-grey'
+                    )}
+                  />
+                  <div className="relative z-10 flex items-center justify-center w-full h-full">
+                    {item.icon}
+                  </div>
+                </div>
+
+                <div className="w-[calc(100%-50px-40px)] flex flex-col gap-y-2">
+                  <Title
+                    tag="h3"
+                    styles={clsx(
+                      'transition-colors duration-700 ease-in-out',
+                      isActive ? 'text-main' : 'text-[#22282B]'
+                    )}
+                  >
+                    {item.title}
+                  </Title>
+                  <p
+                    className={clsx(
+                      'transition-colors duration-700 ease-in-out',
+                      isActive ? 'text-main-dark-grey' : 'text-main'
+                    )}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
