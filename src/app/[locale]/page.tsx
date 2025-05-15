@@ -9,6 +9,7 @@ import LocaleToggle from '@/components/LocaleToggle';
 import ThemeToggle from '@/components/ThemeToggle';
 // import PaginationButton from '@/components/ui/buttons/PaginationButton';
 import Title from '@/components/Title';
+import OurPrinciplesSection from '@/components/sections/OurPrinciples';
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -26,13 +27,14 @@ export default async function Home({ params }) {
       {/* <PaginationButton variant="number" direction="left" /> */}
       {/* <IconButton label="Learn more"> */}
       {/* </IconButton> */}
-      <AboutSection />
+      {/* <AboutSection /> */}
 
-      <OurServicesSection locale={locale} />
-      <PortfolioSection locale={locale} />
-      <HowWeWorkSection />
+      {/* <OurServicesSection locale={locale} /> */}
+      <OurPrinciplesSection />
+      {/* <PortfolioSection locale={locale} /> */}
+      {/* <HowWeWorkSection /> */}
 
-      <NewsSection locale={locale} page="home" />
+      {/* <NewsSection locale={locale} page="home" /> */}
     </main>
   );
 }

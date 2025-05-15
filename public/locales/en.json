@@ -101,5 +101,27 @@
     "Branding": "Branding",
     "Optimisation": "Optimisation",
     "Creative Solutions": "Creative Solutions"
+  },
+  "Principles": {
+    "title": "Our Principles",
+    "principles": [
+      {
+        "title": "Expertise and professionalism",
+        "text": "The company applies its deep expertise and professional approach to ensure the delivery of high-quality, reliable solutions, maintaining a focus on excellence in every project."
+      },
+      {
+        "title": "Individual approach",
+        "text": "Each project is approached individually, with tailored solutions to meet the client’s unique needs and goals."
+      },
+      {
+        "title": "Innovation",
+        "text": "We are always one step ahead. KiWiCode Solutions implements cutting-edge technologies, we don’t just keep up with the times—we create the future together with you."
+      },
+      {
+        "title": "Reliable Partnership",
+        "text": "Building long-term, collaborative relationships with clients, the focus is on working together to achieve shared success."
+      }
+    ],
+    "btn": "Learn more"
   }
 }

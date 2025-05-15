@@ -7,6 +7,7 @@
   --background: #fff;
   --foreground: #0c1719;
   --main: #0c1719;
+  --main-dark-grey: #505050;
   --accent: #4ab88b;
   --bright-green: #38ee7d;
   --turquoise: #5bd1c5;
@@ -26,6 +27,7 @@
   --color-main: var(--foreground);
   --color-dark: var(--main);
   --color-main-grey: var(--grey);
+  --color-main-dark-grey: var(--main-dark-grey);
   --color-accent: var(--accent);
   --color-bright-green: var(--bright-green);
   --color-turquoise: var(--turquoise);
