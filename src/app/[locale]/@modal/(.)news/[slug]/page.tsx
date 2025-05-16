@@ -1,8 +1,15 @@
-import { NewsItem } from '@/components/NewsCard';
 import NewsPageComponent from '@/components/NewsPageComponent';
 import { RouteModal } from '@/components/ui/modal/RouteModal';
+import { getNews } from '@/utils/api';
 
-import allNews from '@/data/news.json';
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const findNews = getNews(params.slug);
+
+  return {
+    title: findNews.title,
+    description: findNews.description,
+  };
+}
 
 export default async function NewsModalSlotPage({
   params,
@@ -10,7 +17,7 @@ export default async function NewsModalSlotPage({
   params: { slug: string; locale: 'ua' | 'en' };
 }) {
   const { slug, locale } = await params;
-  const currentNews = allNews.find((news) => news.slug === slug) as NewsItem;
+  const currentNews = getNews(slug);
 
   if (!currentNews) return null;
 

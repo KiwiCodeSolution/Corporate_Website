@@ -1,0 +1,77 @@
+.portfolio .swiper {
+  padding: 10px 0 !important;
+  margin-left: -290px !important;
+  position: static;
+
+  @media screen and (min-width: 768px) {
+    margin-left: -150px !important;
+  }
+}
+
+.portfolio .swiper-slide {
+  width: 560px !important;
+  height: 384px !important;
+}
+
+.portfolio-slick .swiper-pagination {
+  width: fit-content;
+  bottom: 0;
+  position: absolute;
+  left: calc(50% - 482px);
+}
+
+.portfolio-slick .swiper-pagination-bullets {
+  width: fit-content !important;
+}
+
+.portfolio-slick-next,
+.portfolio-slick-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.portfolio-slick-next {
+  left: 204px;
+}
+
+.portfolio-slick-prev {
+  left: 0;
+}
+
+.portfolio .custom-pagination {
+  width: fit-content !important;
+}
+
+.link::before,
+.link::after {
+  position: absolute;
+  content: '';
+  width: 64px;
+  height: 64px;
+  bottom: 0;
+  right: 0;
+  border-radius: 0 0 50% 0;
+}
+
+.link::before {
+  left: 0px;
+  bottom: 64px;
+  box-shadow: 33px 0px 0 0px var(--color-bgColor);
+}
+
+.link::after {
+  right: 64px;
+  top: 0px;
+  box-shadow: 0px 33px 0 0px var(--color-bgColor);
+}
+
+.link-wrapper {
+  border-radius: 50% 0 0 0;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    border-radius 0.4s ease;
+}

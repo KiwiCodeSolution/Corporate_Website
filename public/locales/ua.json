@@ -99,5 +99,18 @@
     "services": "Послуги",
     "portfolio": "Портфоліо",
     "news": "Новини"
+  },
+  "Cases": {
+    "title_home": "Портфоліо",
+    "title_page_by_slug": "Інші кейси"
+  },
+  "technologies": {
+    "UI/UX Design": "UI/UX дизайн",
+    "Development": "Розробка",
+    "SMM": "SMM",
+    "Marketing": "Маркетинг",
+    "Branding": "Брендинг",
+    "Optimisation": "Оптимізація",
+    "Creative Solutions": "Креативні рішення"
   }
 }

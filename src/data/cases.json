@@ -1,0 +1,123 @@
+[
+  {
+    "id": 13,
+    "title": "Редизайн інтернет-магазину органічних продуктів",
+    "title_en": "Redesign of Organic Food E-commerce",
+    "description": "Повний редизайн сайту з фокусом на простоту замовлення, легку навігацію та адаптивність для мобільних. Включено UI/UX дослідження та реалізацію на React.",
+    "description_en": "Complete redesign focusing on easy ordering, smooth navigation, and mobile responsiveness. Included UI/UX research and React implementation.",
+    "image": "/images/portfolio/organic-redesign.png",
+    "date": "2025-04-30T18:27:00Z",
+    "type": ["UI/UX Design", "Development"],
+    "slug": "organic-redesign"
+  },
+  {
+    "id": 14,
+    "title": "Просування бренду в Instagram для кав'ярні",
+    "title_en": "Instagram Brand Promotion for Coffee Shop",
+    "description": "Створення контенту, проведення акцій та таргетована реклама. Збільшили кількість підписників на 40% за 3 місяці.",
+    "description_en": "Content creation, promotions, and targeted ads. Increased followers by 40% within 3 months.",
+    "image": "/images/portfolio/coffee-smm.jpg",
+    "date": "2025-04-15T15:10:00Z",
+    "type": ["SMM", "Marketing"],
+    "slug": "coffee-smm"
+  },
+  {
+    "id": 16,
+    "title": "Брендинг для молодіжного одягового бренду",
+    "title_en": "Branding for Youth Clothing Brand",
+    "description": "Розробка логотипу, фірмового стилю та гайдлайнів для соціальних мереж.",
+    "description_en": "Logo design, brand identity, and social media guidelines development.",
+    "image": "/images/portfolio/youth-branding.jpg",
+    "date": "2025-02-20T09:30:00Z",
+    "type": ["Branding", "Creative Solutions"],
+    "slug": "youth-branding"
+  },
+  {
+    "id": 17,
+    "title": "Оптимізація швидкості корпоративного сайту",
+    "title_en": "Corporate Website Speed Optimization",
+    "description": "Зменшення часу завантаження сторінок з 6 до 2 секунд, оптимізація зображень, коду та налаштування кешування.",
+    "description_en": "Reduced page load time from 6 to 2 seconds by optimizing images, code, and caching.",
+    "image": "/images/portfolio/site-optimization.jpg",
+    "date": "2025-01-15T11:20:00Z",
+    "type": ["Optimisation", "Development"],
+    "slug": "site-optimization"
+  },
+  {
+    "id": 18,
+    "title": "Креативна кампанія для запуску нового продукту",
+    "title_en": "Creative Campaign for New Product Launch",
+    "description": "Ідея та реалізація мультиканальної кампанії: соціальні мережі, розсилки та колаборації з інфлюенсерами.",
+    "description_en": "Concept and execution of a multichannel campaign: social media, newsletters, and influencer collaborations.",
+    "image": "/images/portfolio/product-launch.jpg",
+    "date": "2024-12-10T16:40:00Z",
+    "type": ["Creative Solutions", "Marketing"],
+    "slug": "product-launch"
+  },
+  {
+    "id": 19,
+    "title": "Дизайн мобільного додатку для фітнесу",
+    "title_en": "Fitness Mobile App Design",
+    "description": "UI/UX дизайн додатку з трекером тренувань, планами харчування та push-нотифікаціями.",
+    "description_en": "UI/UX design for an app featuring workout tracker, meal plans, and push notifications.",
+    "image": "/images/portfolio/fitness-app.jpg",
+    "date": "2024-11-05T13:00:00Z",
+    "type": "UI/UX Design",
+    "slug": "fitness-app"
+  },
+  {
+    "id": 20,
+    "title": "Розробка та SEO для блогу про подорожі",
+    "title_en": "Development and SEO for Travel Blog",
+    "description": "Розробка багатомовного блогу з інтеграцією карти, коментарів та SEO-оптимізацією контенту.",
+    "description_en": "Development of a multilingual blog with integrated map, comments, and SEO-optimized content.",
+    "image": "/images/portfolio/travel-blog.jpg",
+    "date": "2024-10-22T10:15:00Z",
+    "type": ["Development", "Optimisation"],
+    "slug": "travel-blog"
+  },
+  {
+    "id": 21,
+    "title": "Сайт ресторану Taurus Soul",
+    "title_en": "Taurus Soul Restaurant Website",
+    "description": "Створення багатофункціонального сайту для ресторану: перегляд меню, онлайн-замовлення їжі на виніс, бронювання столиків та організація свят. Реалізована потужна адмінпанель для управління контентом, замовленнями, бронюваннями та запитами від клієнтів.",
+    "description_en": "Development of a multifunctional website for the Taurus Soul restaurant: menu browsing, online takeaway orders, table reservations, and event organization. A robust admin panel was implemented for managing content, orders, reservations, and customer inquiries.",
+    "image": "/images/portfolio/taurus-soul.png",
+    "date": "2025-04-05T14:00:00Z",
+    "type": ["Development", "UI/UX Design"],
+    "slug": "taurus-soul"
+  },
+  {
+    "id": 22,
+    "title": "Сайт компанії з ремонту техніки",
+    "title_en": "Repair Services Company Website",
+    "description": "Розробка односторінкового сайту для сервісної компанії, що спеціалізується на ремонті комп'ютерної та побутової техніки. Дизайн адаптовано під чотири розміри екранів. На сайті представлено послуги, поширені запитання, форму для заявки та контакти. Оптимізовано швидкість завантаження та SEO.",
+    "description_en": "Development of a one-page website for a repair services company specializing in computer and household appliances. The design was adapted for four screen sizes. The site features services, FAQs, a request form, and contact information. Speed optimization and SEO were implemented.",
+    "image": "/images/portfolio/repair-services.png",
+    "date": "2025-03-10T12:00:00Z",
+    "type": ["Development", "Optimisation"],
+    "slug": "repair-services"
+  },
+  {
+    "id": 23,
+    "title": "Магазин м'ясних продуктів Myasorobka",
+    "title_en": "Myasorobka Meat Products Store",
+    "description": "Розробка односторінкового магазину з каталогом м'ясних виробів та напівфабрикатів. Реалізовано можливість оформлення замовлення, підключено адмінпанель для керування асортиментом, цінами та обробки замовлень. Зроблено фокус на швидку навігацію та зручність користувачів.",
+    "description_en": "Development of a one-page online store with a catalog of meat products and semi-finished goods. Features include order placement, an admin panel for managing products, prices, and orders. Focused on fast navigation and user convenience.",
+    "image": "/images/portfolio/myasorobka.png",
+    "date": "2025-02-18T10:30:00Z",
+    "type": ["Development", "UI/UX Design"],
+    "slug": "myasorobka"
+  },
+  {
+    "id": 24,
+    "title": "Сайт служби клінінгу Cleaning-Services",
+    "title_en": "Cleaning Services Company Website",
+    "description": "Створення односторінкового сайту для клінінгової компанії. Сайт містить інформацію про компанію, послуги, тарифи та форму для зворотного зв’язку. Адаптивний дизайн забезпечує відмінний досвід на будь-яких пристроях. Оптимізовано швидкість завантаження та мобільну продуктивність.",
+    "description_en": "Development of a one-page website for a cleaning services company. The site includes company information, services, pricing, and a contact form. Adaptive design ensures excellent experience across devices. Optimized for speed and mobile performance.",
+    "image": "/images/portfolio/cleaning-services.png",
+    "date": "2025-01-25T09:00:00Z",
+    "type": ["Development", "UI/UX Design", "Optimisation"],
+    "slug": "cleaning-services"
+  }
+]

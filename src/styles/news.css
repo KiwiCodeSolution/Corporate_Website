@@ -1,22 +1,9 @@
-/* slick */
-
 .news-slick {
-  padding-bottom: 98px !important;
-}
-
-.news-slick .swiper-pagination {
-  width: 90px;
-  bottom: 15px;
-  position: absolute;
-  left: 42px;
+  padding-bottom: 48px !important;
 }
 
 .news-slick-next,
 .news-slick-prev {
-  position: absolute;
-  bottom: 0px;
-  z-index: 15;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,10 +11,6 @@
   cursor: pointer;
 }
 
-.news-slick-next {
-  left: 124px;
-}
-
-.news-slick-prev {
-  left: 0;
+.news .custom-pagination {
+  width: fit-content !important;
 }
