@@ -93,5 +93,11 @@
     "learnMore": "Дізнатися більше"
   },
 
-  "News": { "title_home": "Новини", "title_page_by_slug": "Інші Новини" }
+  "News": { "title_home": "Новини", "title_page_by_slug": "Інші Новини" },
+  "Nav": {
+    "about": "Про нас",
+    "services": "Послуги",
+    "portfolio": "Портфоліо",
+    "news": "Новини"
+  }
 }

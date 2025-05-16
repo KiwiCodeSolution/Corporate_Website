@@ -153,6 +153,24 @@ html {
   background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
 }
 
+.header-gradient-light {
+  background: linear-gradient(
+    to bottom,
+    rgba(224, 245, 237, 1),
+    rgba(231, 247, 241, 0.9),
+    rgba(253, 254, 254, 0.8)
+  );
+}
+
+.header-gradient-dark {
+  background: linear-gradient(
+    to bottom,
+    rgba(21, 71, 61, 1),
+    rgba(8, 16, 11, 0.85),
+    rgba(8, 16, 11, 0.7)
+  );
+}
+
 /* базовий перехід */
 
 .base-transition {

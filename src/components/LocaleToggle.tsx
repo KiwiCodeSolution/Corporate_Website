@@ -8,7 +8,11 @@ const localeStyle = 'group flex items-center cursor-pointer';
 const localeTextStyle =
   'h-[20px] text-[20px] leading-[1] font-normal transition-all duration-200 ease-in-out group-hover:border-b-1 peer-focus:border-b-1';
 
-export default function LocaleToggle() {
+type LocaleToggleProps = {
+  className?: string;
+};
+
+export default function LocaleToggle({ className = '' }: LocaleToggleProps) {
   const params = useParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -20,7 +24,7 @@ export default function LocaleToggle() {
   }
 
   return (
-    <div className="flex h-6 ">
+    <div className={clsx('flex h-6 ', className)}>
       <label className={clsx(localeStyle, 'border-r-[0.5px] pr-[3px]')}>
         <input
           type="radio"

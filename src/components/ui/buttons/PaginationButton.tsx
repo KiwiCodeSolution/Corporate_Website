@@ -36,9 +36,6 @@ export default function PaginationButton({
   const AutoSelectedIcon = Icon ?? (direction === 'left' ? Prev : Next);
   const isPageNumberExist = pageNumber ?? false;
 
-  console.log('isCurrent :>> ', isCurrent);
-  console.log('variant: ', variantMap[variant]);
-
   return (
     <button
       className={clsx(
