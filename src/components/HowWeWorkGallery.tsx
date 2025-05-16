@@ -72,14 +72,14 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
         {items.map((el, index) => (
           <li
             key={el.id}
-            className={`${currentItem !== index ? 'opacity-50' : 'opacity-100'} relative transition-opacity duration-300`}
+            className={`${currentItem !== index ? 'opacity-30' : 'opacity-100'} relative transition-opacity duration-300`}
           >
             {currentItem === index && (
               <div className="absolute top-1/2 -translate-y-1/2 -left-[44px] w-[5px] h-20 rounded-[3px] bg-[#5BD187]" />
             )}
 
             <Title styles={'mb-2'}>{el.title}</Title>
-            <p className="line-clamp-3 text-main-grey">{el.text}</p>
+            <p className="line-clamp-3 text-main-dark-grey">{el.text}</p>
           </li>
         ))}
       </ul>

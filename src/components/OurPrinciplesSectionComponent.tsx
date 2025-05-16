@@ -32,14 +32,28 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
   }, [principles.length]);
 
   return (
-    <div className="flex gap-x-[104px] items-center justify-between">
-      <div className="w-[320px] flex items-center justify-between relative">
+    <div className="flex flex-col md:flex-row gap-8 xl:gap-x-[104px] xl:gap-y-0 items-center justify-center">
+      {/* секція із телефоном */}
+
+      <div className="w-[320px] flex items-center justify-between relative order-2 md:order-1">
+        {/* маска телефона із градієнтрим фоном */}
         <div className="principles-iphone-wrapper">
           <div className="principles-screen-mask">
-            <div className="principles-bg-gradient" />
+            <div
+              className={clsx(
+                'absolute inset-0 transition-opacity duration-700 ease-in-out',
+                currentItem === 2
+                  ? 'principles-bg-gradient-second'
+                  : currentItem === 3
+                    ? 'principles-bg-gradient-third'
+                    : 'principles-bg-gradient-first'
+              )}
+            />
+
+            {/* тут ренедяриться зображення */}
             <PhoneContent currentItem={currentItem} />
           </div>
-
+          {/* саме зображення телефону */}
           <Image
             src={IPhone}
             alt="Principles"
@@ -49,8 +63,12 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
           />
         </div>
       </div>
-      <div className="w-[616px] flex flex-col gap-y-12">
+
+      {/* блок із текстовим наповненням */}
+      <div className="w-full md:min-w-[364px] md:max-w-[500px] xl:w-[616px] flex flex-col gap-y-12 order-1 md:order-2">
         <Title tag="h2">Our Principles</Title>
+
+        {/* текст пунктів */}
         <ul className="w-full flex flex-col gap-y-8">
           {principles.map((item, index) => {
             const isActive = index === currentItem;
@@ -59,12 +77,13 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
               <li
                 key={item.id}
                 className={clsx(
-                  'w-full flex gap-x-10',
+                  'w-full flex gap-x-4 xl:gap-x-10',
                   'transition-opacity duration-700 ease-in-out',
                   isActive ? 'opacity-100' : 'opacity-50'
                 )}
               >
-                <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden">
+                {/* іконка + зміна градієнту та заливки при анімації */}
+                <div className="flex-none relative w-[50px] h-[50px] rounded-full overflow-hidden">
                   <div
                     className={clsx(
                       'absolute inset-0 transition-opacity duration-700 ease-in-out',
@@ -82,7 +101,8 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
                   </div>
                 </div>
 
-                <div className="w-[calc(100%-50px-40px)] flex flex-col gap-y-2">
+                {/* текст пунктів */}
+                <div className="flex flex-col gap-y-2 flex-1 max-w-[281px] md:max-w-[400px] xl:max-w-[526px]">
                   <Title
                     tag="h3"
                     styles={clsx(

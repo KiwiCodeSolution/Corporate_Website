@@ -15,7 +15,7 @@
   z-index: 3;
 }
 
-.principles-bg-gradient {
+.principles-bg-gradient-first {
   position: absolute;
   top: 0;
   left: 0;
@@ -29,6 +29,42 @@
     #22888d 65.49%,
     #083a3e 84.7%,
     #042022 98.99%
+  );
+  z-index: 2;
+}
+
+.principles-bg-gradient-second {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    360deg,
+    #011714 -2.05%,
+    #013c34 16.83%,
+    #0e5957 43.36%,
+    #22888d 72.45%,
+    #083a3e 100%
+  );
+  z-index: 2;
+}
+
+.principles-bg-gradient-third {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    356.86deg,
+    #013c34 0.66%,
+    #3fa78e 18.07%,
+    #47c7c1 32.1%,
+    #4ddee5 48.54%,
+    #39b5bb 61.6%,
+    #22888d 75.63%,
+    #0c494e 97.39%
   );
   z-index: 2;
 }

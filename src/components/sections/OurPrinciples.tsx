@@ -35,7 +35,7 @@ const OurPrinciplesSection = () => {
 
   return (
     <section className="w-full py-6">
-      <div className="wrapper mx-auto">
+      <div className="wrapper md:pl-5 md:pr-8 mx-auto">
         <OurPrinciplesSectionComponent principles={principlesItems} />
       </div>
     </section>

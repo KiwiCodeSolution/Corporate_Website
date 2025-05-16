@@ -14,6 +14,7 @@
   --blue: #227d94;
   --lite-grey: #fbfbfb;
   --grey: #909da2 /* колір використовується на текстах у кнопках*/;
+  --lite-grey-body-text: #dbdcdd;
 }
 
 .dark {
@@ -33,6 +34,7 @@
   --color-turquoise: var(--turquoise);
   --color-blue: var(--blue);
   --color-lite-grey: var(--lite-grey);
+  --color-lite-grey-body-text: var(--lite-grey-body-text);
   --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1);
   --radius-base: 20px;
 }
