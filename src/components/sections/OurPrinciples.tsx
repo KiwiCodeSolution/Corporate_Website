@@ -34,7 +34,7 @@ const OurPrinciplesSection = () => {
   ] as PrinciplesItems[];
 
   return (
-    <section className="w-full py-6">
+    <section className="w-full py-6 mb-16 md:mb-[72px] xl:mb-[52px]">
       <div className="wrapper md:pl-5 md:pr-8 mx-auto">
         <OurPrinciplesSectionComponent principles={principlesItems} />
       </div>

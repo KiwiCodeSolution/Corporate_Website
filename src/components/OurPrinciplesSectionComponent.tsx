@@ -92,8 +92,8 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
                   />
                   <div
                     className={clsx(
-                      'absolute inset-0 transition-opacity duration-700 ease-in-out',
-                      isActive ? 'opacity-0 bg-main-grey' : 'opacity-100 bg-main-grey'
+                      'absolute inset-0 transition-opacity duration-700 ease-in-out bg-grey',
+                      isActive ? 'opacity-0' : 'opacity-100'
                     )}
                   />
                   <div className="relative z-10 flex items-center justify-center w-full h-full">
@@ -105,19 +105,11 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
                 <div className="flex flex-col gap-y-2 flex-1 max-w-[281px] md:max-w-[400px] xl:max-w-[526px]">
                   <Title
                     tag="h3"
-                    styles={clsx(
-                      'transition-colors duration-700 ease-in-out',
-                      isActive ? 'text-main' : 'text-[#22282B]'
-                    )}
+                    styles={clsx('transition-colors duration-700 ease-in-out text-main-title')}
                   >
                     {item.title}
                   </Title>
-                  <p
-                    className={clsx(
-                      'transition-colors duration-700 ease-in-out',
-                      isActive ? 'text-main-dark-grey' : 'text-main'
-                    )}
-                  >
+                  <p className={clsx('transition-colors duration-700 ease-in-out text-main-text')}>
                     {item.description}
                   </p>
                 </div>

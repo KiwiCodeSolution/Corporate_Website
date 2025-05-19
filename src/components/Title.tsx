@@ -10,9 +10,7 @@ const Title = ({
   styles?: string;
   children: React.ReactNode;
 }) => {
-  const commonStyles = 'font-semibold leading-[1.2]';
-
-  // у всіх секціях, окрім Contact us, відступ знизу складає 48 пікселів. У секції Contact us він 30 пікселів. Для коректного відображення у пропсі section потрібно передати "contact" у секції Contact us
+  const commonStyles = 'font-semibold leading-[1.2] text-main-title';
 
   if (tag === 'h1') {
     return <h1 className={clsx(styles, 'text-[52px]', commonStyles)}>{children}</h1>;
@@ -20,13 +18,19 @@ const Title = ({
 
   if (tag === 'h2') {
     return (
-      <h2 className={clsx(styles, 'text-[32px] md:text-[44px] xl:text-[52px]', commonStyles)}>
+      <h2
+        className={clsx(
+          styles,
+          'text-[32px] md:text-[44px] xl:text-[52px] text-main-title',
+          commonStyles
+        )}
+      >
         {children}
       </h2>
     );
   }
 
-  return <h3 className={clsx(styles, 'text-2xl leading-[1.3]')}>{children}</h3>;
+  return <h3 className={clsx(styles, 'text-2xl leading-[1.3] text-main-title')}>{children}</h3>;
 };
 
 export default Title;

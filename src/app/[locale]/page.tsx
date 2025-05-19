@@ -27,14 +27,14 @@ export default async function Home({ params }) {
       {/* <PaginationButton variant="number" direction="left" /> */}
       {/* <IconButton label="Learn more"> */}
       {/* </IconButton> */}
-      {/* <AboutSection /> */}
+      <AboutSection />
 
-      {/* <OurServicesSection locale={locale} /> */}
+      <OurServicesSection locale={locale} />
       <OurPrinciplesSection />
-      {/* <PortfolioSection locale={locale} /> */}
-      {/* <HowWeWorkSection /> */}
+      <PortfolioSection locale={locale} />
+      <HowWeWorkSection />
 
-      {/* <NewsSection locale={locale} page="home" /> */}
+      <NewsSection locale={locale} page="home" />
     </main>
   );
 }

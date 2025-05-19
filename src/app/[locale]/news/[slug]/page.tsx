@@ -3,12 +3,17 @@ import NewsSection from '@/components/sections/News';
 import { Link } from '@/i18n/navigation';
 import { getNews } from '@/utils/api';
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const findNews = getNews(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: 'ua' | 'en' }>;
+}) {
+  const { slug } = await params;
+  const findNews = getNews(slug);
 
   return {
-    title: findNews.title,
-    description: findNews.description,
+    title: findNews?.title || 'News',
+    description: findNews?.description || '',
   };
 }
 

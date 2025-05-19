@@ -5,18 +5,11 @@ import { IPrinciple } from './sections/HowWeWork';
 type HowWeWorkImgBlockProps = {
   items?: IPrinciple[];
   currentItem: number;
-  theme: string;
   section?: 'swiper' | 'gallery';
   item?: IPrinciple;
 };
 
-const HowWeWorkImgBlock = ({
-  items,
-  currentItem,
-  theme,
-  section,
-  item,
-}: HowWeWorkImgBlockProps) => {
+const HowWeWorkImgBlock = ({ items, currentItem, section, item }: HowWeWorkImgBlockProps) => {
   const source = section === 'swiper' ? item : (item ?? items?.[currentItem]);
 
   return (
@@ -51,7 +44,9 @@ const HowWeWorkImgBlock = ({
         <div className="w-full h-[55px] rounded-full absolute top-1/2 left-0 -translate-y-1/2 bg-[#68F2FF] blur-[166px] z-[4]" />
       )}
       <div
-        className={`rounded-base p-6 relative z-[5] mt-auto transition-opacity duration-2000 ease-in-out ${theme === 'dark' ? 'bg-dark text-main-dark-grey' : 'bg-white text-dark'}`}
+        className={`rounded-base p-6 relative z-[5] mt-auto transition-opacity duration-2000 ease-in-out text-main-text bg-white dark:bg-dark
+         
+           `}
       >
         <Title styles={'xl:hidden font-semibold mb-2'}>{source.title}</Title>
         <p>{source.text}</p>
