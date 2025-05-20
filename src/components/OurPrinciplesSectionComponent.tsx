@@ -36,7 +36,11 @@ const OurPrinciplesSectionComponent = ({ principles }: PrinciplesProps) => {
       {/* секція із телефоном */}
 
       <div className="w-[320px] flex items-center justify-between relative order-2 md:order-1">
+        {/* Обгортка з тінню */}
+
+        <div className="absolute top-0 left-[4px] shadow-wrapper" />
         {/* маска телефона із градієнтрим фоном */}
+
         <div className="principles-iphone-wrapper">
           <div className="principles-screen-mask">
             <div
