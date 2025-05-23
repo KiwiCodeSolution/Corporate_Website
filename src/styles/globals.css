@@ -4,6 +4,7 @@
 
 :root {
   --disabled: #c1c7ca;
+  --error: #d6371f;
   --background: #fff;
   --foreground: #0c1719;
   --main: #0c1719;
@@ -22,6 +23,7 @@
 
 @theme inline {
   --color-disabled: var(--disabled);
+  --color-error: var(--error);
   --color-bgColor: var(--background);
   --color-main: var(--foreground);
   --color-dark: var(--main);
@@ -61,8 +63,10 @@ html {
     padding: 0;
   }
 
-  input {
+  input,
+  textarea {
     cursor: text;
+    outline: none;
   }
 
   a {

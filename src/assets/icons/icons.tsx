@@ -502,3 +502,17 @@ export const LitghtTheme = ({ className = '' }: BaseIconProps) => {
     </svg>
   );
 };
+
+export const CheckIcon = ({ className = '' }: BaseIconProps) => {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className={className}>
+      <path
+        d="M11.6666 3.79175L5.24992 10.2084L2.33325 7.29175"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

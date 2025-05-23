@@ -10,6 +10,7 @@ export type PillButtonProps = {
   icon?: (props: { className?: string; [key: string]: string | boolean | number }) => ReactElement;
   iconClassName?: string;
   iconProps?: { [key: string]: string | boolean | number };
+  buttonProps?: { [key: string]: string | boolean | number };
   children?: ReactElement | string;
   disabled?: boolean;
   onClick?: () => void;
@@ -34,6 +35,7 @@ export default function PillButton(props: PillButtonProps) {
     icon: Icon,
     iconClassName = '',
     iconProps = {},
+    buttonProps = {},
     children,
     disabled = false,
     onClick,
@@ -47,17 +49,18 @@ export default function PillButton(props: PillButtonProps) {
 
   return (
     <button
-      type="button"
       className={clsx(
         sizeMap[size],
         variantMap[variant],
+        disabled ? 'pointer-events-none' : 'pointer-events-auto',
         'rounded-full px-10 text-white hover:shadow-base base-transition',
-        'disabled:bg-disabled disabled:cursor-default disabled:hover:shadow-none',
+        'disabled:opacity-50 disabled:cursor-default disabled:hover:shadow-none',
         'outline-[2px] outline-offset-[2px] outline-transparent focus:outline-blue',
         className
       )}
       disabled={disabled}
       onClick={clickHandler}
+      {...buttonProps}
     >
       <div className="flex items-center gap-3">
         <span>{children}</span>
