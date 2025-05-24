@@ -114,6 +114,12 @@
     }
   },
   "News": { "title_home": "News", "title_page_by_slug": "Other News" },
+  "Nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "news": "News"
+  },
   "Cases": {
     "title_home": "Portfolio",
     "title_page_by_slug": "Other Cases"

@@ -119,6 +119,12 @@
   },
 
   "News": { "title_home": "Новини", "title_page_by_slug": "Інші Новини" },
+  "Nav": {
+    "about": "Про нас",
+    "services": "Послуги",
+    "portfolio": "Портфоліо",
+    "news": "Новини"
+  },
   "Cases": {
     "title_home": "Портфоліо",
     "title_page_by_slug": "Інші кейси"

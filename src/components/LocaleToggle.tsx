@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { ChangeEvent } from 'react';
 import { useParams } from 'next/navigation';
 import { useRouter, usePathname } from '@/i18n/navigation';
 
@@ -8,19 +9,24 @@ const localeStyle = 'group flex items-center cursor-pointer';
 const localeTextStyle =
   'h-[20px] text-[20px] leading-[1] font-normal transition-all duration-200 ease-in-out group-hover:border-b-1 peer-focus:border-b-1';
 
-export default function LocaleToggle() {
+type LocaleToggleProps = {
+  className?: string;
+};
+
+export default function LocaleToggle({ className = '' }: LocaleToggleProps) {
   const params = useParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  function localeChangeHandler(e) {
+  function localeChangeHandler(e: ChangeEvent<HTMLInputElement>) {
     const selectedLocale = e.target.value;
 
-    router.replace({ pathname, params }, { locale: selectedLocale });
+    // router.replace({ pathname, params }, { locale: selectedLocale });
+    router.replace({ pathname }, { locale: selectedLocale });
   }
 
   return (
-    <div className="flex h-6 ">
+    <div className={clsx('flex h-6 ', className)}>
       <label className={clsx(localeStyle, 'border-r-[0.5px] pr-[3px]')}>
         <input
           type="radio"
