@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { ChangeEvent } from 'react';
 import { useParams } from 'next/navigation';
 import { useRouter, usePathname } from '@/i18n/navigation';
 
@@ -17,10 +18,11 @@ export default function LocaleToggle({ className = '' }: LocaleToggleProps) {
   const router = useRouter();
   const pathname = usePathname();
 
-  function localeChangeHandler(e) {
+  function localeChangeHandler(e: ChangeEvent<HTMLInputElement>) {
     const selectedLocale = e.target.value;
 
-    router.replace({ pathname, params }, { locale: selectedLocale });
+    // router.replace({ pathname, params }, { locale: selectedLocale });
+    router.replace({ pathname }, { locale: selectedLocale });
   }
 
   return (

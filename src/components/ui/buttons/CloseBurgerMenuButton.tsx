@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import { MouseEvent } from 'react';
 import { GradientedCross } from '@/assets/icons/icons';
 
 type CloseBurgerMenuButtonProps = {
@@ -8,7 +10,8 @@ type CloseBurgerMenuButtonProps = {
 export default function CloseBurgerMenuButton(props: CloseBurgerMenuButtonProps) {
   const { clickFn, className = '' } = props;
 
-  function clickHandler(e) {
+  function clickHandler(e: MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
     e.currentTarget.blur();
     if (!clickFn) return;
     clickFn();
