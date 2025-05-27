@@ -1,0 +1,2 @@
+export const ANIMATION_DURATION_MS = 5000;
+export const ANIMATION_PAUSE_MS = 2500;

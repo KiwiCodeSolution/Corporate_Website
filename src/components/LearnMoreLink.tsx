@@ -1,5 +1,6 @@
 'use client';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Arrow } from '@/assets/icons/icons';
 
@@ -10,15 +11,21 @@ type LearnMoreLinkProps = {
 };
 
 export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProps) {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <Link
       href={href}
       locale={locale}
       className={clsx(
         'absolute bottom-[60px] md:relative md:bottom-auto group flex items-center min-w-38 h-12 pl-14 pr-11 overflow-hidden rounded-full transition-colors duration-400',
-        'text-dark outline-[2px] outline-offset-[2px] outline-transparent focus:outline-blue'
-
-        // locale === 'ua' ? 'w-[250px]' : 'w-[207px]'
+        'text-main-title outline-[2px] outline-offset-[2px] outline-transparent focus:outline-blue'
       )}
     >
       <span className="absolute left-0 top-0 h-full w-12 bg-accent rounded-full transition-all duration-500 group-hover:w-full" />

@@ -14,10 +14,9 @@ import IconButton from './ui/buttons/IconButton';
 
 type HowWeWorkCarrouselProps = {
   items?: IPrinciple[];
-  theme: string;
 };
 
-const HowWeWorkCarrouselComponent = ({ items, theme }: HowWeWorkCarrouselProps) => {
+const HowWeWorkCarrouselComponent = ({ items }: HowWeWorkCarrouselProps) => {
   return (
     <div className="xl:hidden flex flex-col">
       <Swiper
@@ -36,7 +35,7 @@ const HowWeWorkCarrouselComponent = ({ items, theme }: HowWeWorkCarrouselProps) 
         {items.map((el, index) => (
           <SwiperSlide key={el.id} className="">
             <div className="w-full h-full mx-auto flex flex-col items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto swiper-container">
-              <HowWeWorkImgBlock item={el} currentItem={index} section={'swiper'} theme={theme} />
+              <HowWeWorkImgBlock item={el} currentItem={index} section={'swiper'} />
             </div>
           </SwiperSlide>
         ))}

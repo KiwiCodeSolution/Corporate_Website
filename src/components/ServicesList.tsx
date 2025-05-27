@@ -41,7 +41,7 @@ const ServicesList = ({ items }: ServicesListProps) => {
           {column.map((el) => (
             <div className={`card-wrapper ${isOpen === el.id ? 'shadow-md' : ''}`} key={el.id}>
               <div
-                className="w-full rounded-base bg-bgColor flex flex-col min-h-[199px] transition-all duration-300 relative service-item text-main"
+                className="w-full rounded-base bg-bgColor flex flex-col min-h-[199px] transition-all duration-300 relative service-item text-main-text"
                 onClick={() => {
                   if (!isMobile) handleToggle(el.id);
                 }}

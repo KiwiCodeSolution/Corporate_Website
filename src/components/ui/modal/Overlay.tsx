@@ -11,7 +11,7 @@ const Overlay = ({ children, closeModal }: OverlayProps) => {
   }
   return (
     <div
-      className="fixed w-full h-screen top-0 left-0 bg-main/60 flex items-center justify-center z-[19]"
+      className="fixed w-full h-screen top-0 left-0 bg-dark/60 backdrop-blur-[4px] flex items-center justify-center z-[19]"
       onClick={handleOverlayClick}
     >
       {children}

@@ -4,33 +4,49 @@
 
 :root {
   --disabled: #c1c7ca;
-  --background: #fff;
-  --foreground: #0c1719;
-  --main: #0c1719;
+
+  --primary: #0c1719;
+  --secondary: #505050;
+
+  /* кольори, що використовуються бібліотекою для при автоматичному перемиканні*/
+  --background: #fff; /* колір фону у світлій темі, колір заголовків у темній темі*/
+  --foreground: #0c1719; /* колір фону у темній темі, колір заголовків у світлій темі*/
+
+  --main: #0c1719; /* колір заголовків у світлій темі*/
+
+  /*"кольорові" кольори*/
   --accent: #4ab88b;
   --bright-green: #38ee7d;
   --turquoise: #5bd1c5;
   --blue: #227d94;
-  --lite-grey: #fbfbfb;
-  --grey: #909da2 /* колір використовується на текстах у кнопках*/;
+
+  --grey: #909da2;
 }
 
 .dark {
   --background: #0c1719;
   --foreground: #fff;
+  --primary: #ffffff;
+  --secondary: #dbdcdd;
 }
 
 @theme inline {
   --color-disabled: var(--disabled);
+  /*кольори фону*/
   --color-bgColor: var(--background);
-  --color-main: var(--foreground);
+  /* --color-main: var(--foreground); */
+
   --color-dark: var(--main);
-  --color-main-grey: var(--grey);
+
+  /* кольори тексту для світлої та темної тем*/
+  --color-main-title: var(--primary);
+  --color-main-text: var(--secondary);
+
   --color-accent: var(--accent);
   --color-bright-green: var(--bright-green);
   --color-turquoise: var(--turquoise);
   --color-blue: var(--blue);
-  --color-lite-grey: var(--lite-grey);
+  --color-grey: var(--grey);
   --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1);
   --radius-base: 20px;
 }
@@ -52,6 +68,7 @@ html {
   body {
     font-size: 18px;
     font-weight: 500;
+    color: var(--secondary);
     line-height: 1.4;
   }
 
@@ -285,13 +302,23 @@ a:hover .arrow {
   }
 }
 
-/* .btn-swiper {
-  width: 50px;
-  height: 50px;
-  gap: 10px;
-  border-radius: 25px;
-  border-width: 2px;
+.modal-wrapper-border {
+  position: relative;
+  z-index: 1;
+}
 
-  background: rgba(74, 184, 139, 1);
-  border: 2px solid rgba(74, 184, 139, 1);
-} */
+.dark .modal-wrapper-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: var(--radius-base);
+  background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}

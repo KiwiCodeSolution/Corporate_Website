@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useTheme } from 'next-themes';
 import Title from './Title';
 import HowWeWorkImgBlock from './HowWeWorkImgBlock';
 import { IPrinciple } from './sections/HowWeWork';
@@ -13,7 +12,6 @@ type HowWeWorkGalleryProps = {
 
 const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
   const [isMounted, setIsMounted] = useState(false);
-  const { theme } = useTheme();
   const [currentItem, setCurrentItem] = useState(0);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [visible, setVisible] = useState(true);
@@ -72,14 +70,14 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
         {items.map((el, index) => (
           <li
             key={el.id}
-            className={`${currentItem !== index ? 'opacity-50' : 'opacity-100'} relative transition-opacity duration-300`}
+            className={`${currentItem !== index ? 'opacity-30' : 'opacity-100'} relative transition-opacity duration-300`}
           >
             {currentItem === index && (
               <div className="absolute top-1/2 -translate-y-1/2 -left-[44px] w-[5px] h-20 rounded-[3px] bg-[#5BD187]" />
             )}
 
             <Title styles={'mb-2'}>{el.title}</Title>
-            <p className="line-clamp-3 text-main-grey">{el.text}</p>
+            <p className="line-clamp-3 text-main-text">{el.text}</p>
           </li>
         ))}
       </ul>
@@ -88,11 +86,11 @@ const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
         <div
           className={`hidden xl:w-[630px] xl:h-[461px] xl:flex items-end relative rounded-base overflow-hidden p-6 md:p-10 my-auto transition-opacity duration-2000 ease-in-out`}
         >
-          <HowWeWorkImgBlock items={items} theme={theme} currentItem={currentItem} />
+          <HowWeWorkImgBlock items={items} currentItem={currentItem} />
         </div>
       )}
 
-      {isMounted && <HowWeWorkCarrouselComponent items={items} theme={theme} />}
+      {isMounted && <HowWeWorkCarrouselComponent items={items} />}
     </div>
   );
 };
