@@ -1,8 +1,8 @@
 'use client';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Arrow } from '@/assets/icons/icons';
-import { useEffect, useState } from 'react';
 
 type LearnMoreLinkProps = {
   locale: 'ua' | 'en';

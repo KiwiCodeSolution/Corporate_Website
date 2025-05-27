@@ -3,6 +3,7 @@ import PortfolioSection from '@/components/sections/Portfolio';
 import HowWeWorkSection from '@/components/sections/HowWeWork';
 import AboutSection from '@/components/sections/About';
 import NewsSection from '@/components/sections/News';
+import OurPrinciplesSection from '@/components/sections/OurPrinciples';
 
 export default async function Home({ params }) {
   const { locale } = await params;
