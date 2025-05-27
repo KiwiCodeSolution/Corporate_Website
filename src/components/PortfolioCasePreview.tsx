@@ -69,7 +69,9 @@ const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps
         ))}
       </ul>
       <div className="flex flex-col gap-y-2">
-        <Title tag="h3">{titleByLocale}</Title>
+        <Title tag="h3" styles="font-semibold">
+          {titleByLocale}
+        </Title>
         <p>{descriptionByLocale}</p>
       </div>
     </article>

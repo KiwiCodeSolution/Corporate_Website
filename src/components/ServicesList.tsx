@@ -57,8 +57,7 @@ const ServicesList = ({ items }: ServicesListProps) => {
                       className="flex items-center justify-center"
                     >
                       <Bracket
-                        green
-                        className={`${isOpen === el.id ? 'rotate-90' : '-rotate-90'}  transition-transform duration-300 w-[25px] h-[14px]`}
+                        className={`${isOpen === el.id ? 'rotate-90' : '-rotate-90'}  transition-transform duration-300 w-[25px] h-[14px] fill-accent`}
                       />
                     </button>
                   )}

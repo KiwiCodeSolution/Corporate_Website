@@ -24,7 +24,7 @@ export default function LearnMorePageLink({ href, locale, className = '' }: Lear
       <span className="text-[18px] text-main font-medium border-b-[2px] border-b-transparent group-focus:border-b-blue">
         {t('learnMore')}
       </span>
-      <Bracket green className="group-focus:fill-blue base-transition" />
+      <Bracket className="group-focus:fill-blue base-transition" />
     </Link>
   );
 }
