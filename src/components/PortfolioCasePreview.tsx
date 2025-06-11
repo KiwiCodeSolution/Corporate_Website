@@ -62,7 +62,7 @@ const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps
             icon={Arrow}
             iconProps={{ s: false, base: true }}
             locale={locale}
-            href={`${locale}/portfolio/${item.slug}`}
+            href={`/portfolio/${item.slug}`}
           />
         </div>
       </div>

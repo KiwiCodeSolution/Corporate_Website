@@ -40,7 +40,7 @@ const PortfolioPageBaseSection = ({ locale }: { locale: 'ua' | 'en' }) => {
       <Title tag="h1" styles="mb-10 xl:mb-12">
         Portfolio
       </Title>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-10 mb-[64px] min-h-[calc(100vh-104px)]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-6 md:gap-y-0 xl:gap-x-10 min-h-[calc(100vh-104px)]">
         {visibleItems.map((el, index) => (
           <PortfolioCasePreview key={el.id} item={el} locale={locale} index={index} />
         ))}

@@ -36,8 +36,9 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider>
             <Header />
-            <div className="relative overflow-y-hidden">
-              <BackgroundPageGradient page="home" /> {children}
+            <div className="relative overflow-hidden">
+              <BackgroundPageGradient page="home" />
+              {children}
               {modal}
             </div>
 

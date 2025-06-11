@@ -23,7 +23,7 @@ const BackgroundPageGradient = ({ page, numberOfCircles }: Props) => {
 
   return (
     <div
-      className={`absolute top-0 left-1/2 -translate-x-1/2 z-0 w-[1240px] min-h-screen pointer-events-none`}
+      className={`absolute top-0 left-1/2 -translate-x-1/2 z-0 w-full max-w-[1280px] min-h-screen pointer-events-none px-4 sm:px-6`}
     >
       {gradients}
     </div>

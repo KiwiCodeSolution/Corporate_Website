@@ -361,19 +361,27 @@ a:hover .arrow {
   background-image:
     url('/images/portfolio-abstract-t.png'), url('/images/portfolio-abstract-b.png');
   background-position:
-    top -380px right -595px,
-    bottom -690px left -396px;
+    top -126px right -270px,
+    bottom -240px left -145px;
   background-repeat: no-repeat, no-repeat;
-  background-size: auto, auto;
+  background-size:
+    445px 600px,
+    440px 500px;
   background-attachment: local, local;
-}
 
-.mask-icon {
-  width: 67px;
-  height: 67px;
+  @media (min-width: 768px) {
+    background-position:
+      top -170px right -308px,
+      bottom -330px left -170px;
+    background-size:
+      600px 800px,
+      600px 690px;
+  }
 
-  @media screen and (min-width: 1280px) {
-    width: 96px;
-    height: 96px;
+  @media (min-width: 1280px) {
+    background-position:
+      top -380px right -595px,
+      bottom -690px left -396px;
+    background-size: auto, auto;
   }
 }
