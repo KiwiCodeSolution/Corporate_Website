@@ -364,9 +364,16 @@ a:hover .arrow {
     top -380px right -595px,
     bottom -690px left -396px;
   background-repeat: no-repeat, no-repeat;
-  /* background-size:
-    542px 890px,
-    670px 1222px; */
   background-size: auto, auto;
   background-attachment: local, local;
+}
+
+.mask-icon {
+  width: 67px;
+  height: 67px;
+
+  @media screen and (min-width: 1280px) {
+    width: 96px;
+    height: 96px;
+  }
 }

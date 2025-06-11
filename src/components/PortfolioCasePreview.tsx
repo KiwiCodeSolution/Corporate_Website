@@ -1,14 +1,15 @@
 'use client';
 
-import Image from 'next/image';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { Arrow } from '@/assets/icons/icons';
+import { BASEURLFORIMAGE } from '@/configs/API';
 import { PortfolioItem } from './PortfolioCard';
 import ServicePoint from './ServicePoint';
 import Title from './Title';
 import IconLink from './ui/links/IconLink';
-import '../styles/portfolio.css';
+
+import '@/styles/portfolio.css';
 
 type PortfolioCasePreviewProps = {
   item: PortfolioItem;
@@ -35,24 +36,26 @@ const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps
 
   if (!messages) return null;
 
+  const imgUrl = `${BASEURLFORIMAGE}${item.image}` || '/images/not-found.png';
+
   return (
     <article
       className={clsx(
-        'w-full min-h-[634px] flex flex-col gap-y-8 group',
-        index % 2 === 1 && 'mt-[200px]' // для непарних
+        'w-full min-h-[530px] md:min-h-[555px] xl:min-h-[634px] flex flex-col gap-y-6 xl:gap-y-8 group case',
+        index % 2 === 1 && 'md:mt-[120px] xl:mt-[200px]' // для непарних
       )}
     >
-      <div className="relative">
-        <div className="w-full rounded-[40px] overflow-hidden h-[400px]">
-          <Image
-            src={item.image || '/images/not-found.png'}
-            alt={`Image for ${item.title}`}
-            width={512}
-            height={400}
-            className="object-cover w-[512px] h-[400px] "
-          />
-        </div>
-        <div className="link w-16 h-16 link-wrapper bg-bgColor flex items-end justify-end absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform">
+      <div className="relative w-full xl:w-[512px] h-[258px] xl:h-[400px]">
+        <div
+          className={`overflow-hidden card-image-with-svg-mask w-full h-full`}
+          style={{
+            backgroundImage: `url(${imgUrl})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        <div className="w-14 h-14 xl:w-16 xl:h-16 link-wrapper flex items-end justify-end absolute bottom-0 right-0 opacity-100 xl:opacity-0 xl:group-hover:opacity-100 transition-all duration-500 ease-out transform z-[3]">
           <IconLink
             size="m"
             className=""

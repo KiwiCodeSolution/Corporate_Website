@@ -5,12 +5,20 @@ import Logo from './Logo';
 import SocIconsList from './SocIconsList';
 import OurSpecialize from './OurSpecialize';
 import UsefulLinks from './UsefulLinks';
-import Nav from './Nav';
+import NavLinksFooter from './NavLinksFooter';
 
 export type IPoint = { id: string; label: string; link?: string; order?: string };
 
 export const TitleFooter = ({ text }) => {
   return <h3 className="text-sm font-medium leading-[1.2] uppercase opacity-65">{text}</h3>;
+};
+
+export const CommonContent = ({ text }: { text: string }) => {
+  return (
+    <p className="relative text-main after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100 text-lg font-medium leading-[1.4] cursor-pointer tracking-normal">
+      {text}
+    </p>
+  );
 };
 
 const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
@@ -33,10 +41,7 @@ const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
         <div className="w-full border-b border-[rgba(144,157,162,0.3)] flex flex-col md:flex-row justify-between pb-8">
           {/* розділ із лінками та сторінками */}
           <div className="w-full md:w-[340px] xl:w-[408px] flex gap-x-2 md:gap-x-6 xl:gap-x-8 mb-8 md:mb-0">
-            <div className="w-[140px]">
-              <TitleFooter text="Menu" />
-              <Nav orientation="vertical" />
-            </div>
+            <NavLinksFooter locale={locale} />
 
             <UsefulLinks locale={locale} />
           </div>

@@ -45,33 +45,59 @@
   width: fit-content !important;
 }
 
-.link::before,
-.link::after {
-  position: absolute;
-  content: '';
-  width: 64px;
-  height: 64px;
-  bottom: 0;
-  right: 0;
-  border-radius: 0 0 50% 0;
-}
-
-.link::before {
-  left: 0px;
-  bottom: 64px;
-  box-shadow: 33px 0px 0 0px var(--color-bgColor);
-}
-
-.link::after {
-  right: 64px;
-  top: 0px;
-  box-shadow: 0px 33px 0 0px var(--color-bgColor);
-}
-
 .link-wrapper {
   border-radius: 50% 0 0 0;
   transition:
     opacity 0.4s ease,
     transform 0.4s ease,
     border-radius 0.4s ease;
+}
+
+/* базові стилі */
+.card-image-with-svg-mask {
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+
+  z-index: 2;
+  position: relative;
+}
+
+/* мобілка: застосовуємо ефект постійно */
+@media (max-width: 767px) {
+  .card-image-with-svg-mask {
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    -webkit-mask:
+      url('/images/mask.svg') center / contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask-size: 85px;
+    mask-position: bottom right;
+    mask-composite: exclude;
+  }
+}
+
+/* десктоп: ефект тільки на hover */
+@media (min-width: 768px) {
+  .card-image-with-svg-mask {
+    mask-size: 96px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-image-with-svg-mask {
+    width: 512px;
+    height: 400px;
+    border-radius: 40px;
+  }
+  .case:hover .card-image-with-svg-mask {
+    border-bottom-right-radius: 0px;
+    -webkit-mask:
+      url('/images/mask.svg') center / contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask-size: 96px;
+    mask-position: bottom right;
+    mask-composite: exclude;
+  }
 }
