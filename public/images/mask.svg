@@ -1,0 +1,12 @@
+<svg
+  className="mask-icon"
+  viewBox="0 0 96 96"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g transform="rotate(180 48 48)">
+    <path
+      className="mask-icon-path"
+      d="M 0,0 L 96,0 A 32,32 1,0,0 64,32 A 32,32 0,0,1 32,64 L 32,64 A 32,32 1,0,0 0,96 Z"
+    />
+  </g>
+</svg>

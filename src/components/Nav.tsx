@@ -7,7 +7,7 @@ import { useLocale } from 'next-intl';
 import { AppLocale } from '@/i18n/routing';
 import NavLink from './ui/links/NavLink';
 
-const navItems = [
+export const navItems = [
   { label: 'about', href: '/about' },
   { label: 'services', href: '/services' },
   { label: 'portfolio', href: '/portfolio' },

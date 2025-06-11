@@ -260,7 +260,6 @@ a:hover .arrow {
   border-radius: 16px;
 }
 
-.card-wrapper-service-point,
 .image-wrapper-news {
   background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
   padding: 1px;
@@ -321,4 +320,68 @@ a:hover .arrow {
   mask-composite: exclude;
   pointer-events: none;
   z-index: -1;
+}
+
+.service-point {
+  position: relative;
+  border-radius: 16px;
+  padding: 0;
+  background: none;
+}
+
+.service-point::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(176.74deg, #5bd187 2.69%, #227d94 97.32%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.service-point > div {
+  position: relative;
+  border-radius: 15px;
+  background: transparent;
+  z-index: 1;
+  padding: 2px 19px;
+  color: var(--main-color);
+  width: fit-content;
+}
+
+/*portfolio-page*/
+
+.portfolio-page-main {
+  background-image:
+    url('/images/portfolio-abstract-t.png'), url('/images/portfolio-abstract-b.png');
+  background-position:
+    top -126px right -270px,
+    bottom -240px left -145px;
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    445px 600px,
+    440px 500px;
+  background-attachment: local, local;
+
+  @media (min-width: 768px) {
+    background-position:
+      top -170px right -308px,
+      bottom -330px left -170px;
+    background-size:
+      600px 800px,
+      600px 690px;
+  }
+
+  @media (min-width: 1280px) {
+    background-position:
+      top -380px right -595px,
+      bottom -690px left -396px;
+    background-size: auto, auto;
+  }
 }

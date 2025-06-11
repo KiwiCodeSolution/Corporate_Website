@@ -48,7 +48,6 @@ const HowWeWorkSection = () => {
         </Title>
         <HowWeWorkGallery items={PRINCIPLES} />
       </div>
-      <div className="absolute -left-[311px] top-[397px] w-[604px] h-[604px] rounded-full hww-section-gradient blur-[1000px] z-0" />
     </section>
   );
 };

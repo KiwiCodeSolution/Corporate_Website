@@ -65,7 +65,8 @@
     ],
     "specialize_list_title": "We specialise in",
     "useful_links": ["Terms of Use Policy", "Privacy Policy", "FAQ", "Integration"],
-    "useful_links_title": "useful links"
+    "useful_links_title": "useful links",
+    "nav_links_title": "Menu"
   },
 
   "About": {
