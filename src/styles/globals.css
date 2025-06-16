@@ -37,6 +37,7 @@
   /* --color-main: var(--foreground); */
 
   --color-dark: var(--main);
+  --color-light-grey: var(--secondary);
 
   /* кольори тексту для світлої та темної тем*/
   --color-main-title: var(--primary);

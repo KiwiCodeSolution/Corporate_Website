@@ -1,5 +1,5 @@
 'use client';
-import { useTheme } from 'next-themes';
+// import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
 import SocIconsList from './SocIconsList';
@@ -23,7 +23,7 @@ export const CommonContent = ({ text }: { text: string }) => {
 
 const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
@@ -35,8 +35,12 @@ const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
 
   return (
     <footer
-      className={`w-full h-fit ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px] mt-auto relative z-[1]`}
+      className={`w-full h-fit bg-[#FDFEFE] dark:bg-bgColor border-t border-accent rounded-t-[45px] mt-auto relative z-[1]`}
     >
+      {/* <footer
+      className={`w-full h-fit ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px] mt-auto relative z-[1]`}
+    > */}
+
       <div className="wrapper pt-12 xl:pt-20 pb-6 md:pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
         <div className="w-full border-b border-[rgba(144,157,162,0.3)] flex flex-col md:flex-row justify-between pb-8">
           {/* розділ із лінками та сторінками */}

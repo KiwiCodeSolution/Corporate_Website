@@ -1,0 +1,31 @@
+.services-page__img-container {
+  width: 492px;
+  height: 492px;
+  clip-path: path(
+    'M40 0 H452 A40 40 0 0 1 492 40 V452 A40 40 0 0 1 452 492 H40 A40 40 0 0 1 0 452 V40 A40 40 0 0 1 40 0 Z'
+  );
+}
+
+@keyframes running-line {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-running-line {
+  animation: running-line 35s linear infinite;
+}
+
+.running-line-wrapper:hover .animate-running-line {
+  animation-play-state: paused;
+}
+
+.our-process-section {
+  background-image: url('/images/bg_wave.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

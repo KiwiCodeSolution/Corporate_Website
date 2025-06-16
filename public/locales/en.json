@@ -130,5 +130,37 @@
       }
     ],
     "btn": "Learn more"
+  },
+  "Services_Page": {
+    "title": "Services",
+    "innovate_title": "<highlight>Innovative solutions</highlight> to launch, scale, and future-proof your business.",
+    "innovate_text": "KiwiCode Solutions delivers advanced software and digital strategies that drive growth, efficiency, and competitive edge.",
+    "services_details": [
+      {
+        "title": "Software Development",
+        "description": " is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects. "
+      },
+      {
+        "title": "Design and SMM Services",
+        "description": " is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects. "
+      },
+      {
+        "title": "Marketing and PR",
+        "description": " is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects. "
+      },
+      {
+        "title": "Business Consulting",
+        "description": " is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects. "
+      },
+      {
+        "title": "Turnkey Startup",
+        "description": " is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects. "
+      },
+      {
+        "title": "National Projects",
+        "description": " is more than just a digital company. We create integrated solutions that combine innovative design, advanced development, and effective marketing. Our team is made up of like-minded professionals from various industries who built the company from scratch and now implement national projects. "
+      }
+    ],
+    "innovate_btn": "Let’s work"
   }
 }
