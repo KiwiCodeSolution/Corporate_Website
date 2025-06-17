@@ -11,7 +11,7 @@ export default async function Services({
   params: { slug: string; locale: 'ua' | 'en' };
 }) {
   const t = await getTranslations('Services_Page');
-  const { locale } = await params;
+  // const { locale } = await params;
 
   return (
     <main className="relative z-[1] mx-auto overflow-hidden w-full min-h-screen pt-16  xl:py-[104px]">
