@@ -2,6 +2,9 @@ import clsx from 'clsx';
 
 export type BaseIconProps = {
   className?: string;
+  width?: string | number;
+  height?: string | number;
+  type?: string;
 };
 
 export type SocIconProps = {
@@ -165,9 +168,15 @@ export const Cross = () => {
   );
 };
 
-export const DevelopmentIcon = () => {
+export const DevelopmentIcon = ({ width = 45, height = 45 }: BaseIconProps) => {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -191,9 +200,15 @@ export const DevelopmentIcon = () => {
   );
 };
 
-export const DesignIcon = () => {
+export const DesignIcon = ({ width = 45, height = 45 }: BaseIconProps) => {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -217,9 +232,15 @@ export const DesignIcon = () => {
   );
 };
 
-export const MarketingIcon = () => {
+export const MarketingIcon = ({ width = 45, height = 45 }: BaseIconProps) => {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -243,9 +264,15 @@ export const MarketingIcon = () => {
   );
 };
 
-export const BusinessAnalyticsIcon = () => {
+export const BusinessAnalyticsIcon = ({ width = 45, height = 45 }: BaseIconProps) => {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -269,9 +296,15 @@ export const BusinessAnalyticsIcon = () => {
   );
 };
 
-export const StartupIcon = () => {
+export const StartupIcon = ({ width = 45, height = 45 }: BaseIconProps) => {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -295,9 +328,15 @@ export const StartupIcon = () => {
   );
 };
 
-export const ProjectsIcon = () => {
+export const ProjectsIcon = ({ width = 45, height = 45 }: BaseIconProps) => {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

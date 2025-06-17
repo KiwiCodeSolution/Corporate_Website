@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import '@/styles/portfolio.css';
 
 import {
   BusinessAnalyticsIcon,
@@ -17,6 +18,7 @@ type Service = {
   img: string;
   icon: React.ReactNode;
   description: string;
+  styles?: string;
 };
 
 type ServicesDetailsProps = {
@@ -29,43 +31,43 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
     {
       id: 0,
       title: t('services_details.0.title'),
-      img: '/images/services/services_page_dev.png',
-      icon: <DevelopmentIcon />,
+      img: '/images/services/services_page_dev_1.jpg',
+      icon: <DevelopmentIcon width={64} height={64} />,
       description: t('services_details.0.description'),
     },
     {
       id: 1,
       title: t('services_details.1.title'),
       img: '/images/services/services_page_smm.jpg',
-      icon: <DesignIcon />,
+      icon: <DesignIcon width={64} height={64} />,
       description: t('services_details.1.description'),
     },
     {
       id: 2,
       title: t('services_details.2.title'),
       img: '/images/services/services_page_marketing.jpg',
-      icon: <MarketingIcon />,
+      icon: <MarketingIcon width={64} height={64} />,
       description: t('services_details.2.description'),
     },
     {
       id: 3,
       title: t('services_details.3.title'),
       img: '/images/services/services_page_business.jpg',
-      icon: <BusinessAnalyticsIcon />,
+      icon: <BusinessAnalyticsIcon width={64} height={64} />,
       description: t('services_details.3.description'),
     },
     {
       id: 4,
       title: t('services_details.4.title'),
       img: '/images/services/services_page_startup.jpg',
-      icon: <StartupIcon />,
+      icon: <StartupIcon width={64} height={64} />,
       description: t('services_details.4.description'),
     },
     {
       id: 5,
       title: t('services_details.5.title'),
       img: '/images/services/services_page_projects.jpg',
-      icon: <ProjectsIcon />,
+      icon: <ProjectsIcon width={64} height={64} />,
       description: t('services_details.5.description'),
     },
   ];
@@ -79,23 +81,30 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
             key={service.id}
             className={`flex gap-x-20 items-start ${service.id % 2 !== 0 ? 'flex-row-reverse' : ''}`}
           >
-            <div className="services-page__img-container relative shrink-0">
-              <Image
-                src={service.img}
-                alt={service.title}
-                width={492}
-                height={492}
-                className="w-full h-full object-cover scale-x-[-1]"
-              />
+            <div className="relative w-full xl:w-[492px] h-[258px] xl:h-[492px] shrink-0">
               <div
-                className="absolute inset-0 pointer-events-none"
+                className={`overflow-hidden services-page_image-with-svg-mask w-full h-full ${service.id % 2 !== 0 ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
                 style={{
-                  background: `
-        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 94, 120, 0.2) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(42, 0, 120, 0.2) 100%)
-      `,
+                  backgroundImage: `url(${service.img})`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
                 }}
               />
+              <div
+                className={`absolute inset-0 pointer-events-none services-page_image-with-svg-mask ${service.id % 2 !== 0 ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
+                style={{
+                  background: `
+      linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 94, 120, 0.2) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(42, 0, 120, 0.2) 100%)
+    `,
+                }}
+              />
+              <div
+                className={`w-14 h-14 xl:w-16 xl:h-16 link-wrapper flex items-end justify-end absolute top-0  z-[3] ${service.id % 2 !== 0 ? 'left-0' : 'right-0'}`}
+              >
+                {service.icon}
+              </div>
             </div>
             <div>
               <Title tag="h2">{service.title}</Title>
