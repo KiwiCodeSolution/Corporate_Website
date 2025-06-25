@@ -18,7 +18,7 @@ export default function ContactFormSubmitErrorNotification({
 
   return (
     <ModalOverlay onClose={onClose} closeByClickOnOverlay={false}>
-      <div className="relative flex justify-center items-center px-6 py-8 w-[345px] md:w-[720px] xl:w-[704px] bg-bgColor rounded-[20px]">
+      <div className="relative flex justify-center items-center px-6 py-10 w-[345px] md:w-[720px] xl:w-[704px] bg-bgColor rounded-[20px]">
         <IconButton
           size="s"
           icon={Cross}

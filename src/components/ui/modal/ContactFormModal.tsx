@@ -15,7 +15,7 @@ export default function ContactFormModal({
   return (
     isOpen && (
       <ModalOverlay onClose={onClose} closeByClickOnOverlay={false} closeByPressEsc={false}>
-        <div className="relative flex justify-center w-[345px] md:w-[720px] xl:w-[976px] px-4 py-8 md:px-10 md:py-10 xl:px-7 xl:py-7 rounded-[20px] bg-bgColor">
+        <div className="relative flex justify-center w-[345px] md:w-[720px] xl:w-[976px] px-4 py-14 md:px-10 md:py-10 xl:px-7 xl:py-7 rounded-[20px] bg-bgColor">
           <IconButton
             icon={Cross}
             onClick={onClose}

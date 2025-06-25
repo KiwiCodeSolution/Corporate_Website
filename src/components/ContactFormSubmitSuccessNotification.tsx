@@ -16,7 +16,7 @@ export default function ContactFormSubmitSuccessNotification({
 
   return (
     <ModalOverlay onClose={onClose}>
-      <div className="relative flex items-center p-[24px] w-[345px] h-[300px] md:w-[720px] md:h-[300px] xl:w-[704px] xl:h-[300px] bg-bgColor rounded-[20px]">
+      <div className="relative flex items-center px-[24px] py-[64px] md:py-[88px] w-[345px] md:w-[720px] xl:w-[704px]  bg-bgColor rounded-[20px]">
         <IconButton
           icon={Cross}
           className="absolute w-[32px] h-[32px] md:w-[44px] md:h-[44px] top-[22px] right-[22px] md:top-8 md:right-8"
