@@ -54,11 +54,8 @@
 
 @theme inline {
   --color-disabled: var(--disabled);
-<<<<<<< HEAD
   --color-error: var(--error);
-=======
   /*кольори фону*/
->>>>>>> dev
   --color-bgColor: var(--background);
   /* --color-main: var(--foreground); */
 
