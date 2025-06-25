@@ -81,7 +81,8 @@
     }
   },
   "buttons": {
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "goBack": "Go Back"
   },
   "links": {
     "allCases": "All cases",
@@ -89,8 +90,8 @@
     "learnMore": "Learn more"
   },
   "forms": {
-    "get-in-touch": {
-      "title": "Get in touch",
+    "contact-form": {
+      "title": "Contact us",
       "info-text": "Drop us an email—we’ll get back to you shortly!",
       "form-fields": {
         "name": "Name*",
@@ -101,6 +102,16 @@
       "required-fields-notice": "Fields marked with * are required.",
       "consent-label": "I consent to the collection and processing of my personal data.",
       "submit-btn-label": "Send"
+    }
+  },
+  "notifications": {
+    "error": {
+      "title": "Oops!",
+      "message": "Something went wrong while submitting the form.\n Please try again."
+    },
+    "success": {
+      "title": "Thanks for contacting us!",
+      "message": "Done! Your message is on its way. We'll be in touch soon."
     }
   },
   "errors": {

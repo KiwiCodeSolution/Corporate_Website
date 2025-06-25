@@ -21,6 +21,24 @@
   --foreground: #fff;
 }
 
+@layer base {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px inherit inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 9999s ease-in-out 0s;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  input::selection {
+    background-color: var(--blue);
+    color: inherit;
+  }
+}
+
 @theme inline {
   --color-disabled: var(--disabled);
   --color-error: var(--error);

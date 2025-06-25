@@ -34,11 +34,16 @@ export default function CheckBox<T extends FieldValues>(props: CheckBoxProps<T>)
     //   <CheckIcon className="text-[#ffffff] dark:text-[#0C1719]  opacity-[0] peer-checked:opacity-[100%]" />
     // </label>
 
-    <label className={clsx('flex items-center gap-x-3 cursor-pointer select-none', className)}>
+    <label
+      className={clsx(
+        'flex items-start xl:items-center gap-x-3 cursor-pointer select-none',
+        className
+      )}
+    >
       <input type="checkbox" className="peer sr-only" checked={checked} onChange={onChange} />
       <div
         className={clsx(
-          'flex justify-center items-center size-5 rounded-[4px] border-[1px] border-accent bg-[#ffffff] dark:bg-[#0C1719] hover:shadow-base',
+          'flex justify-center items-center min-w-5 min-h-5 rounded-[4px] border-[1px] border-accent bg-[#ffffff] dark:bg-[#0C1719] hover:shadow-base',
           'peer-checked:bg-accent'
         )}
       >

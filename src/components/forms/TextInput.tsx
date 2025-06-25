@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-
 import { useController, Control, FieldValues, FieldPath } from 'react-hook-form';
 
 type TextInputProps<T extends FieldValues> = {
@@ -9,7 +8,7 @@ type TextInputProps<T extends FieldValues> = {
   label: string;
   placeholder?: string;
   control: Control<T>;
-  as?: 'input' | 'textArea';
+  as?: 'input' | 'textarea';
   className?: string;
 };
 
@@ -20,10 +19,6 @@ export default function TextInput<T extends FieldValues>(props: TextInputProps<T
     field: { ref, ...field },
     fieldState: { error },
   } = useController({ name, control });
-
-  console.log(field);
-  console.log(field.value);
-  console.log('error :>> ', error);
 
   return (
     <label
@@ -41,7 +36,7 @@ export default function TextInput<T extends FieldValues>(props: TextInputProps<T
           placeholder={placeholder || label}
           {...field}
           className={clsx(
-            'h-14 w-full px-[30px] rounded-[32px] bg-[#f5f5f5] dark:bg-[#0c1719]',
+            'h-12 w-full px-[30px] rounded-[32px] bg-[#f5f5f5] dark:bg-[#0c1719]',
             'placeholder:text-[20px] placeholder:text-main leading-[1.4] placeholder:font-medium'
           )}
         />
@@ -50,7 +45,7 @@ export default function TextInput<T extends FieldValues>(props: TextInputProps<T
           placeholder={placeholder || label}
           {...field}
           className={clsx(
-            'resize-none w-full h-23 px-[30px] py-[14px] rounded-[20px] bg-[#f5f5f5] dark:bg-[#0c1719]',
+            'resize-none w-full h-26 xl:h-23 px-[30px] py-[14px] rounded-[20px] bg-[#f5f5f5] dark:bg-[#0c1719]',
             'placeholder:text-[20px] placeholder:text-main leading-[1.4] placeholder:font-medium'
           )}
         />
