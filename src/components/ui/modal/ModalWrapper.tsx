@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { Cross } from '@/assets/icons/icons';
 import IconButton from '../buttons/IconButton';
+import '../../../styles/globals.css';
 
 type ModalWrapperProps = {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ const ModalWrapper = ({ children, closeModal, styles, type }: ModalWrapperProps)
   return (
     <div
       className={clsx(
-        'flex flex-col bg-bgColor rounded-base mx-auto relative py-12 px-20 h-4/5 overflow-hidden',
+        'flex flex-col bg-bgColor rounded-base mx-auto relative py-12 px-20 h-4/5 overflow-hidden modal-wrapper-border',
         widthStyles,
         styles
       )}

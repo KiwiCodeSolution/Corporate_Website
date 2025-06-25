@@ -31,15 +31,15 @@ const NewsCard = ({ news, locale, section }: NewsCardProps) => {
       <NewsCardImgBlock image={image} title={titleByLocale} />
 
       <div className="flex flex-col gap-y-2 mb-4">
-        <h2 className="text-lg font-semibold leading-[1.4] tracking-[-2%] line-clamp-2 min-h-[50px]">
+        <h2 className="text-lg font-semibold leading-[1.4] tracking-[-2%] line-clamp-2 min-h-[50px] text-main-title">
           {titleByLocale}
         </h2>
-        <p className="text-base font-medium text-main-grey leading-[1.35] tracking-[-3%]">
+        <p className="text-base font-medium text-grey leading-[1.35] tracking-[-3%]">
           {formattedDate}
         </p>
       </div>
       <div className="flex flex-col gap-y-2">
-        <p className="text-base font-medium leading-[1.35] tracking-[-3%] line-clamp-3">
+        <p className="text-base font-medium leading-[1.35] tracking-[-3%] line-clamp-3 text-main-text">
           {descriptionByLocale}
         </p>
         <LearnMoreAnchorLink href={`/news/${slug}`} locale={locale} className="w-fit" />

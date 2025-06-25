@@ -41,7 +41,7 @@ const ServicesList = ({ items }: ServicesListProps) => {
           {column.map((el) => (
             <div className={`card-wrapper ${isOpen === el.id ? 'shadow-md' : ''}`} key={el.id}>
               <div
-                className="w-full rounded-base bg-bgColor flex flex-col min-h-[199px] transition-all duration-300 relative service-item text-main"
+                className="w-full rounded-base bg-bgColor flex flex-col min-h-[199px] transition-all duration-300 relative service-item text-main-text"
                 onClick={() => {
                   if (!isMobile) handleToggle(el.id);
                 }}
@@ -57,8 +57,7 @@ const ServicesList = ({ items }: ServicesListProps) => {
                       className="flex items-center justify-center"
                     >
                       <Bracket
-                        green
-                        className={`${isOpen === el.id ? 'rotate-90' : '-rotate-90'}  transition-transform duration-300 w-[25px] h-[14px]`}
+                        className={`${isOpen === el.id ? 'rotate-90' : '-rotate-90'}  transition-transform duration-300 w-[25px] h-[14px] fill-accent`}
                       />
                     </button>
                   )}

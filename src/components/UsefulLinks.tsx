@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { TitleFooter } from './Footer';
+import { CommonContent, TitleFooter } from './Footer';
 import FAQModalFooter from './FAQModalFooter';
 
 type PointType = 'link' | 'modal' | 'download';
@@ -28,12 +28,6 @@ const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
 
       <div className="flex flex-col gap-y-3">
         {USEFULLINKS.map((el) => {
-          const commonContent = (
-            <p className="relative text-main after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100 text-lg font-medium leading-[1.4] cursor-pointer tracking-normal">
-              {el.label}
-            </p>
-          );
-
           return (
             <div className="relative group w-fit" key={el.id}>
               {(() => {
@@ -41,15 +35,15 @@ const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
                   case 'link':
                     return (
                       <Link href={el.link} locale={locale}>
-                        {commonContent}
+                        <CommonContent text={el.label} />
                       </Link>
                     );
                   case 'modal':
-                    return <FAQModalFooter commonContent={commonContent} />;
+                    return <FAQModalFooter commonContent={<CommonContent text={el.label} />} />;
                   case 'download':
                     return (
                       <a href={el.link} download className="focus:outline-none">
-                        {commonContent}
+                        <CommonContent text={el.label} />
                       </a>
                     );
                   default:

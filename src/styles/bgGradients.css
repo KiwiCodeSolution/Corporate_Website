@@ -1,0 +1,53 @@
+/*градієнти на сторінках*/
+.gradient-1,
+.gradient-4,
+.gradient-5 {
+  position: absolute;
+  border-radius: 50%;
+  width: 604px;
+  height: 604px;
+  filter: blur(1000px);
+}
+
+.gradient-2,
+.gradient-3 {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #65b6f3 0%, #7365f3 100%);
+  filter: blur(1000px);
+}
+
+.gradient-4,
+.gradient-5 {
+  background: linear-gradient(270deg, #38ef7d -122%, #227d94 214%);
+}
+
+.gradient-1 {
+  top: 833px;
+  left: -236px;
+  background: linear-gradient(180deg, #38ef7d 0%, #227d94 100%);
+}
+
+.gradient-2 {
+  width: 597px;
+  height: 597px;
+  top: 2088px;
+  left: 828px;
+}
+
+.gradient-3 {
+  width: 625px;
+  height: 625px;
+  top: 3174px;
+  left: -75px;
+}
+
+.gradient-4 {
+  top: 3457px;
+  left: 714px;
+}
+
+.gradient-5 {
+  top: 4665px;
+  left: -205px;
+}

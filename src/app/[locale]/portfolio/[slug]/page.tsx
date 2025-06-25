@@ -3,12 +3,17 @@ import PortfolioPageComponent from '@/components/PortfolioPageComponent';
 import { Link } from '@/i18n/navigation';
 import { getCase } from '@/utils/api';
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const findCase = await getCase(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: 'ua' | 'en' }>;
+}) {
+  const { slug } = await params;
+  const findCase = getCase(slug);
 
   return {
-    title: findCase.title,
-    description: findCase.description,
+    title: findCase?.title || 'Case',
+    description: findCase?.description || '',
   };
 }
 

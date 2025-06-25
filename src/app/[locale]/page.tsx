@@ -4,6 +4,8 @@ import HowWeWorkSection from '@/components/sections/HowWeWork';
 import AboutSection from '@/components/sections/About';
 import NewsSection from '@/components/sections/News';
 import Hero from '@/components/sections/Hero';
+import OurPrinciplesSection from '@/components/sections/OurPrinciples';
+
 export default async function Home({ params }) {
   const { locale } = await params;
 
@@ -12,6 +14,7 @@ export default async function Home({ params }) {
       <Hero />
       <AboutSection />
       <OurServicesSection locale={locale} />
+      <OurPrinciplesSection />
       <PortfolioSection locale={locale} />
       <HowWeWorkSection />
       <NewsSection locale={locale} page="home" />
