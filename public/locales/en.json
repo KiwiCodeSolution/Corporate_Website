@@ -82,12 +82,48 @@
     }
   },
   "buttons": {
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "goBack": "Go Back"
   },
   "links": {
     "allCases": "All cases",
     "allNews": "All news",
     "learnMore": "Learn more"
+  },
+  "forms": {
+    "contact-form": {
+      "title": "Contact us",
+      "info-text": "Drop us an email—we’ll get back to you shortly!",
+      "form-fields": {
+        "name": "Name*",
+        "email": "Email*",
+        "phone": "Phone",
+        "description": "Description of your project"
+      },
+      "required-fields-notice": "Fields marked with * are required.",
+      "consent-label": "I consent to the collection and processing of my personal data.",
+      "submit-btn-label": "Send"
+    }
+  },
+  "notifications": {
+    "error": {
+      "title": "Oops!",
+      "message": "Something went wrong while submitting the form.\n Please try again."
+    },
+    "success": {
+      "title": "Thanks for contacting us!",
+      "message": "Done! Your message is on its way. We'll be in touch soon."
+    }
+  },
+  "errors": {
+    "validation": {
+      "min": "Must be at least {min} characters long.",
+      "max": "Must be no more than {max} characters.",
+      "required": "This field is required.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number.",
+      "agreement": "You must agree to proceed."
+    }
   },
   "News": { "title_home": "News", "title_page_by_slug": "Other News" },
   "Nav": {
