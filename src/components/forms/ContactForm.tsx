@@ -122,7 +122,7 @@ export default function ContactForm({ onClose }: { onClose: () => void }) {
 
   return isReady ? (
     <div className="flex flex-col items-center w-[656px]">
-      <h2 className="text-[32px] md:text-[40px] leading-[1.2] xl:leading-[1.4] font-semibold text-center">
+      <h2 className="text-[32px] md:text-[36px] leading-[1.2] xl:leading-[1.4] font-semibold text-center">
         {t('contact-form.title')}
       </h2>
       <p className="mt-5 md:mt-6 text-[18px] leading-[1.4] font-medium text-center">
@@ -163,7 +163,7 @@ export default function ContactForm({ onClose }: { onClose: () => void }) {
           loader={ClockLoader}
           iconProps={{ l: true }}
           buttonProps={{ type: 'submit' }}
-          className="mt-8 md:mx-auto"
+          className="mt-5 md:mx-auto"
           disabled={!isAgree || status === 'pending'}
           isLoading={status === 'pending'}
         >
