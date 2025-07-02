@@ -2,14 +2,15 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import InnovativeServicesOpenModalBnt from './InnovativeServicesOpenModalBnt';
 
-const InnovativeServicesPage = () => {
+const InnovativeServicesPage = ({ showImage }: { showImage: boolean }) => {
   const t = useTranslations('Services_Page');
+
   return (
     <div
       className="w-full rounded-base relative py-[89px] px-10 flex gap-x-[38px] bg-bgColor"
       style={{ boxShadow: '0px 4px 16px 0px rgba(0, 0, 0, 0.14)' }}
     >
-      <div className="h-fit relative">
+      <div className="h-fit relative z-[1]">
         <p className="text-[40px] font-semibold leading-[1.4] w-[522px] text-dark dark:text-main-text">
           {t.rich('innovate_title', {
             highlight: (chunks) => (
@@ -37,12 +38,15 @@ const InnovativeServicesPage = () => {
       </div>
 
       <InnovativeServicesOpenModalBnt text={t('innovate_text')} btnText={t('innovate_btn')} />
+
       <Image
         src="/images/services/hand_innovate.png"
-        alt="robot`s hand"
+        alt="robots hand"
         width={510}
         height={470}
-        className="absolute right-[-120px] bottom-[0px] z-[0]"
+        className={`absolute right-[-120px] bottom-0 z-[0] transition-opacity duration-700 ease-out ${
+          showImage ? 'opacity-100' : 'opacity-0'
+        }`}
       />
     </div>
   );

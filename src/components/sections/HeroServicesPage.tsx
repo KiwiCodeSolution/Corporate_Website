@@ -1,12 +1,39 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import InnovativeServicesPage from '../InnovativeServicesPage';
 
 const HeroServicesPage = () => {
+  const [showInnovativeImage, setShowInnovativeImage] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowInnovativeImage(true);
+    }, 1300); // остання анімація закінчується через 1.3с
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
     <section className="w-full mb-[103px]">
       <div className="wrapper mx-auto">
         <div className="grid grid-cols-2 gap-x-10 mb-[95px]">
-          <div className="w-full rounded-base overflow-hidden ">
+          {/* Велике зображення зліва */}
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1 }}
+            className="w-full rounded-base overflow-hidden"
+          >
             <Image
               src="/images/services/services_hero_1.jpg"
               alt=""
@@ -14,11 +41,19 @@ const HeroServicesPage = () => {
               height={532}
               className="w-full h-full rounded-base object-cover"
             />
-          </div>
+          </motion.div>
 
+          {/* Правий блок */}
           <div className="w-full grid grid-cols-2 gap-x-10">
             <div className="h-[532px] grid grid-rows-2 gap-y-10">
-              <div className="h-full overflow-hidden">
+              <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 1, delay: 0.1 }}
+                className="h-full overflow-hidden"
+              >
                 <Image
                   src="/images/services/services_hero_2.jpg"
                   alt=""
@@ -26,8 +61,16 @@ const HeroServicesPage = () => {
                   height={246}
                   className="w-full h-full rounded-base object-cover"
                 />
-              </div>
-              <div className="h-full overflow-hidden">
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="h-full overflow-hidden"
+              >
                 <Image
                   src="/images/services/services_hero_3.jpg"
                   alt=""
@@ -35,10 +78,17 @@ const HeroServicesPage = () => {
                   height={246}
                   className="w-full h-full rounded-base object-cover"
                 />
-              </div>
+              </motion.div>
             </div>
 
-            <div className="row-span-2 rounded-base overflow-hidden">
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="row-span-2 rounded-base overflow-hidden"
+            >
               <Image
                 src="/images/services/services_hero_4.jpg"
                 alt=""
@@ -46,10 +96,12 @@ const HeroServicesPage = () => {
                 height={532}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
-        <InnovativeServicesPage />
+
+        {/* Передаємо флаг у наступний компонент */}
+        <InnovativeServicesPage showImage={showInnovativeImage} />
       </div>
     </section>
   );

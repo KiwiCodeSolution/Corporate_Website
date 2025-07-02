@@ -1,6 +1,9 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import '@/styles/portfolio.css';
+import Image from 'next/image';
 
 import {
   BusinessAnalyticsIcon,
@@ -27,6 +30,7 @@ type ServicesDetailsProps = {
 
 const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
   const t = useTranslations('Services_Page');
+
   const allServices: Service[] = [
     {
       id: 0,
@@ -73,50 +77,73 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
   ];
 
   const selectedServices = allServices.filter((service) => numbers.includes(service.id));
+
   return (
     <section className="w-full">
       <ul className="flex flex-col gap-y-20 wrapper mx-auto">
-        {selectedServices.map((service) => (
-          <li
-            key={service.id}
-            className={`flex gap-x-20 items-start ${service.id % 2 !== 0 ? 'flex-row-reverse' : ''}`}
-          >
-            <div className="relative w-full xl:w-[492px] h-[258px] xl:h-[492px] shrink-0">
-              <div
-                className={`overflow-hidden services-page_image-with-svg-mask w-full h-full ${service.id % 2 !== 0 ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
-                style={{
-                  backgroundImage: `url(${service.img})`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover',
-                  backgroundRepeat: 'no-repeat',
-                }}
-              />
-              <div
-                className={`absolute inset-0 pointer-events-none services-page_image-with-svg-mask ${service.id % 2 !== 0 ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
-                style={{
-                  background: `
-      linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 94, 120, 0.2) 100%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(42, 0, 120, 0.2) 100%)
-    `,
-                }}
-              />
-              <div
-                className={`w-14 h-14 xl:w-16 xl:h-16 link-wrapper flex items-end justify-end absolute top-0  z-[3] ${service.id % 2 !== 0 ? 'left-0' : 'right-0'}`}
+        {selectedServices.map((service) => {
+          const isReverse = service.id % 2 !== 0;
+
+          return (
+            <motion.li
+              key={service.id}
+              className={`flex gap-x-20 items-start ${isReverse ? 'flex-row-reverse' : ''}`}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.4 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              {/* Зображення з появою та масштабом */}
+              <motion.div
+                initial={{ opacity: 0, x: isReverse ? 100 : -100, scale: 0.95 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.4 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+                className="relative w-full xl:w-[492px] h-[258px] xl:h-[492px] shrink-0"
               >
-                {service.icon}
-              </div>
-            </div>
-            <div>
-              <Title tag="h2">{service.title}</Title>
-              <p className="mt-8 text-2xl font-medium leading-[1.3] text-dark dark:text-main-text">
-                <span className="inline-block bg-linear-to-b from-[#5BD187] to-blue leading-[0.85] bg-clip-text text-transparent">
-                  KiWiCode Solutions
-                </span>
-                {service.description}
-              </p>
-            </div>
-          </li>
-        ))}
+                <div
+                  className={`overflow-hidden services-page_image-with-svg-mask w-full h-full ${isReverse ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
+                  style={{
+                    backgroundImage: `url(${service.img})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                />
+                <div
+                  className={`absolute inset-0 pointer-events-none services-page_image-with-svg-mask ${isReverse ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
+                  style={{
+                    background: `
+                    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 94, 120, 0.2) 100%),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(42, 0, 120, 0.2) 100%)
+                  `,
+                  }}
+                />
+                <div
+                  className={`w-14 h-14 xl:w-16 xl:h-16 link-wrapper flex items-end justify-end absolute top-0 z-[3] ${isReverse ? 'left-0' : 'right-0'}`}
+                >
+                  {service.icon}
+                </div>
+              </motion.div>
+
+              {/* Текст з виїздом */}
+              <motion.div
+                initial={{ opacity: 0, x: isReverse ? -80 : 80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.4 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
+              >
+                <Title tag="h2">{service.title}</Title>
+                <p className="mt-8 text-2xl font-medium leading-[1.3] text-dark dark:text-main-text">
+                  <span className="inline-block bg-linear-to-b from-[#5BD187] to-blue leading-[0.85] bg-clip-text text-transparent">
+                    KiWiCode Solutions
+                  </span>
+                  {service.description}
+                </p>
+              </motion.div>
+            </motion.li>
+          );
+        })}
       </ul>
     </section>
   );

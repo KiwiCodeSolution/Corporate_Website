@@ -642,8 +642,8 @@ export const AgileSprint = ({ className }: BaseIconProps) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#227D94" />
-          <stop offset="0.5" stop-color="#2DB689" />
-          <stop offset="1" stop-color="#13A397" />
+          <stop offset="0.5" stopColor="#2DB689" />
+          <stop offset="1" stopColor="#13A397" />
         </linearGradient>
       </defs>
     </svg>
