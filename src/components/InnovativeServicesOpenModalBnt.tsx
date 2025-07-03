@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
+import { Arrow } from '@/assets/icons/icons';
 import PillButton from './ui/buttons/PillButton';
-import BaseModal from './ui/modal/BaseModal';
+import ContactFormModal from './ui/modal/ContactFormModal';
 
 type componentProps = {
   text: string;
@@ -13,22 +14,22 @@ const InnovativeServicesOpenModalBnt = ({ text, btnText }: componentProps) => {
 
   return (
     <>
-      <div className="flex flex-col">
-        <p className="w-[318px] mb-8 mt-[14.5px] leading-[1.4] text-dark dark:text-main-text">
+      <div className="flex flex-col w-[244px] xl:w-[318px] ">
+        <p className="mb-8 xl:mt-[14.5px] font-medium leading-[1.4] text-dark dark:text-main-text">
           {text}
         </p>
         <PillButton
           variant="primary"
           size="l"
-          className="w-[240px] mx-auto z-[1] relative"
+          className="w-full xl:min-w-[240px] xl:mx-auto z-[1] relative"
           onClick={() => setIsOpenModal(true)}
+          icon={Arrow}
+          iconProps={{ xl: true, s: false }}
         >
           {btnText}
         </PillButton>
       </div>
-      <BaseModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} type="baseModal">
-        <h1>It is modal in Service Page! </h1>
-      </BaseModal>
+      <ContactFormModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} />
     </>
   );
 };

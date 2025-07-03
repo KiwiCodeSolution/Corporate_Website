@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { RunningLineIcon } from '@/assets/icons/icons';
+import { Arrow, RunningLineIcon } from '@/assets/icons/icons';
 import PillButton from './ui/buttons/PillButton';
-import BaseModal from './ui/modal/BaseModal';
+import ContactFormModal from './ui/modal/ContactFormModal';
 
 const RunningLine = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -32,8 +32,10 @@ const RunningLine = () => {
                 <PillButton
                   variant="primary"
                   size="l"
-                  className="w-[240px] mx-auto z-[1] relative"
+                  className="min-w-[240px] mx-auto z-[1] relative"
                   onClick={() => setIsOpenModal(true)}
+                  icon={Arrow}
+                  iconProps={{ xl: true, s: false }}
                 >
                   Get in touch
                 </PillButton>
@@ -42,9 +44,7 @@ const RunningLine = () => {
           </div>
         </div>
       </div>
-      <BaseModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} type="baseModal">
-        <h1>It is modal in Running line ! </h1>
-      </BaseModal>
+      <ContactFormModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} />
     </>
   );
 };

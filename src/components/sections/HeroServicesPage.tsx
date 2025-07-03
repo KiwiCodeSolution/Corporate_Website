@@ -22,9 +22,9 @@ const HeroServicesPage = () => {
   };
 
   return (
-    <section className="w-full mb-[103px]">
+    <section className="w-full mb-[72px] xl:mb-[103px]">
       <div className="wrapper mx-auto">
-        <div className="grid grid-cols-2 gap-x-10 mb-[95px]">
+        <div className="grid grid-cols-2 gap-x-6 xl:gap-x-10 mb-[95px]">
           {/* Велике зображення зліва */}
           <motion.div
             variants={fadeIn}
@@ -44,8 +44,8 @@ const HeroServicesPage = () => {
           </motion.div>
 
           {/* Правий блок */}
-          <div className="w-full grid grid-cols-2 gap-x-10">
-            <div className="h-[532px] grid grid-rows-2 gap-y-10">
+          <div className="w-full grid grid-cols-2 gap-x-6 xl:gap-x-10">
+            <div className="h-[352px] xl:h-[532px] grid grid-rows-2 gap-y-6 xl:gap-y-10">
               <motion.div
                 variants={fadeIn}
                 initial="hidden"

@@ -7,14 +7,14 @@ const InnovativeServicesPage = ({ showImage }: { showImage: boolean }) => {
 
   return (
     <div
-      className="w-full rounded-base relative py-[89px] px-10 flex gap-x-[38px] bg-bgColor"
+      className="w-full rounded-base relative p-10 xl:py-[89px] xl:px-10 flex gap-x-[74px] xl:gap-x-[38px] bg-bgColor "
       style={{ boxShadow: '0px 4px 16px 0px rgba(0, 0, 0, 0.14)' }}
     >
       <div className="h-fit relative z-[1]">
-        <p className="text-[40px] font-semibold leading-[1.4] w-[522px] text-dark dark:text-main-text">
+        <p className="text-[28px] xl:text-[40px] font-semibold leading-[1.4] w-[250px] xl:w-[522px] text-dark dark:text-main-text">
           {t.rich('innovate_title', {
             highlight: (chunks) => (
-              <span className="inline-block bg-linear-to-b from-[#5BD187] to-blue leading-[0.85] bg-clip-text text-transparent">
+              <span className="inline-block bg-linear-to-b from-[#5BD187] to-blue xl:leading-[0.85] bg-clip-text text-transparent">
                 {chunks}
               </span>
             ),
@@ -44,7 +44,7 @@ const InnovativeServicesPage = ({ showImage }: { showImage: boolean }) => {
         alt="robots hand"
         width={510}
         height={470}
-        className={`absolute right-[-120px] bottom-0 z-[0] transition-opacity duration-700 ease-out ${
+        className={`absolute right-[-120px] bottom-0 z-[0] transition-opacity duration-700 ease-out w-[470px] h-auto xl:w-[510px] xl:h-[470px] ${
           showImage ? 'opacity-100' : 'opacity-0'
         }`}
       />
