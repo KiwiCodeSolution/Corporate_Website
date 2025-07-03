@@ -14,9 +14,9 @@ type IconButtonProps = {
 };
 
 const sizeMap = {
-  s: 'w-[44px] h-[44px]',
-  m: 'w-[48px] h-[48px]',
-  l: 'w-[50px] h-[50px]',
+  s: 'xl:w-[44px] xl:h-[44px]',
+  m: 'xl:w-[48px] xl:h-[48px]',
+  l: 'xl:w-[50px] xl:h-[50px]',
 };
 
 export default function IconButton({

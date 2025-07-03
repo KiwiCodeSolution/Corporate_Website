@@ -8,10 +8,16 @@ export type PillButtonProps = {
   variant?: 'primary' | 'secondary';
   className?: string;
   icon?: (props: { className?: string; [key: string]: string | boolean | number }) => ReactElement;
+  loader?: (props: {
+    className?: string;
+    [key: string]: string | boolean | number;
+  }) => ReactElement;
   iconClassName?: string;
   iconProps?: { [key: string]: string | boolean | number };
+  buttonProps?: { [key: string]: string | boolean | number };
   children?: ReactElement | string;
   disabled?: boolean;
+  isLoading?: boolean;
   onClick?: () => void;
 };
 
@@ -31,11 +37,14 @@ export default function PillButton(props: PillButtonProps) {
     size = 's',
     variant = 'primary',
     className = '',
-    icon: Icon,
+    icon: Icon = null,
+    loader: Loader = null,
     iconClassName = '',
     iconProps = {},
+    buttonProps = {},
     children,
     disabled = false,
+    isLoading = false,
     onClick,
   } = props;
 
@@ -47,21 +56,26 @@ export default function PillButton(props: PillButtonProps) {
 
   return (
     <button
-      type="button"
       className={clsx(
         sizeMap[size],
         variantMap[variant],
+        disabled ? 'pointer-events-none' : 'pointer-events-auto',
         'rounded-full px-10 text-white hover:shadow-base base-transition',
-        'disabled:bg-disabled disabled:cursor-default disabled:hover:shadow-none',
+        'disabled:opacity-50 disabled:cursor-default disabled:hover:shadow-none',
         'outline-[2px] outline-offset-[2px] outline-transparent focus:outline-blue',
         className
       )}
       disabled={disabled}
       onClick={clickHandler}
+      {...buttonProps}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex justify-center items-center gap-3">
         <span>{children}</span>
-        {Icon && <Icon {...iconProps} className={iconClassName} />}
+        {Loader && isLoading ? (
+          <Loader color="white" size={24} />
+        ) : (
+          Icon && <Icon {...iconProps} className={iconClassName} />
+        )}
       </div>
     </button>
   );
