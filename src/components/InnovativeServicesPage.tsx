@@ -44,7 +44,7 @@ const InnovativeServicesPage = ({ showImage }: { showImage: boolean }) => {
         alt="robots hand"
         width={510}
         height={470}
-        className={`absolute right-[-120px] bottom-0 z-[0] transition-opacity duration-700 ease-out w-[470px] h-auto xl:w-[510px] xl:h-[470px] ${
+        className={`absolute right-[-120px] bottom-0 z-[0] transition-opacity duration-700 ease-out w-[470px] h-auto xl:w-[510px]  ${
           showImage ? 'opacity-100' : 'opacity-0'
         }`}
       />

@@ -16,9 +16,9 @@ const RunningLine = () => {
   const repeatedItems = [...messages, ...messages];
   return (
     <>
-      <div className="running-line-wrapper h-[118px] w-full overflow-hidden bg-[#F5F5F5] dark:bg-bgColor py-6 my-20">
+      <div className="running-line-wrapper h-[96px] xl:h-[118px] w-full overflow-hidden bg-[#F5F5F5] dark:bg-bgColor py-[13px] xl:py-6 my-20">
         <div className="relative">
-          <div className="running-line flex w-max animate-running-line gap-8">
+          <div className="running-line flex w-max animate-running-line gap-4 xl:gap-8">
             {repeatedItems.map((text, idx) => (
               <div
                 key={idx}
@@ -28,7 +28,9 @@ const RunningLine = () => {
                   <RunningLineIcon />
                 </div>
 
-                <span className="text-[56px] text-dark dark:text-main-text">{text}</span>
+                <span className="text-[36px] xl:text-[56px] text-dark dark:text-main-text">
+                  {text}
+                </span>
                 <PillButton
                   variant="primary"
                   size="l"

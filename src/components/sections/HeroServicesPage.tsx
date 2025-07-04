@@ -32,14 +32,15 @@ const HeroServicesPage = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1 }}
-            className="w-full rounded-base overflow-hidden"
+            className="w-full rounded-base overflow-hidden group"
           >
             <Image
               src="/images/services/services_hero_1.jpg"
               alt=""
               width={492}
               height={532}
-              className="w-full h-full rounded-base object-cover"
+              className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out"
+              priority
             />
           </motion.div>
 
@@ -52,14 +53,15 @@ const HeroServicesPage = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 1, delay: 0.1 }}
-                className="h-full overflow-hidden"
+                className="h-full rounded-base overflow-hidden group"
               >
                 <Image
                   src="/images/services/services_hero_2.jpg"
                   alt=""
                   width={246}
                   height={246}
-                  className="w-full h-full rounded-base object-cover"
+                  className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out"
+                  priority
                 />
               </motion.div>
 
@@ -69,14 +71,15 @@ const HeroServicesPage = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="h-full overflow-hidden"
+                className="h-full rounded-base overflow-hidden group"
               >
                 <Image
                   src="/images/services/services_hero_3.jpg"
                   alt=""
                   width={246}
                   height={246}
-                  className="w-full h-full rounded-base object-cover"
+                  className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out"
+                  priority
                 />
               </motion.div>
             </div>
@@ -87,14 +90,15 @@ const HeroServicesPage = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="row-span-2 rounded-base overflow-hidden"
+              className="row-span-2 rounded-base overflow-hidden group"
             >
               <Image
                 src="/images/services/services_hero_4.jpg"
                 alt=""
                 width={246}
                 height={532}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-in-out"
+                priority
               />
             </motion.div>
           </div>

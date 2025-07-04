@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import '@/styles/portfolio.css';
-import Image from 'next/image';
 
+import { useEffect, useState } from 'react';
 import {
   BusinessAnalyticsIcon,
   DesignIcon,
@@ -13,8 +13,8 @@ import {
   StartupIcon,
   ProjectsIcon,
 } from '@/assets/icons/icons';
-import Title from './Title';
 import useWindowWidth from '@/hooks/useWindowWidth';
+import Title from './Title';
 
 type Service = {
   id: number;
@@ -30,8 +30,17 @@ type ServicesDetailsProps = {
 };
 
 const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
+  const [hasMounted, setHasMounted] = useState(false);
   const t = useTranslations('Services_Page');
   const width = useWindowWidth();
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
+
+  // Calculate iconSize as a variable, not inside useEffect
   const iconSize = width <= 1024 ? 44 : 64;
 
   const allServices: Service[] = [
@@ -88,20 +97,16 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
           const isReverse = service.id % 2 !== 0;
 
           return (
-            <motion.li
+            <li
               key={service.id}
               className={`flex gap-x-6 xl:gap-x-20 items-start ${isReverse ? 'flex-row-reverse' : ''}`}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
             >
-              {/* Зображення з появою та масштабом */}
+              {/* Зображення з fade-in */}
               <motion.div
-                initial={{ opacity: 0, x: isReverse ? 100 : -100, scale: 0.95 }}
-                whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.8, ease: 'easeInOut' }}
                 className="relative w-full md:w-[340px] md:h-[340px] xl:w-[492px] h-[258px] xl:h-[492px] shrink-0"
               >
                 <div
@@ -117,9 +122,9 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
                   className={`absolute inset-0 pointer-events-none services-page_image-with-svg-mask ${isReverse ? 'services-page_image-with-svg-mask-direct' : 'services-page_image-with-svg-mask-reverse'}`}
                   style={{
                     background: `
-                    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 94, 120, 0.2) 100%),
-                    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(42, 0, 120, 0.2) 100%)
-                  `,
+        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 94, 120, 0.2) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(42, 0, 120, 0.2) 100%)
+      `,
                   }}
                 />
                 <div
@@ -129,12 +134,12 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
                 </div>
               </motion.div>
 
-              {/* Текст з виїздом */}
+              {/* Текст з fade-in */}
               <motion.div
-                initial={{ opacity: 0, x: isReverse ? -80 : 80 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.2 }}
               >
                 <Title tag="h2">{service.title}</Title>
                 <p className="mt-6 xl:mt-8 text-base xl:text-2xl font-semibold xl:font-medium leading-[1.3] text-dark dark:text-main-text">
@@ -144,7 +149,7 @@ const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
                   {service.description}
                 </p>
               </motion.div>
-            </motion.li>
+            </li>
           );
         })}
       </ul>
