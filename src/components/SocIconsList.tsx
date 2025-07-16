@@ -10,32 +10,35 @@ type SocialIcon = {
   hoverIcon: JSX.Element;
 };
 
-const socialIcons: SocialIcon[] = [
-  {
-    id: 'instagram',
-    link: 'https://www.instagram.com/',
-    baseIcon: <Icon.InstagramIcon className="w-full h-full" type="base" />,
-    hoverIcon: <Icon.InstagramHoverIcon className="w-full h-full" />,
-  },
-  {
-    id: 'telegram',
-    link: 'https://web.telegram.org/',
-    baseIcon: <Icon.TelegramIcon className="w-full h-full" type="base" />,
-    hoverIcon: <Icon.TelegramHoverIcon className="w-full h-full" />,
-  },
-  {
-    id: 'linkedin',
-    link: 'https://ua.linkedin.com/',
-    baseIcon: <Icon.LinkedinIcon className="w-full h-full" type="base" />,
-    hoverIcon: <Icon.LinkedinHoverIcon className="w-full h-full" />,
-  },
-];
+const SocIconsList = ({ section }: { section?: string }) => {
+  const type = section === 'footer' ? 'base' : '';
 
-const SocIconsList = () => {
+  const socialIcons: SocialIcon[] = [
+    {
+      id: 'instagram',
+      link: 'https://www.instagram.com/',
+      baseIcon: <Icon.InstagramIcon className="w-full h-full" type={type} />,
+      hoverIcon: <Icon.InstagramHoverIcon className="w-full h-full" />,
+    },
+    {
+      id: 'telegram',
+      link: 'https://web.telegram.org/',
+      baseIcon: <Icon.TelegramIcon className="w-full h-full" type={type} />,
+      hoverIcon: <Icon.TelegramHoverIcon className="w-full h-full" />,
+    },
+    {
+      id: 'linkedin',
+      link: 'https://ua.linkedin.com/',
+      baseIcon: <Icon.LinkedinIcon className="w-full h-full" type={type} />,
+      hoverIcon: <Icon.LinkedinHoverIcon className="w-full h-full" />,
+    },
+  ];
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <div className="w-[176px] xl:w-[132px] flex items-center justify-between gap-x-4 xl:gap-x-[30px] order-2 md:order-3">
+    <div
+      className={`${section === 'footer' ? 'w-[176px] xl:w-[132px] justify-between gap-x-4 xl:gap-x-[30px] order-2 md:order-3' : 'w-full justify-center gap-x-10'} flex items-center `}
+    >
       {socialIcons.map(({ id, link, baseIcon, hoverIcon }) => (
         <a
           key={id}
@@ -44,16 +47,18 @@ const SocIconsList = () => {
           rel="noopener noreferrer"
           onMouseEnter={() => setHoveredId(id)}
           onMouseLeave={() => setHoveredId(null)}
-          className="relative w-10 h-10 xl:w-6 xl:h-6 p-2 cursor-pointer"
+          className={`relative ${section === 'footer' ? 'w-10 h-10 xl:w-6 xl:h-6' : 'w-10 h-10 xl:w-8 xl:h-8'} p-2 cursor-pointer`}
         >
           <span className="absolute inset-0 transition-opacity duration-500">{baseIcon}</span>
-          <span
-            className={`absolute inset-0 transition-opacity duration-500 ${
-              hoveredId === id ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            {hoverIcon}
-          </span>
+          {section === 'footer' && (
+            <span
+              className={`absolute inset-0 transition-opacity duration-500 ${
+                hoveredId === id ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {hoverIcon}
+            </span>
+          )}
         </a>
       ))}
     </div>

@@ -5,11 +5,8 @@ import ServicesDetails from '@/components/ServicesDetails';
 import RunningLine from '@/components/RunningLine';
 import OurProcess from '@/components/sections/OurProcess';
 
-export default async function Services({
-  params,
-}: {
-  params: { slug: string; locale: 'ua' | 'en' };
-}) {
+export default async function Services() {
+  // { params }: { params: { locale: 'ua' | 'en' } }
   const t = await getTranslations('Services_Page');
   // const { locale } = await params;
 
