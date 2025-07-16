@@ -33,7 +33,10 @@ export default function Header() {
                               dark:from-[#15473D] dark:via-[#08100BD9] dark:to-[#08100BB2]"
         >
           <div className="wrapper  relative h-full flex items-center justify-between">
-            <Logo section="header" locale={locale} className="" />
+            <div className="w-[117px] xl:w-[132px]">
+              <Logo section="header" locale={locale} className="" />
+            </div>
+
             <Nav orientation="horizontal" className="hidden xl:block" />
             {isBurgerMenuOpen && <BurgerMenu onMenuLinkClick={toggleMenu} onClose={toggleMenu} />}
             <div className="h-full flex items-center gap-x-6">

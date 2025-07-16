@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { AgileSprint, AgileSprintForDarkTheme } from '@/assets/icons/icons';
 import CircleIcons from '@/assets/icons/CircleIcons';
 import Title from '../Title';
+import ProcessSteps from '../ProcessSteps';
 
 const OurProcess = () => {
   const { theme } = useTheme();
@@ -18,7 +19,7 @@ const OurProcess = () => {
   if (!hasMounted) return null;
 
   return (
-    <section className="w-full min-h-[544px] my-[104px] our-process-section">
+    <section className="w-full xl:h-[544px] my-[104px] our-process-section">
       <div className="wrapper mx-auto flex">
         {/* перше зображення */}
         <div className="w-[400px] rounded-base mr-2.5 relative overflow-hidden">
@@ -52,11 +53,20 @@ const OurProcess = () => {
         </div>
 
         {/* друге зображення */}
-        <div className="w-[348px] mr-[50px] relative">
-          <div className="min-w-[209px] h-fit py-4 px-1.5 flex items-center justify-center -rotate-90 top-0 left-[8px] absolute bg-white dark:bg-blue shadow-[4px_4px_20px_0px_rgba(0,0,0,0.15)] rounded-2xl z-[1]">
-            <p className="font-semibold text-lg">Agile methodology</p>
+        <div className="w-[348px] mr-[50px] relative flex items-center">
+          {/* текстові блоки */}
+          <div className="rotate-[-90deg] absolute left-2 top-[calc(544px/2+209px/2)] origin-top-left w-[209px] h-fit px-4 py-1.5 flex items-center justify-center bg-white dark:bg-blue shadow-[4px_4px_20px_0px_rgba(0,0,0,0.15)] rounded-[8px] z-[1]">
+            <p className="font-semibold text-lg whitespace-nowrap">Agile methodology</p>
           </div>
-
+          <div className="rotate-[-90deg] absolute left-[62px] top-[210px] origin-top-left w-fit h-fit p-[2px] flex items-center justify-center dark:bg-[#21D1D4] dark:shadow-[4px_4px_20px_0px_rgba(0,0,0,0.15)] rounded-[4px] z-[1]">
+            <p className="text-blue dark:text-dark font-medium text-sm whitespace-nowrap">Start</p>
+          </div>
+          <div className="rotate-[-90deg] absolute left-[62px] top-[422px] origin-top-left w-fit h-fit p-[2px] flex items-center justify-center dark:bg-[#21D1D4] dark:shadow-[4px_4px_20px_0px_rgba(0,0,0,0.15)] rounded-[4px] z-[1]">
+            <p className="text-blue dark:text-dark font-medium text-sm whitespace-nowrap">
+              Next sprint
+            </p>
+          </div>
+          {/* основне фонове зображення */}
           <Image
             src={
               theme === 'dark'
@@ -68,7 +78,7 @@ const OurProcess = () => {
             className=""
             alt=""
           />
-
+          {/* центральне зображення */}
           <Image
             src={
               theme === 'dark'
@@ -80,16 +90,20 @@ const OurProcess = () => {
             className="top-[50%] right-[47px] translate-y-[-50%] z-[1] absolute"
             alt=""
           />
+
+          {/* кругова стрілка */}
           {theme === 'dark' ? (
             <AgileSprintForDarkTheme className="absolute top-[50%] right-[59px] translate-y-[-50%] z-[1]" />
           ) : (
             <AgileSprint className="absolute top-[50%] right-[59px] translate-y-[-50%] z-[1]" />
           )}
+          {/* текстовий блок із кроками */}
+          <ProcessSteps />
         </div>
 
         {/* трете зображення */}
-        <div className="w-[256px] flex flex-col justify-between gap-y-4">
-          <div className="w-full h-[448px]">
+        <div className="w-[256px] flex flex-col justify-between gap-y-4 ">
+          <div className="w-full h-[448px] relative">
             <Image
               src={
                 theme === 'dark'
@@ -101,6 +115,13 @@ const OurProcess = () => {
               className=""
               alt=""
             />
+            <div className="w-[230px] h-[175px] rounded-base py-4 flex flex-col gap-y-2 shadow-[4px_4px_20px_0px_rgba(0,0,0,0.15)] absolute bottom-[56px] left-1/2 -translate-x-1/2">
+              <p className="text-lg font-semibold text-accent uppercase text-center">connect</p>
+              <p className="text-base text-center leading-[1.35] ">
+                We open the door to an exciting world of innovation and creativity, where you can
+                find unique opportunities to invest in digital art.
+              </p>
+            </div>
           </div>
           <div className="w-full h-20">
             <Image

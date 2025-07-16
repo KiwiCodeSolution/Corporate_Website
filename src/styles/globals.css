@@ -411,3 +411,9 @@ a:hover .arrow {
     background-size: auto, auto;
   }
 }
+
+.process-text {
+  leading-trim: NONE;
+  line-height: 135%;
+  letter-spacing: -3%;
+}

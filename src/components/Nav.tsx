@@ -8,7 +8,7 @@ import { AppLocale } from '@/i18n/routing';
 import NavLink from './ui/links/NavLink';
 
 export const navItems = [
-  { label: 'about', href: '/about' },
+  { label: 'about', href: '/#about' },
   { label: 'services', href: '/services' },
   { label: 'portfolio', href: '/portfolio' },
   { label: 'news', href: 'news' },

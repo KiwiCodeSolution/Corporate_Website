@@ -60,7 +60,7 @@ const HeroServicesPage = () => {
                   alt=""
                   width={246}
                   height={246}
-                  className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out"
+                  className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out relative z-[5]"
                   priority
                 />
               </motion.div>
@@ -78,7 +78,7 @@ const HeroServicesPage = () => {
                   alt=""
                   width={246}
                   height={246}
-                  className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out"
+                  className="w-full h-full rounded-base object-cover group-hover:scale-110 transition duration-500 ease-in-out relative z-[5]"
                   priority
                 />
               </motion.div>
