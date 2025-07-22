@@ -243,6 +243,11 @@ html {
   );
 }
 
+.robot-hand-gradient {
+  background: linear-gradient(to bottom, rgba(8, 16, 11, 0) 21%, #0c1719 97%);
+  /* background: linear-gradient(to bottom, rgba(8, 16, 11, 0) 20%, #0c1719 100%); */
+}
+
 /* базовий перехід */
 
 .base-transition {

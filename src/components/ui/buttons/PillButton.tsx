@@ -70,7 +70,7 @@ export default function PillButton(props: PillButtonProps) {
       {...buttonProps}
     >
       <div className="flex justify-center items-center gap-3">
-        <span>{children}</span>
+        <span className="text-[18px] md:text-[23px]">{children}</span>
         {Loader && isLoading ? (
           <Loader color="white" size={24} />
         ) : (

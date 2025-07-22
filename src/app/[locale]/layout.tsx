@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import BackgroundPageGradient from '@/components/ui/BackgroundPageGradient';
+import { ModalProvider } from '../context/ModalContext';
 import { montserrat } from './fonts';
 import '@/styles/globals.css';
 
@@ -35,16 +36,18 @@ export default async function LocaleLayout({
       <body className={`${montserrat.className} antialiased pt-24 md:pt-20 relative h-fit `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider>
-            <Header />
-            <div className="relative overflow-hidden">
-              <BackgroundPageGradient page="home" />
-              {children}
-              {modal}
-            </div>
+            <ModalProvider>
+              <Header />
+              <div className="relative overflow-hidden">
+                <BackgroundPageGradient page="home" />
+                {children}
+                {modal}
+              </div>
 
-            <Footer locale={locale} />
+              <Footer locale={locale} />
 
-            <div id="modal-root"></div>
+              <div id="modal-root"></div>
+            </ModalProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
