@@ -1,0 +1,31 @@
+<svg
+  className="service-page-mask-icon"
+
+  viewBox="0 0 83 83"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <mask id="inverse-mask-md">
+    <!-- Білий фон: все буде видно -->
+    <rect width="83" height="83" fill="white" />
+    
+    <!-- Твоя форма: стане прозорою -->
+    <g transform="translate(83, 0) scale(-1, 1)">
+     <path
+      d="
+        M 0,0
+        A 22,22 0,0,1 22,22
+        L 22,43
+        C 22,52 29,59 38,59
+        H 61
+        A 22,22 0,0,1 83,83
+        L 0,83
+        Z
+      "
+      fill="black"
+    />
+    </g>
+  </mask>
+
+  <!-- Це лише для перегляду / тесту, можна прибрати -->
+  <rect width="83" height="83" fill="black" mask="url(#inverse-mask-md)" />
+</svg>

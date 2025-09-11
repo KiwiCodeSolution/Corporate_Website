@@ -9,6 +9,7 @@ import BackgroundPageGradient from '@/components/ui/BackgroundPageGradient';
 import { ModalProvider } from '../context/ModalContext';
 import { montserrat } from './fonts';
 import '@/styles/globals.css';
+import '@/styles/services-page.css';
 
 export const metadata = {
   title: 'KiWiCode Solutions',

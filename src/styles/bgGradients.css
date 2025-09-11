@@ -6,7 +6,10 @@
   border-radius: 50%;
   width: 604px;
   height: 604px;
-  filter: blur(1000px);
+  /* filter: blur(1000px); */
+  filter: blur(300px);
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
 }
 
 .gradient-2,
@@ -14,7 +17,10 @@
   position: absolute;
   border-radius: 50%;
   background: linear-gradient(180deg, #65b6f3 0%, #7365f3 100%);
-  filter: blur(1000px);
+  /* filter: blur(1000px); */
+  filter: blur(300px);
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
 }
 
 .gradient-4,

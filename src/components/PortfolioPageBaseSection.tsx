@@ -36,18 +36,20 @@ const PortfolioPageBaseSection = ({ locale }: { locale: 'ua' | 'en' }) => {
   };
 
   return (
-    <section className="wrapper mx-auto pt-16 xl:pt-[104px] pb-[83px]">
-      <Title tag="h1" styles="mb-10 xl:mb-12">
-        Portfolio
-      </Title>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-6 md:gap-y-0 xl:gap-x-10 min-h-[calc(100vh-104px)]">
-        {visibleItems.map((el, index) => (
-          <PortfolioCasePreview key={el.id} item={el} locale={locale} index={index} />
-        ))}
+    <section className="w-full pt-16 xl:pt-[104px] pb-[83px]">
+      <div className="wrapper mx-auto">
+        <Title tag="h1" styles="mb-10 xl:mb-12">
+          Portfolio
+        </Title>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-6 md:gap-y-0 xl:gap-x-10 min-h-[calc(100vh-104px)]">
+          {visibleItems.map((el, index) => (
+            <PortfolioCasePreview key={el.id} item={el} locale={locale} index={index} />
+          ))}
+        </div>
+        {visibleItems.length < allCases.length && (
+          <LoadMoreButton onClick={handleLoadMore} className="mx-auto block w-max " />
+        )}
       </div>
-      {visibleItems.length < allCases.length && (
-        <LoadMoreButton onClick={handleLoadMore} className="mx-auto block w-max " />
-      )}
     </section>
   );
 };

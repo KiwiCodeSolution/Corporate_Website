@@ -1,0 +1,133 @@
+@keyframes running-line {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-running-line {
+  animation: running-line 35s linear infinite;
+}
+
+.running-line-wrapper:hover .animate-running-line {
+  animation-play-state: paused;
+}
+
+.our-process-section {
+  background-image: url('/images/bg_wave.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.services-page_image-with-svg-mask-direct {
+  border-radius: 0 28px 28px 28px;
+  width: 340px;
+  height: 340px;
+  -webkit-mask:
+    url('/images/mask-service-page-reverse_md.svg') center / contain no-repeat,
+    linear-gradient(#000000 0 0);
+  mask:
+    url('/images/mask-service-page-reverse_md.svg') center / contain no-repeat,
+    linear-gradient(#000000 0 0);
+  mask-size: 83px 83px;
+
+  @media screen and (min-width: 1280px) {
+    border-radius: 0 40px 40px 40px;
+    width: 492px;
+    height: 492px;
+    -webkit-mask:
+      url('/images/mask-service-page-reverse.svg') center / contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask:
+      url('/images/mask-service-page-reverse.svg') center / contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask-size: 121px 116px;
+  }
+
+  /* mask-size: 84px 80px;
+  @media screen and (min-width: 1280px) {
+    mask-size: 121px 116px;
+  } */
+
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  mask-position: top left;
+}
+
+.services-page_image-with-svg-mask-reverse {
+  border-radius: 28px 0 28px 28px;
+
+  width: 340px;
+  height: 340px;
+
+  -webkit-mask:
+    url('/images/mask-service-page_md.svg') center / contain no-repeat,
+    linear-gradient(#000000 0 0);
+  mask:
+    url('/images/mask-service-page_md.svg') center / contain no-repeat,
+    linear-gradient(#000000 0 0);
+  mask-size: 83px 83px;
+
+  @media screen and (min-width: 1280px) {
+    border-radius: 40px 0 40px 40px;
+    width: 492px;
+    height: 492px;
+
+    -webkit-mask:
+      url('/images/mask-service-page.svg') center / contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask:
+      url('/images/mask-service-page.svg') center / contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask-size: 121px 116px;
+  }
+
+  /* mask-size: 84px 80px;
+  @media screen and (min-width: 1280px) {
+    
+  } */
+
+  mask-position: top right;
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+.animated-arrow path {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: draw 3s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-opacity {
+  opacity: 0;
+  animation: fadeInOpacity 1.2s ease-out forwards;
+  animation-delay: 1.3s; /* можна варіювати */
+}
+
+@keyframes fadeInOpacity {
+  to {
+    opacity: 1;
+  }
+}

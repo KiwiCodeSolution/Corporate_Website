@@ -1,6 +1,6 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ANIMATION_DURATION_MS } from '@/configs/animationConfig';
 import Img1 from '../../../public/images/principles/screen_1_img.png';
@@ -8,12 +8,18 @@ import Img2 from '../../../public/images/principles/screen_1_logo.png';
 import '../../styles/principles.css';
 
 const MotionPrinciple1 = () => {
+  const [hasMounted, setHasMounted] = useState(false);
   const textControls1 = useAnimation();
   const textControls2 = useAnimation();
   const imageControls = useAnimation();
   const logoControls = useAnimation();
 
   useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
     async function sequence() {
       // Поява елементів
       await textControls1.start({
@@ -80,7 +86,7 @@ const MotionPrinciple1 = () => {
     }
 
     sequence();
-  }, [textControls1, textControls2, imageControls, logoControls]);
+  }, [textControls1, textControls2, imageControls, logoControls, hasMounted]);
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center phone-content">

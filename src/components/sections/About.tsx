@@ -7,7 +7,7 @@ export default async function AboutSection() {
   const t = await getTranslations('About');
 
   return (
-    <section className="w-full">
+    <section className="w-full" id="about">
       <div className="wrapper mx-auto bg-bgColor">
         <Title tag="h2">About company</Title>
         <div className="flex flex-col gap-2  xl:flex-row mt-[40px] md:mt-[60px]">

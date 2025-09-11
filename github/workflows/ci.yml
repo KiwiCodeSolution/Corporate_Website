@@ -1,0 +1,59 @@
+name: Frontend CI & CD
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to dev server
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.DEV_USER }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          port: 22
+          script: |
+            cd ~/kiwi-frontend
+            git fetch origin dev
+            git reset --hard origin/dev
+            npm ci
+            npm run build
+            pm2 stop kiwi-frontend || true
+            pm2 start npm --name kiwi-frontend -- start
+
+      # Telegram notifications
+      - name: Notify Telegram on success
+        if: success()
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: '✅ Frontend build & deploy successful on branch ${{ github.ref }}!'
+
+      - name: Notify Telegram on failure
+        if: failure()
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: '⚠️ Frontend build or deploy failed on branch ${{ github.ref }}!'
