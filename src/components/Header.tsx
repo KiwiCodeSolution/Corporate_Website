@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { useScrollLockV2 } from '@/hooks/useScrollBlockV2';
 import { AppLocale } from '@/i18n/routing';
@@ -16,7 +16,15 @@ export default function Header() {
   const locale = useLocale() as AppLocale;
 
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-  useScrollLockV2(isBurgerMenuOpen);
+  const [blockScroll, unBlockScroll] = useScrollLockV2();
+
+  useEffect(() => {
+    if (isBurgerMenuOpen) {
+      blockScroll();
+    } else {
+      unBlockScroll();
+    }
+  }, [isBurgerMenuOpen, blockScroll, unBlockScroll]);
 
   function toggleMenu() {
     setIsBurgerMenuOpen((prevState) => !prevState);

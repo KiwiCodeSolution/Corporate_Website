@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import clsx from 'clsx';
-import { useController, FieldPath, FieldValues, Control } from 'react-hook-form';
+import { Control, FieldPath, FieldValues, useController } from 'react-hook-form';
 
 import { CheckIcon } from '@/assets/icons/icons';
 
