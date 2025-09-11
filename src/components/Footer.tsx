@@ -37,10 +37,6 @@ const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
     <footer
       className={`w-full h-fit bg-[#FDFEFE] dark:bg-bgColor border-t border-accent rounded-t-[45px] mt-auto relative z-[1]`}
     >
-      {/* <footer
-      className={`w-full h-fit ${theme === 'dark' ? 'bg-bgColor' : 'bg-[#FDFEFE]'} border-t border-accent rounded-t-[45px] mt-auto relative z-[1]`}
-    > */}
-
       <div className="wrapper pt-12 xl:pt-20 pb-6 md:pb-[11px] xl:pb-8 flex flex-col gap-y-8 mx-auto">
         <div className="w-full border-b border-[rgba(144,157,162,0.3)] flex flex-col md:flex-row justify-between pb-8">
           {/* розділ із лінками та сторінками */}
@@ -63,7 +59,7 @@ const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
             </p>
           </div>
 
-          <SocIconsList />
+          <SocIconsList section="footer" />
         </div>
       </div>
     </footer>

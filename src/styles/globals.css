@@ -23,7 +23,7 @@
   --bright-green: #38ee7d;
   --turquoise: #5bd1c5;
   --blue: #227d94;
-
+  --services-blue: #21d1d4;
   --grey: #909da2;
 }
 
@@ -71,6 +71,7 @@
   --color-turquoise: var(--turquoise);
   --color-blue: var(--blue);
   --color-grey: var(--grey);
+  --color-services-blue: var(--services-blue);
   --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1);
   --radius-base: 20px;
 }
