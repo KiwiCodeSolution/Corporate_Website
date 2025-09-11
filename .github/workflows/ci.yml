@@ -33,7 +33,7 @@ jobs:
           key: ${{ secrets.DEV_SSH_KEY }}
           port: 22
           script: |
-            cd ~/kiwi-frontend
+            cd /var/www/kiwi-frontend
             git fetch origin dev
             git reset --hard origin/dev
             npm ci
