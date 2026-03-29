@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run lint && next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,9 +12,9 @@
     "@hookform/resolvers": "^5.0.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "lodash": "^4.17.21",
     "framer-motion": "^12.11.3",
-    "next": "15.2.4",
+    "lodash": "^4.17.21",
+    "next": "^16.2.1",
     "next-intl": "^4.0.2",
     "next-themes": "^0.4.6",
     "prop-types": "^15.8.1",
