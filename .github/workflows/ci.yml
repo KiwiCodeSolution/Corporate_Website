@@ -34,12 +34,18 @@ jobs:
           port: 22
           script: |
             cd /var/www/kiwi-frontend
+
+            # Скидаємо локальні зміни, беремо останню версію dev
             git fetch origin dev
             git reset --hard origin/dev
+
+            # Встановлюємо залежності та білдимо фронт
             npm ci
             npm run build
+
+            # Перезапускаємо фронт у продакшн режимі
             pm2 stop kiwi-frontend || true
-            pm2 start npm --name kiwi-frontend -- start
+            pm2 start "npm run start" --name kiwi-frontend --cwd /var/www/kiwi-frontend
 
       # Telegram notifications
       - name: Notify Telegram on success
