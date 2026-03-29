@@ -3,6 +3,7 @@ import PortfolioSection from '@/components/sections/Portfolio';
 import HowWeWorkSection from '@/components/sections/HowWeWork';
 import AboutSection from '@/components/sections/About';
 import NewsSection from '@/components/sections/News';
+import ContactUsSection from '@/components/sections/ContactUs';
 import Hero from '@/components/sections/Hero';
 import OurPrinciplesSection from '@/components/sections/OurPrinciples';
 
@@ -17,6 +18,7 @@ export default async function Home({ params }) {
       <OurPrinciplesSection />
       <PortfolioSection locale={locale} />
       <HowWeWorkSection />
+      <ContactUsSection />
       <NewsSection locale={locale} page="home" />
     </main>
   );

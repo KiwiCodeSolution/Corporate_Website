@@ -1,22 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useModal } from '@/app/context/ModalContext';
 import PillButton from '../ui/buttons/PillButton';
 import ContactFormModal from '../ui/modal/ContactFormModal';
 
 export default function Hero() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState<boolean>(false);
+  const { modal, openModal, closeModal } = useModal();
 
+  const isContactModalOpen = modal === 'contact';
   return (
     <div className="wrapper">
       <div className="h-[400px] flex justify-center items-center">
-        <PillButton size="m" onClick={() => setIsContactModalOpen(true)}>
+        <PillButton size="m" onClick={() => openModal('contact')}>
           {'Let is Work'}
         </PillButton>
-        <ContactFormModal
-          isOpen={isContactModalOpen}
-          onClose={() => setIsContactModalOpen(false)}
-        />
+        <ContactFormModal isOpen={isContactModalOpen} onClose={closeModal} />
       </div>
     </div>
   );

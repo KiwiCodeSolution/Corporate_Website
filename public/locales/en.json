@@ -81,9 +81,15 @@
       "paragraph-2": "We began with volunteer initiatives, which laid the foundation for our professional growth and inspired us to move forward."
     }
   },
+  "ContactUs": {
+    "title": "Contact us",
+    "text": "Leave a request and we will help bring it to life!"
+  },
+
   "buttons": {
     "loadMore": "Load more",
-    "goBack": "Go Back"
+    "goBack": "Go Back",
+    "letsWork": "Let's work"
   },
   "links": {
     "allCases": "All cases",
