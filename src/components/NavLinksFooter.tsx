@@ -1,9 +1,10 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { AppLocale } from '@/i18n/routing';
 import { CommonContent, TitleFooter } from './Footer';
 import { navItems } from './Nav';
 
-const NavLinksFooter = ({ locale }: { locale: 'ua' | 'en' }) => {
+const NavLinksFooter = ({ locale }: { locale: AppLocale }) => {
   const t = useTranslations('');
 
   return (

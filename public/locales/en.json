@@ -68,7 +68,6 @@
     "useful_links_title": "useful links",
     "nav_links_title": "Menu"
   },
-
   "About": {
     "companyStats": {
       "implemented-projects": "Implemented projects",
@@ -85,11 +84,11 @@
     "title": "Contact us",
     "text": "Leave a request and we will help bring it to life!"
   },
-
   "buttons": {
     "loadMore": "Load more",
     "goBack": "Go Back",
-    "letsWork": "Let's work"
+    "letsWork": "Let's work",
+    "darkTheme": "Dark theme"
   },
   "links": {
     "allCases": "All cases",
@@ -131,7 +130,10 @@
       "agreement": "You must agree to proceed."
     }
   },
-  "News": { "title_home": "News", "title_page_by_slug": "Other News" },
+  "News": {
+    "title_home": "News",
+    "title_page_by_slug": "Other News"
+  },
   "Nav": {
     "about": "About",
     "services": "Services",

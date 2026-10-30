@@ -1,9 +1,10 @@
 import PortfolioPageBaseSection from '@/components/PortfolioPageBaseSection';
+import { AppLocale } from '@/i18n/routing';
 
 export default async function Portfolio({
   params,
 }: {
-  params: { slug: string; locale: 'ua' | 'en' };
+  params: Promise<{ slug: string; locale: AppLocale }>;
 }) {
   const { locale } = await params;
 

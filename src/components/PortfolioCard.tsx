@@ -1,3 +1,4 @@
+import { AppLocale } from '@/i18n/routing';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export type PortfolioType =
   | 'UI/UX Design'
@@ -22,7 +23,7 @@ export type PortfolioItem = {
 
 type PortfolioCardProps = {
   item: PortfolioItem;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   section: 'card' | 'modal' | 'page';
 };
 

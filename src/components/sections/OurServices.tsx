@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { JSX } from 'react';
 import * as Icons from '@/assets/icons/icons';
+import { AppLocale } from '@/i18n/routing';
 import ServicesList from '../ServicesList';
 import Title from '../Title';
 import LearnMoreLink from '../LearnMoreLink';
@@ -12,7 +13,7 @@ export type IService = {
   icon: JSX.Element;
 };
 
-const OurServicesSection = ({ locale }: { locale: 'ua' | 'en' }) => {
+const OurServicesSection = ({ locale }: { locale: AppLocale }) => {
   const t = useTranslations('OurServices');
   const SERVICES: IService[] = [
     {

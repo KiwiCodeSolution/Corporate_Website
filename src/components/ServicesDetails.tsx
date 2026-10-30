@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import '@/styles/portfolio.css';
 
-import { useEffect, useState } from 'react';
 import {
   BusinessAnalyticsIcon,
   DesignIcon,
@@ -13,6 +12,7 @@ import {
   StartupIcon,
   ProjectsIcon,
 } from '@/assets/icons/icons';
+import useIsMounted from '@/hooks/useIsMounted';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import Title from './Title';
 
@@ -30,13 +30,9 @@ type ServicesDetailsProps = {
 };
 
 const ServicesDetails = ({ numbers }: ServicesDetailsProps) => {
-  const [hasMounted, setHasMounted] = useState(false);
+  const hasMounted = useIsMounted();
   const t = useTranslations('Services_Page');
   const width = useWindowWidth();
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
 
   if (!hasMounted) return null;
 

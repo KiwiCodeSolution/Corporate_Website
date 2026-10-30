@@ -1,4 +1,5 @@
-import { format } from 'date-fns';
+import { useFormatter } from 'next-intl';
+import { AppLocale } from '@/i18n/routing';
 import LearnMoreAnchorLink from './ui/links/LearnMoreAnchorLink';
 import NewsCardImgBlock from './NewsCardImgBlock';
 
@@ -15,16 +16,21 @@ export type NewsItem = {
 
 export type NewsCardProps = {
   news: NewsItem;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   section: 'card' | 'modal' | 'page';
 };
 
 const NewsCard = ({ news, locale, section }: NewsCardProps) => {
   const { title, title_en, description, description_en, image, date, slug } = news;
-  const titleByLocale = locale === 'ua' ? title : title_en;
-  const descriptionByLocale = locale === 'ua' ? description : description_en;
+  const titleByLocale = locale === 'uk' ? title : title_en;
+  const descriptionByLocale = locale === 'uk' ? description : description_en;
 
-  const formattedDate = format(new Date(date), 'hh:mm a · MMM dd, yyyy');
+  // time zone comes from src/i18n/request.ts, so server and browser render the same string
+  const format = useFormatter();
+  const newsDate = new Date(date);
+  const time = format.dateTime(newsDate, { hour: '2-digit', minute: '2-digit' });
+  const day = format.dateTime(newsDate, { day: '2-digit', month: 'short', year: 'numeric' });
+  const formattedDate = `${time} · ${day}`;
 
   return section === 'card' ? (
     <article className="w-full md:w-[340px] xl:w-[328px] flex flex-col h-[493px] md:h-[501px] mx-auto box-border">

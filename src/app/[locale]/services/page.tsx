@@ -6,9 +6,7 @@ import RunningLine from '@/components/RunningLine';
 import OurProcess from '@/components/sections/OurProcess';
 
 export default async function Services() {
-  // { params }: { params: { locale: 'ua' | 'en' } }
   const t = await getTranslations('Services_Page');
-  // const { locale } = await params;
 
   return (
     <main className="relative z-[1] mx-auto overflow-hidden w-full min-h-screen pt-16  xl:py-[104px]">

@@ -31,13 +31,12 @@ export default function LocaleToggle({ className = '' }: LocaleToggleProps) {
         <input
           type="radio"
           name="locale"
-          value="ua"
-          checked={params.locale === 'ua'}
-          tabIndex={params.locale === 'ua' ? 0 : 1}
+          value="uk"
+          checked={params.locale === 'uk'}
           onChange={localeChangeHandler}
           className="sr-only peer"
         />
-        <span className={clsx(localeTextStyle, params.locale === 'ua' && 'text-accent')}>UA</span>
+        <span className={clsx(localeTextStyle, params.locale === 'uk' && 'text-accent')}>UA</span>
       </label>
       <label className={clsx(localeStyle, 'border-l-[0.5px] pl-[3px]')}>
         <input
@@ -45,7 +44,6 @@ export default function LocaleToggle({ className = '' }: LocaleToggleProps) {
           name="locale"
           value="en"
           checked={params.locale === 'en'}
-          tabIndex={params.locale === 'en' ? 0 : 1}
           onChange={localeChangeHandler}
           className="sr-only peer"
         />

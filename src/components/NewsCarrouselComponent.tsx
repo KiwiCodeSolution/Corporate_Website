@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Bracket } from '@/assets/icons/icons';
+import { AppLocale } from '@/i18n/routing';
 import NewsCard, { NewsItem } from './NewsCard';
 import IconButton from './ui/buttons/IconButton';
 
@@ -14,7 +15,7 @@ import AllCasesLink from './ui/links/AllCasesLink';
 
 type NewsCarrouselProps = {
   newsArray: NewsItem[];
-  locale: 'ua' | 'en';
+  locale: AppLocale;
 };
 
 export default function NewsCarrouselComponent({ newsArray, locale }: NewsCarrouselProps) {

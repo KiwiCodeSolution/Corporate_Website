@@ -1,9 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Arrow } from '@/assets/icons/icons';
-import { BASEURLFORIMAGE } from '@/configs/API';
+import { AppLocale } from '@/i18n/routing';
 import { PortfolioItem } from './PortfolioCard';
 import ServicePoint from './ServicePoint';
 import Title from './Title';
@@ -13,30 +13,16 @@ import '@/styles/portfolio.css';
 
 type PortfolioCasePreviewProps = {
   item: PortfolioItem;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   index: number;
 };
 
-type Messages = {
-  technologies: {
-    [key: string]: string;
-  };
-};
-
 const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps) => {
-  const [messages, setMessages] = useState<Messages | null>(null);
-  const titleByLocale = locale === 'ua' ? item.title : item.title_en;
-  const descriptionByLocale = locale === 'ua' ? item.description : item.description_en;
+  const t = useTranslations('technologies');
+  const titleByLocale = locale === 'uk' ? item.title : item.title_en;
+  const descriptionByLocale = locale === 'uk' ? item.description : item.description_en;
 
-  useEffect(() => {
-    fetch(`/locales/${locale}.json`)
-      .then((res) => res.json())
-      .then((data) => setMessages(data));
-  }, [locale]);
-
-  if (!messages) return null;
-
-  const imgUrl = `${BASEURLFORIMAGE}${item.image}` || '/images/not-found.png';
+  const imgUrl = item.image || '/images/not-found.png';
 
   return (
     <article
@@ -68,7 +54,7 @@ const PortfolioCasePreview = ({ item, locale, index }: PortfolioCasePreviewProps
       </div>
       <ul className="flex flex-wrap items-center gap-4">
         {item.type.map((el) => (
-          <ServicePoint key={item.title + el} label={messages.technologies[el] || el} />
+          <ServicePoint key={item.title + el} label={t.has(el) ? t(el) : el} />
         ))}
       </ul>
       <div className="flex flex-col gap-y-2">

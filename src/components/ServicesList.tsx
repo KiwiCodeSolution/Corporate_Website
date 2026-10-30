@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useIsMounted from '@/hooks/useIsMounted';
 import useWindowWidth from '@/hooks/useWindowWidth';
 import { Bracket } from '@/assets/icons/icons';
 import Title from './Title';
@@ -11,11 +12,7 @@ type ServicesListProps = {
 };
 
 const ServicesList = ({ items }: ServicesListProps) => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useIsMounted();
 
   const [isOpen, setIsOpen] = useState<IService['id'] | ''>('');
   const windowWidth = useWindowWidth();

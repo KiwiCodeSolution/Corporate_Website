@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import debounce from 'lodash/debounce';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { ClockLoader } from 'react-spinners';
 
 import { Arrow } from '@/assets/icons/icons';
@@ -15,28 +15,20 @@ import {
   removeLocalStorageData,
   serializeData,
 } from '@/utils/local-storage-API';
-import { contactFormSchema } from '@/utils/schemas/contactForm.validation';
+import { ContactFormValues, contactFormSchema } from '@/utils/schemas/contactForm.validation';
 import ContactFormSubmitErrorNotification from '../ContactFormSubmitErrorNotification';
 import ContactFormSubmitSuccessNotification from '../ContactFormSubmitSuccessNotification';
-import Loader from '../Loader';
 import PillButton from '../ui/buttons/PillButton';
 import CheckBox from './CheckBox';
 import TextInput from './TextInput';
-
-// ✅ залишаємо ЯВНИЙ тип (НЕ через yup)
-type ContactFormValues = {
-  name: string;
-  email: string;
-  phone: string;
-  description: string;
-  agree: boolean;
-};
 
 type Field = {
   name: keyof ContactFormValues;
   label: string;
   placeholder: string;
   as: 'input' | 'textarea';
+  type?: 'text' | 'email' | 'tel';
+  autoComplete?: string;
 };
 
 const defaultValues: ContactFormValues = {
@@ -47,10 +39,24 @@ const defaultValues: ContactFormValues = {
   agree: false,
 };
 
+// the form only renders inside an opened modal, i.e. on the client
+function readDraft(): ContactFormValues {
+  const draft = readLocalStorageData('contactFormData');
+  // consent must be given again in every session, never restored from storage
+  return draft ? { ...defaultValues, ...deserializeData(draft), agree: false } : defaultValues;
+}
+
 const formFields: Field[] = [
-  { name: 'name', label: 'name', placeholder: '', as: 'input' },
-  { name: 'email', label: 'email', placeholder: '', as: 'input' },
-  { name: 'phone', label: 'phone', placeholder: '', as: 'input' },
+  { name: 'name', label: 'name', placeholder: '', as: 'input', autoComplete: 'name' },
+  {
+    name: 'email',
+    label: 'email',
+    placeholder: '',
+    as: 'input',
+    type: 'email',
+    autoComplete: 'email',
+  },
+  { name: 'phone', label: 'phone', placeholder: '', as: 'input', type: 'tel', autoComplete: 'tel' },
   { name: 'description', label: 'description', placeholder: '', as: 'textarea' },
 ];
 
@@ -59,87 +65,81 @@ export default function ContactForm({ onClose }: { onClose: () => void }) {
   const validationSchema = contactFormSchema(useTranslations('errors'));
 
   const [status, setStatus] = useState<'idle' | 'pending' | 'error' | 'success'>('idle');
-  const [isReady, setIsReady] = useState<boolean>(false);
+  const [initialValues] = useState(readDraft);
 
-  const { control, handleSubmit, reset, watch } = useForm<ContactFormValues>({
-    defaultValues,
-    shouldUnregister: false,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    resolver: yupResolver(validationSchema) as any, // ✅ важливий фікс
+  const { control, handleSubmit, subscribe } = useForm<ContactFormValues>({
+    defaultValues: initialValues,
+    resolver: yupResolver(validationSchema),
     mode: 'onSubmit',
   });
 
-  useEffect(() => {
-    const tempFormData = readLocalStorageData('contactFormData');
-    if (tempFormData) {
-      reset(deserializeData(tempFormData));
-    } else {
-      createLocalStorageData(serializeData(defaultValues), 'contactFormData');
-      reset(defaultValues);
-    }
-    setIsReady(true);
-  }, [reset]);
-
-  const isAgree = watch('agree');
+  const isAgree = useWatch({ control, name: 'agree' });
 
   useEffect(() => {
-    const debounceData = debounce((data: ContactFormValues) => {
-      if (typeof window !== 'undefined') {
-        createLocalStorageData(serializeData(data), 'contactFormData');
-      }
+    const saveDraft = debounce((values: Partial<ContactFormValues>) => {
+      createLocalStorageData(serializeData({ ...values, agree: false }), 'contactFormData');
     }, 500);
 
-    const subscription = watch((data: ContactFormValues) => {
-      debounceData(data);
+    const unsubscribe = subscribe({
+      formState: { values: true },
+      callback: ({ values }) => saveDraft(values),
     });
 
     return () => {
-      subscription.unsubscribe();
-      debounceData.cancel();
+      unsubscribe();
+      saveDraft.cancel();
     };
-  }, [watch]);
+  }, [subscribe]);
+
+  useEffect(() => {
+    if (status !== 'success') return;
+
+    removeLocalStorageData('contactFormData');
+    const timer = setTimeout(onClose, 3000);
+    return () => clearTimeout(timer);
+  }, [status, onClose]);
 
   async function formSubmitHandler(values: ContactFormValues) {
     setStatus('pending');
 
-    const response = await fetch('api/send-contact', {
-      method: 'POST',
-      body: JSON.stringify(values),
-    });
-
-    if (!response.ok) {
+    try {
+      const response = await fetch('/api/send-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      setStatus(response.ok ? 'success' : 'error');
+    } catch {
       setStatus('error');
-      return;
     }
-
-    setStatus('success');
-
-    setTimeout(() => {
-      removeLocalStorageData('contactFormData');
-      onClose();
-    }, 3000);
   }
 
   const isError = status === 'error';
   const isSuccess = status === 'success';
 
-  return isReady ? (
-    <div className="flex flex-col items-center w-[656px]">
+  return (
+    <div className="flex flex-col items-center w-full max-w-[656px]">
       <h2 className="text-[32px] md:text-[36px] font-semibold text-center">
         {t('contact-form.title')}
       </h2>
 
       <p className="mt-5 text-[18px] text-center">{t('contact-form.info-text')}</p>
 
-      <form onSubmit={handleSubmit(formSubmitHandler)} className="mt-5 w-full flex flex-col">
+      <form
+        noValidate
+        onSubmit={handleSubmit(formSubmitHandler)}
+        className="mt-5 w-full flex flex-col"
+      >
         <ul className="flex flex-col gap-y-5">
-          {formFields.map(({ name, label, placeholder, as }) => (
+          {formFields.map(({ name, label, placeholder, as, type, autoComplete }) => (
             <li key={name}>
               <TextInput<ContactFormValues>
                 name={name}
                 label={t(`contact-form.form-fields.${label}`)}
                 placeholder={placeholder}
                 as={as}
+                type={type}
+                autoComplete={autoComplete}
                 control={control}
               />
             </li>
@@ -170,7 +170,5 @@ export default function ContactForm({ onClose }: { onClose: () => void }) {
       {isError && <ContactFormSubmitErrorNotification onClose={() => setStatus('idle')} />}
       {isSuccess && <ContactFormSubmitSuccessNotification onClose={onClose} />}
     </div>
-  ) : (
-    <Loader />
   );
 }

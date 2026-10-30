@@ -1,9 +1,10 @@
 import { useTranslations } from 'next-intl';
 import allNews from '@/data/news.json';
+import { AppLocale } from '@/i18n/routing';
 import Title from '../Title';
 import NewsCarrouselComponent from '../NewsCarrouselComponent';
 
-const NewsSection = ({ locale, page }: { locale: 'ua' | 'en'; page: 'home' | 'newsPage' }) => {
+const NewsSection = ({ locale, page }: { locale: AppLocale; page: 'home' | 'newsPage' }) => {
   const t = useTranslations('News');
   const title = page === 'home' ? t('title_home') : t('title_page_by_slug');
   return (

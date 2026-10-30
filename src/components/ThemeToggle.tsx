@@ -1,20 +1,18 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { useState, useEffect } from 'react';
 
 import { DarkTheme, LitghtTheme } from '@/assets/icons/icons';
+import useIsMounted from '@/hooks/useIsMounted';
 
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const t = useTranslations('buttons');
+  const mounted = useIsMounted();
+  const { resolvedTheme: theme, setTheme } = useTheme();
 
   function themaToggleHandler() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) return null;
 
@@ -54,6 +52,7 @@ export default function ThemeToggle() {
       <input
         type="checkbox"
         className="sr-only"
+        aria-label={t('darkTheme')}
         checked={theme === 'dark'}
         onChange={themaToggleHandler}
         onClick={(e) => e.currentTarget.blur()}

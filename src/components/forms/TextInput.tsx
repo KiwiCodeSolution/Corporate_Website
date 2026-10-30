@@ -10,16 +10,34 @@ type TextInputProps<T extends FieldValues> = {
   placeholder?: string;
   control: Control<T>;
   as?: 'input' | 'textarea';
+  type?: 'text' | 'email' | 'tel';
+  autoComplete?: string;
   className?: string;
 };
 
 export default function TextInput<T extends FieldValues>(props: TextInputProps<T>) {
-  const { name, label, placeholder, control, className = '', as = 'input' } = props;
+  const {
+    name,
+    label,
+    placeholder,
+    control,
+    className = '',
+    as = 'input',
+    type = 'text',
+    autoComplete,
+  } = props;
 
   const {
     field: { ref, ...field },
     fieldState: { error },
   } = useController({ name, control });
+
+  const errorId = `${name}-error`;
+  const a11yProps = {
+    'aria-label': label,
+    'aria-invalid': Boolean(error),
+    'aria-describedby': error ? errorId : undefined,
+  };
 
   return (
     <label
@@ -33,8 +51,10 @@ export default function TextInput<T extends FieldValues>(props: TextInputProps<T
     >
       {as === 'input' ? (
         <input
-          type="text"
+          type={type}
+          autoComplete={autoComplete}
           placeholder={placeholder || label}
+          {...a11yProps}
           {...field}
           className={clsx(
             'h-12 w-full px-[30px] rounded-[32px] bg-[#f5f5f5] dark:bg-[#0c1719]',
@@ -44,6 +64,7 @@ export default function TextInput<T extends FieldValues>(props: TextInputProps<T
       ) : (
         <textarea
           placeholder={placeholder || label}
+          {...a11yProps}
           {...field}
           className={clsx(
             'resize-none w-full h-26 xl:h-23 px-[30px] py-[14px] rounded-[20px] bg-[#f5f5f5] dark:bg-[#0c1719]',
@@ -52,7 +73,10 @@ export default function TextInput<T extends FieldValues>(props: TextInputProps<T
         />
       )}
       {error && (
-        <p className="absolute left-[30px] top-0 -translate-y-[100%] text-[16px] font-medium text-main">
+        <p
+          id={errorId}
+          className="absolute left-[30px] top-0 -translate-y-[100%] text-[16px] font-medium text-main"
+        >
           {error.message}
         </p>
       )}

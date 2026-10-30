@@ -1,8 +1,9 @@
 'use client';
 
 import { createPortal } from 'react-dom';
-import { useCallback, useEffect, useState } from 'react';
-import useScrollBlock from '@/hooks/useScrollBlock';
+import { useCallback, useEffect } from 'react';
+import useIsMounted from '@/hooks/useIsMounted';
+import { useScrollLockV2 } from '@/hooks/useScrollBlockV2';
 import useEscapeClose from '@/hooks/useEscapeClose';
 import usePopStateClose from '@/hooks/usePopStateClose';
 
@@ -17,9 +18,9 @@ type BaseModalProps = {
 };
 
 const BaseModal = ({ children, isOpen, onClose, type }: BaseModalProps) => {
-  const [blockScroll, allowScroll] = useScrollBlock();
-  const [mounted, setMounted] = useState(false);
-  const [modalRoot, setModalRoot] = useState(null);
+  const [blockScroll, allowScroll] = useScrollLockV2();
+  const mounted = useIsMounted();
+  const modalRoot = mounted ? document.getElementById('modal-root') : null;
 
   const closeModal = useCallback(() => {
     allowScroll();
@@ -30,16 +31,13 @@ const BaseModal = ({ children, isOpen, onClose, type }: BaseModalProps) => {
   usePopStateClose(isOpen, closeModal);
 
   useEffect(() => {
-    setMounted(true);
-    setModalRoot(document.getElementById('modal-root'));
-
     if (isOpen) {
       blockScroll();
       history.pushState({ modal: true }, '');
     } else {
       allowScroll();
     }
-  }, [isOpen, blockScroll, allowScroll, onClose]);
+  }, [isOpen, blockScroll, allowScroll]);
 
   if (!mounted || !isOpen || !modalRoot) return null;
 

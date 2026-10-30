@@ -1,8 +1,9 @@
+import { AppLocale } from '@/i18n/routing';
 import PortfolioCard, { PortfolioItem } from './PortfolioCard';
 
 export type PortfolioPageComponentProps = {
   item: PortfolioItem;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
 };
 
 const PortfolioPageComponent = ({ item, locale }: PortfolioPageComponentProps) => {

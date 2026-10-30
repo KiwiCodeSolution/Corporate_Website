@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { ComponentType, SVGProps, MouseEvent } from 'react';
 import { Link } from '@/i18n/navigation';
+import { AppLocale } from '@/i18n/routing';
 
 type IconLinkProps = {
   size?: 's' | 'm' | 'l';
@@ -10,7 +11,7 @@ type IconLinkProps = {
   className?: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   iconProps?: Record<string, unknown>;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   href: string;
   // target?: '_blank' | '_self' | '_parent' | '_top' | 'framename';
 };

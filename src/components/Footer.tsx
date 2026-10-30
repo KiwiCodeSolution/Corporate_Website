@@ -1,6 +1,6 @@
 'use client';
 // import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { AppLocale } from '@/i18n/routing';
 import Logo from './Logo';
 import SocIconsList from './SocIconsList';
 import OurSpecialize from './OurSpecialize';
@@ -21,15 +21,8 @@ export const CommonContent = ({ text }: { text: string }) => {
   );
 };
 
-const Footer = ({ locale }: { locale: 'ua' | 'en' }) => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+const Footer = ({ locale }: { locale: AppLocale }) => {
   // const { theme } = useTheme();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
 
   const year = new Date().getFullYear();
 

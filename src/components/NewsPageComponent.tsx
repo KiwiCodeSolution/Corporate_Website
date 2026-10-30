@@ -1,8 +1,9 @@
+import { AppLocale } from '@/i18n/routing';
 import NewsCard, { NewsItem } from './NewsCard';
 
 export type NewsPageComponentProps = {
   news: NewsItem;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
 };
 
 const NewsPageComponent = ({ news, locale }: NewsPageComponentProps) => {

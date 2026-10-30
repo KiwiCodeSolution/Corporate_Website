@@ -1,24 +1,16 @@
 'use client';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Arrow } from '@/assets/icons/icons';
+import { AppLocale } from '@/i18n/routing';
 
 type LearnMoreLinkProps = {
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   href: string;
   label: string;
 };
 
 export default function LearnMoreLink({ locale, href, label }: LearnMoreLinkProps) {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
   return (
     <Link
       href={href}

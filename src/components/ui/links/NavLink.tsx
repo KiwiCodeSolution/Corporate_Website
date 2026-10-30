@@ -2,9 +2,10 @@
 
 import clsx from 'clsx';
 import { Link } from '@/i18n/navigation';
+import { AppLocale } from '@/i18n/routing';
 
 export type NavLinkType = {
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   href: string;
   isActive?: boolean;
   clickFn: () => void;

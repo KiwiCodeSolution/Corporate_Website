@@ -5,10 +5,11 @@ import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/navigation';
 import { Bracket } from '@/assets/icons/icons';
+import { AppLocale } from '@/i18n/routing';
 
 type LearMorePageLinkProps = {
   href: string;
-  locale: 'ua' | 'eng';
+  locale: AppLocale;
   className?: string;
 };
 

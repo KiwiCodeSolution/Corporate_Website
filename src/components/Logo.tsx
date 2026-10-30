@@ -1,37 +1,36 @@
-'use client';
-
+import clsx from 'clsx';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
+import { AppLocale } from '@/i18n/routing';
 
 const Logo = ({
   locale,
   className,
   section,
 }: {
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   className: string;
   section?: string;
 }) => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
+  const sizeClass =
+    section === 'header' ? 'w-[117px] h-[48px] xl:w-[132px] xl:h-[54px]' : 'w-[132px] h-[54px]';
 
   return (
     <Link href={'/'} locale={locale} className={`${className}`}>
+      {/* both variants are in the HTML; CSS picks one, so there is no theme flash or empty slot */}
       <Image
-        src={resolvedTheme === 'dark' ? '/images/Logo_dark.svg' : '/images/Logo_light.svg'}
-        alt="Logo компанії KiWiCode Solutions"
+        src="/images/Logo_light.svg"
+        alt="KiWiCode Solutions"
         width={132}
         height={54}
-        priority
-        className={`${section === 'header' ? 'w-[117px] h-[48px] xl:w-[132px] xl:h-[54px]' : 'w-[132px] h-[54px]'} `}
+        className={clsx(sizeClass, 'dark:hidden')}
+      />
+      <Image
+        src="/images/Logo_dark.svg"
+        alt="KiWiCode Solutions"
+        width={132}
+        height={54}
+        className={clsx(sizeClass, 'hidden dark:block')}
       />
     </Link>
   );

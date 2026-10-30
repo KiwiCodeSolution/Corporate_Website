@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import useIsMounted from '@/hooks/useIsMounted';
 import Title from './Title';
 import HowWeWorkImgBlock from './HowWeWorkImgBlock';
 import { IPrinciple } from './sections/HowWeWork';
@@ -11,16 +12,12 @@ type HowWeWorkGalleryProps = {
 };
 
 const HowWeWorkGallery = ({ items }: HowWeWorkGalleryProps) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const isMounted = useIsMounted();
   const [currentItem, setCurrentItem] = useState(0);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [visible, setVisible] = useState(true);
   const containerRef = useRef(null);
   const isScrolling = useRef(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isMounted) return;

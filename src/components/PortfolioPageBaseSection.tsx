@@ -4,6 +4,7 @@ import { useState } from 'react';
 import PortfolioCasePreview from '@/components/PortfolioCasePreview';
 import Title from '@/components/Title';
 import allCases from '@/data/cases.json';
+import { AppLocale } from '@/i18n/routing';
 import { PortfolioType } from './PortfolioCard';
 import LoadMoreButton from './ui/buttons/LoadMoreButton';
 
@@ -16,7 +17,7 @@ const allowedTypes: PortfolioType[] = [
   'Optimisation',
   'Creative Solutions',
 ];
-const PortfolioPageBaseSection = ({ locale }: { locale: 'ua' | 'en' }) => {
+const PortfolioPageBaseSection = ({ locale }: { locale: AppLocale }) => {
   const castedCases = allCases.map((el) => ({
     ...el,
     type: Array.isArray(el.type)

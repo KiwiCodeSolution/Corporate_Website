@@ -5,10 +5,11 @@ import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Arrow } from '@/assets/icons/icons';
+import { AppLocale } from '@/i18n/routing';
 
 export type AllCasesLinkProps = {
   href: string;
-  locale: 'ua' | 'en';
+  locale: AppLocale;
   className?: string;
   section: 'news' | 'portfolio';
 };

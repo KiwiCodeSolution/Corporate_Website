@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { AppLocale } from '@/i18n/routing';
 import { CommonContent, TitleFooter } from './Footer';
 import FAQModalFooter from './FAQModalFooter';
 
@@ -12,7 +13,7 @@ interface IPoint {
   type: PointType;
 }
 
-const UsefulLinks = ({ locale }: { locale: 'ua' | 'en' }) => {
+const UsefulLinks = ({ locale }: { locale: AppLocale }) => {
   const t = useTranslations('Footer');
 
   const USEFULLINKS: IPoint[] = [

@@ -8,11 +8,9 @@ import Img1 from '../../../public/images/principles/screen_2_lamp.png';
 const EXIT_ANIMATION_MS = 700;
 
 const MotionPrinciple3 = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    setVisible(true);
-
     const visibleDuration = ANIMATION_DURATION_MS - EXIT_ANIMATION_MS;
 
     const hideTimeout = setTimeout(() => {
@@ -32,7 +30,7 @@ const MotionPrinciple3 = () => {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: EXIT_ANIMATION_MS / 1000, ease: 'easeOut' }} // тут перевели мілісекунди в секунди
           >
-            <Image src={Img1} alt="lamp" width={340} height={455} />
+            <Image src={Img1} alt="" width={340} height={455} />
           </motion.div>
         )}
       </AnimatePresence>

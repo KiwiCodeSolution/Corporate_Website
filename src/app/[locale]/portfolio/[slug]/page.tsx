@@ -2,11 +2,12 @@ import { PortfolioItem } from '@/components/PortfolioCard';
 import PortfolioPageComponent from '@/components/PortfolioPageComponent';
 import { Link } from '@/i18n/navigation';
 import { getCase } from '@/utils/api';
+import { AppLocale } from '@/i18n/routing';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string; locale: 'ua' | 'en' }>;
+  params: Promise<{ slug: string; locale: AppLocale }>;
 }) {
   const { slug } = await params;
   const findCase = getCase(slug);
@@ -20,7 +21,7 @@ export async function generateMetadata({
 export default async function PortfolioPage({
   params,
 }: {
-  params: { slug: string; locale: 'ua' | 'en' };
+  params: Promise<{ slug: string; locale: AppLocale }>;
 }) {
   const { slug, locale } = await params;
   const currentPortfolio = getCase(slug) as PortfolioItem;

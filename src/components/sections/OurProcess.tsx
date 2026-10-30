@@ -1,19 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import useIsMounted from '@/hooks/useIsMounted';
 import ProcessFirstImageBlock from '../ProcessFirstImageBlock';
 import ProcessSecondImageBlock from '../ProcessSecondImageBlock';
 import ProcessThirdImageBlock from '../ProcessThirdImageBlock';
 import ProcessThirdImageBlockAdaptation from '../ProcessThirdImageBlockAdaptation';
 
 const OurProcess = () => {
-  const { theme } = useTheme();
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const { resolvedTheme: theme } = useTheme();
+  const hasMounted = useIsMounted();
 
   if (!hasMounted) return null;
 

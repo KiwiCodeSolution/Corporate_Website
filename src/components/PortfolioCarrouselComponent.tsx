@@ -9,13 +9,14 @@ import { Bracket } from '@/assets/icons/icons';
 import '../styles/portfolio.css';
 
 import { Link } from '@/i18n/navigation';
+import { AppLocale } from '@/i18n/routing';
 import IconButton from './ui/buttons/IconButton';
 import AllCasesLink from './ui/links/AllCasesLink';
 import { PortfolioItem } from './PortfolioCard';
 
 type PortfolioCarrouselProps = {
   portfolioArray: PortfolioItem[];
-  locale: 'ua' | 'en';
+  locale: AppLocale;
 };
 
 export default function PortfolioCarrouselComponent({

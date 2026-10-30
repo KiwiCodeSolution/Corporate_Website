@@ -1,6 +1,6 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { ANIMATION_DURATION_MS } from '@/configs/animationConfig';
 import Img2 from '../../../public/images/principles/screen_3_girl.png';
@@ -8,17 +8,10 @@ import Img1 from '../../../public/images/principles/screen_3_img.png';
 import '../../styles/principles.css';
 
 const MotionPrinciple2 = () => {
-  const [hasMounted, setHasMounted] = useState(false);
   const bgControls = useAnimation();
   const girlControls = useAnimation();
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hasMounted) return;
-
     async function sequence() {
       await bgControls.start({
         opacity: 1,
@@ -46,7 +39,7 @@ const MotionPrinciple2 = () => {
     }
 
     sequence();
-  }, [hasMounted, bgControls, girlControls]);
+  }, [bgControls, girlControls]);
 
   return (
     <div className="relative w-full h-full phone-content overflow-hidden">
@@ -63,7 +56,7 @@ const MotionPrinciple2 = () => {
       >
         <Image
           src={Img1}
-          alt="background"
+          alt=""
           style={{ objectFit: 'cover', objectPosition: 'center' }}
           width={713}
           height={649}
@@ -76,7 +69,7 @@ const MotionPrinciple2 = () => {
         animate={girlControls}
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[440px] h-[528px]"
       >
-        <Image src={Img2} alt="girl" width={440} height={528} />
+        <Image src={Img2} alt="" width={440} height={528} />
       </motion.div>
     </div>
   );

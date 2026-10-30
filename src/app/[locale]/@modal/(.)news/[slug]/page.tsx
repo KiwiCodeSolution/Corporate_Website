@@ -1,11 +1,12 @@
 import NewsPageComponent from '@/components/NewsPageComponent';
 import { RouteModal } from '@/components/ui/modal/RouteModal';
 import { getNews } from '@/utils/api';
+import { AppLocale } from '@/i18n/routing';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string; locale: 'ua' | 'en' }>;
+  params: Promise<{ slug: string; locale: AppLocale }>;
 }) {
   const { slug } = await params;
   const findNews = getNews(slug);
@@ -19,7 +20,7 @@ export async function generateMetadata({
 export default async function NewsModalSlotPage({
   params,
 }: {
-  params: { slug: string; locale: 'ua' | 'en' };
+  params: Promise<{ slug: string; locale: AppLocale }>;
 }) {
   const { slug, locale } = await params;
   const currentNews = getNews(slug);

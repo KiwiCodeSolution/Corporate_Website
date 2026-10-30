@@ -47,7 +47,7 @@ const MotionPrinciple4 = () => {
 
           <Image
             src={Img1}
-            alt="hands"
+            alt=""
             width={300}
             height={182}
             className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-[340px] h-[182px] z-[3]"
@@ -62,7 +62,7 @@ const MotionPrinciple4 = () => {
         transition={{ delay: 0.6, duration: 0.5 }}
         className="absolute bottom-[80px] left-1/2 -translate-x-1/2 w-[644px] h-[221px] z-[3] rotate-[-16deg]"
       >
-        <Image src={Img2} alt="wave" width={644} height={221} />
+        <Image src={Img2} alt="" width={644} height={221} />
       </motion.div>
     </div>
   );
