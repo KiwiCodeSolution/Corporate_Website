@@ -1,215 +1,159 @@
-# CodeViz Research Context
 
-> **Note**: This file contains research context from CodeViz. Most recent contexts are at the bottom.
+## Project Guidelines & Agent Skills
 
----
+### Skills Location
+Skills live in `.claude/skills/*` (copied from the shared `claude-skills` collection and adapted
+to this project), the settings in `.claude/settings.json`. Both are committed to the repository.
+Do not re-enable `attribution.commit`/`pr` in settings — they are empty on purpose.
 
-## Research Query
+A skill that names this project's files or services is project-specific; add a line to
+Available Skills below for every new skill.
 
-all
+### Available Skills
+Use exclusively local skills from `.claude/skills/`. Before working on a task, identify every
+skill that's relevant — more than one often applies at once (e.g. `nextjs-developer` +
+`nextjs-anti-patterns` + `react-expert` for a single frontend feature) — and read their
+SKILL.md before writing code.
 
-*Session: 8a3ba4f841ba49c775c18272619f6ff3 | Generated: 04.07.2025, 17:24:00*
+- `behind-a-reverse-proxy` — behind nginx the app sees the proxy's IP, not the client's. Read
+  for any work on rate limiting or IP logging (the contact form API)
+- `external-call-safety` — outbound calls to third-party services (Telegram Bot API): timeouts,
+  never leaking the upstream error body, idempotency
+- `input-bounds-and-ownership` — a bound on every client-supplied value; a Route Handler is a
+  public endpoint
+- `nextjs-anti-patterns` — App Router anti-pattern detection (useEffect misuse, waterfalls, etc.)
+- `nextjs-developer` — App Router structure, metadata, route handlers, deployment checks
+- `nextjs-image-weight` — what an image really weighs in the browser: `next/image`, mandatory
+  `sizes`, SVG, a ceiling on source size, self-hosted optimizer. Read when adding any image,
+  putting assets in `public/`, or debugging a poor LCP
+- `nodejs-performance` — bundle size / Core Web Vitals (framer-motion, swiper, client
+  components), Node memory under PM2, bounded in-memory maps
+- `pre-commit-review` — pre-commit review of the whole branch against `dev`: CLAUDE.md,
+  overcoding, types/lint/prettier, reuse, i18n, semantics, a11y, SEO, merge dev, then commit.
+  Only on an explicit request ("перевір перед комітом", "готуємо коміт/ПР")
+- `react-expert` — component/hook implementation, Server Components, React 19 patterns
+- `responsive-shell-single-source` — shell content (header menu, footer, nav links) that sits
+  in different DOM locations on desktop vs mobile must have one source component and must not
+  ship a CSS-hidden duplicate
+- `reuse-before-build` — before writing new code, check what already exists (`src/components`,
+  `ui/`, hooks, utils, icons, tokens, translations) and reuse it; shared components are never
+  duplicated
+- `seo-skill` — SEO requirements for public pages (metadata per locale, hreflang, sitemap,
+  robots, JSON-LD, 404s)
+- `seo-technical` — technical SEO audit of a live site (crawlability, indexability, CWV,
+  rendering, structured data). Needs a public URL; treat it as a manual checklist
+- `structure-and-element-anti-patterns` — markup/element construction anti-patterns: fixed-px
+  sizing in flow layout, `index` as React key, div-soup vs semantic HTML, invalid nesting,
+  magic numbers vs design tokens, redundant wrappers. Read whenever building or reviewing any
+  JSX structure/element
+- `structured-output-escaping` — escaping for the insertion context: JSON-LD in a `<script>`,
+  HTML in Telegram messages (`parse_mode: 'HTML'`), `dangerouslySetInnerHTML`
+- `tailwind-token-naming` — tokens live in `src/styles/globals.css` (`@theme inline`); never
+  redefine a stock Tailwind class or scale key. Read before adding a token or replacing a raw hex
+- `task-planner` — decides whether a multi-step task needs a `PLAN.md` and executes it step by
+  step
+- `termination-guards` — a provable stopping condition for redirects (locale middleware),
+  recursion, retries and effects
+- `typescript-pro` — type guards, discriminated unions, strict tsconfig, deriving types from
+  their single source (project fork)
+- `ui-focus-no-layout-shift` — hover/focus/active states must not change geometry
+  (border-width, padding, size); use box-shadow/outline
 
-### Analysis Summary
+If a task's requirements conflict between two skills, or between a skill and this document,
+this document (CLAUDE.md) wins.
 
-# Codebase Analysis Report: Corporate Website
+Act as a senior frontend developer who works on a team and values their own time and
+everyone else's. You have nothing to prove — so write simple code, not complex code.
 
-This report provides a comprehensive overview of the "Corporate Website" codebase, built using Next.js. It details the high-level architecture, mid-level component interactions, and key low-level implementation specifics, adhering to a hierarchical structure.
+## Project Stack
+Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS 4 + next-intl 4 (locales `ua`,
+`en`) + next-themes (light/dark) + framer-motion + swiper + react-hook-form/yup. npm, Node ≥ 20.9.
+Propose solutions strictly within this stack unless explicitly asked otherwise.
 
-## High-Level Architecture
+## This Project Specifically
+- **KiwiCode Solutions corporate website** — a single Next.js app (not a monorepo), no database,
+  no CMS, no authentication.
+- **Content:** UI strings in `public/locales/ua.json` and `en.json` (loaded by
+  `src/i18n/request.ts`); news and portfolio cases in `src/data/*.json` with `title`/`title_en`
+  style fields, read via `src/utils/api.ts`.
+- **Routing:** everything under `src/app/[locale]`; `src/proxy.ts` (next-intl middleware)
+  handles locale detection; news/portfolio open as modals via intercepting routes in
+  `src/app/[locale]/@modal`. Navigation helpers (`Link`, `useRouter`, `usePathname`) come from
+  `src/i18n/navigation.ts`, never from `next/link`/`next/navigation` directly.
+- **The only API route:** `src/app/api/send-contact/route.ts` — contact form → Telegram Bot API
+  (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` from env).
+- **Deployment:** push to `dev` → GitHub Actions (`.github/workflows/ci.yml`) builds and deploys
+  over SSH to a VPS, where the app runs as `next start` under PM2 (`kiwi-frontend`) behind
+  nginx. No Docker.
+- **Branches:** feature branches from `dev`, PR into `dev`. Never push directly to `dev` — it
+  triggers a deploy.
+- **Ports:** dev and prod both on 3000.
 
-The **Corporate Website** is a Next.js application designed for a multi-language corporate presence. It leverages Next.js's file-system based routing, server components, and client components for efficient rendering and data fetching. The application is structured to separate concerns, with distinct directories for pages, UI components, static assets, data, and utilities. Internationalization is a core feature, handled through Next.js's `[locale]` routing and dedicated i18n configurations.
+## Main Rule: KISS / YAGNI
+- Write code for the specific task being asked right now. Don't design "for the future" and
+  don't add capabilities nobody requested.
+- If a task can be solved with 5 lines using built-in framework features — don't invent an
+  abstraction.
+- Overengineering is a mistake, not a quality. Simple working code beats "flexible" complex code.
 
-*   **Purpose**: To serve as the official online presence for a corporate entity, showcasing services, portfolio, news, and company information in multiple languages.
-*   **Internal Parts**:
-    *   **Application Core**: Handled by [Next.js](next.config.ts) configuration and the main [application directory](src/app/).
-    *   **User Interface**: Composed of reusable [React components](src/components/).
-    *   **Static Assets**: Managed in the [public directory](public/).
-    *   **Data Management**: Static data stored in [JSON files](src/data/).
-    *   **Styling**: Global and component-specific [CSS files](src/styles/).
-    *   **Internationalization**: Configuration and utilities in [i18n](src/i18n/).
-    *   **Utilities & Hooks**: Common functions and custom React hooks in [utils](src/utils/) and [hooks](src/hooks/).
-*   **External Relationships**:
-    *   Serves content to web browsers.
-    *   Potentially interacts with external APIs (though not explicitly defined in the provided structure, an [API configuration](src/configs/API.ts) exists).
-    *   Uses various npm packages defined in [package.json](package.json).
+## Forbidden Without an Explicit Request
+- **Don't re-analyze the whole project structure every time.** Only look at files directly
+  relevant to the task. Don't read the entire repo "just in case."
+- **Don't add a second implementation of something that exists** — modals
+  (`src/components/ui/modal/*`, `ui/ModalOverlay.tsx`), scroll lock (`useScrollLockV2`),
+  buttons/links (`src/components/ui/buttons`, `ui/links`). See `reuse-before-build`.
+- **Don't duplicate data shapes.** Types for news/cases come from one place (next to the data
+  accessor), locale type is `AppLocale` from `src/i18n/routing.ts`.
+- Don't add new dependencies when the platform or an existing dependency already covers it.
 
-## Mid-Level Components and Interactions
+## Frontend (Next.js App Router)
+- Default to Server Components. Add `'use client'` only at the lowest component that genuinely
+  needs interactivity — not to the whole section/page.
+- Never use `useEffect` + `useState` for: data fetching, translations, browser detection, or URL
+  reads. Translations: `getTranslations` (server) / `useTranslations` (client) — never
+  `fetch('/locales/…json')`.
+- `useState` is for client-side UI state only (form inputs, toggles, open/closed).
+- Every user-visible string goes to **both** `ua.json` and `en.json`. No hard-coded text in JSX.
+- Dates/numbers through next-intl's formatter (`useFormatter`/`getFormatter`) so server and
+  client render the same string (time zone is set in `src/i18n/request.ts`).
+- Unknown slug → `notFound()`, never `return null`.
+- Route handlers (`app/api/...`) only for client-triggered mutations and third-party
+  integrations, not for reads a Server Component can do directly.
+- `any` is forbidden (`@typescript-eslint/no-explicit-any`) — type props, events, and handlers
+  explicitly.
+- Navigation items and other "shell" content have a single source — don't duplicate them in the
+  header, burger menu and the footer.
+- Colours, radii, shadows — tokens from `src/styles/globals.css`; no new raw hex in JSX
+  (`tailwind-token-naming`).
 
-### Application Routing and Pages (`src/app`)
+## Validation & Security
+- Every Route Handler validates its body on the server (yup schema shared with the client form
+  where possible), bounds every string length, and never trusts client validation.
+- Outbound calls (Telegram) have a timeout; upstream error bodies go to the log, the client gets
+  a neutral error (`external-call-safety`).
+- Public POST endpoints are rate-limited per client IP taken from the nginx header, and have a
+  honeypot against bots (`behind-a-reverse-proxy`).
+- User input inserted into HTML (Telegram `parse_mode: 'HTML'`) is escaped
+  (`structured-output-escaping`).
+- Secrets only from env, never hard-coded, never logged, never `NEXT_PUBLIC_*`.
 
-The [src/app](src/app/) directory is the heart of Next.js routing. It utilizes the `[locale]` dynamic segment for internationalization, allowing different language versions of pages.
+## Performance
+- `useMemo`/`useCallback` — only when the value/function is passed to a `React.memo` component
+  or used in a hook's dependency array. Don't wrap plain renders "just in case."
+- Images: `next/image` with `sizes`, `priority` only on the LCP image, source files in
+  `public/images` ≤ 500 KB (`nextjs-image-weight`).
 
-*   **Purpose**: Defines the application's routes and page layouts.
-*   **Internal Parts**:
-    *   **Root Layout**: [layout.tsx](src/app/[locale]/layout.tsx) defines the main structure, including HTML, body, and global providers.
-    *   **Page Content**: [page.tsx](src/app/[locale]/page.tsx) serves as the entry point for the home page.
-    *   **Error Handling**: [error.tsx](src/app/[locale]/error.tsx) for client-side errors.
-    *   **Loading States**: [loading.tsx](src/app/[locale]/loading.tsx) for displaying loading indicators.
-    *   **Not Found Page**: [not-found.tsx](src/app/[locale]/not-found.tsx) for 404 errors.
-    *   **Fonts**: [fonts.ts](src/app/[locale]/fonts.ts) for font definitions.
-    *   **Specific Routes**: Directories like [about](src/app/[locale]/about/), [news](src/app/[locale]/news/), and [portfolio](src/app/[locale]/portfolio/) contain their respective page components.
-    *   **API Routes**: [src/app/api](src/app/api/) for backend API endpoints.
-*   **External Relationships**:
-    *   Receives requests from the browser based on URL paths.
-    *   Renders UI components from [src/components](src/components/).
-    *   Uses internationalization utilities from [src/i18n](src/i18n/).
+## Response Format
+- No intros or outros like "sure, here's the code."
+- Show only the changed/new code, not the entire file again.
+- If the task lacks context (design, copy, specific requirements) — ask a clarifying question
+  first instead of guessing.
 
-### Reusable UI Components (`src/components`)
-
-The [src/components](src/components/) directory houses a wide array of reusable React components, categorized for better organization.
-
-*   **Purpose**: Provides modular and reusable UI elements for building pages.
-*   **Internal Parts**:
-    *   **Layout & Navigation**:
-        *   [Header.tsx](src/components/Header.tsx): Application header, likely containing navigation.
-        *   [Footer.tsx](src/components/Footer.tsx): Application footer.
-        *   [Nav.tsx](src/components/Nav.tsx): Main navigation component.
-        *   [BurgerMenu.tsx](src/components/BurgerMenu.tsx): Mobile navigation toggle.
-        *   [LocaleToggle.tsx](src/components/LocaleToggle.tsx): Language switcher.
-        *   [ThemeToggle.tsx](src/components/ThemeToggle.tsx): Dark/light mode switcher.
-    *   **Content Sections**:
-        *   [sections/](src/components/sections/): Contains larger, page-section components.
-        *   [OurPrinciplesSectionComponent.tsx](src/components/OurPrinciplesSectionComponent.tsx): Displays company principles.
-        *   [InnovativeServicesPage.tsx](src/components/InnovativeServicesPage.tsx): Section for innovative services.
-        *   [HowWeWorkCarrouselComponent.tsx](src/components/HowWeWorkCarrouselComponent.tsx): Carousel for "how we work" section.
-    *   **Cards & Items**:
-        *   [NewsCard.tsx](src/components/NewsCard.tsx): Displays individual news articles.
-        *   [PortfolioCard.tsx](src/components/PortfolioCard.tsx): Displays individual portfolio items.
-        *   [AboutCard.tsx](src/components/AboutCard.tsx): Card for "about us" section.
-        *   [OurServicesCard.tsx](src/components/OurServicesCard.tsx): Card for services offered.
-        *   [TestimonialsCard.tsx](src/components/TestimonialsCard.tsx): Displays customer testimonials.
-    *   **Forms & Modals**:
-        *   [forms/](src/components/forms/): Contains form-related components.
-        *   [PortfolioModal.tsx](src/components/PortfolioModal.tsx): Modal for displaying portfolio case details.
-        *   [FAQModalFooter.tsx](src/components/FAQModalFooter.tsx): Footer for FAQ modal.
-        *   [ContactFormSubmitErrorNotification.tsx](src/components/ContactFormSubmitErrorNotification.tsx): Notification for contact form submission errors.
-        *   [ContactFormSubmitSuccessNotification.tsx](src/components/ContactFormSubmitSuccessNotification.tsx): Notification for contact form submission success.
-    *   **UI Elements**:
-        *   [ui/](src/components/ui/): Generic UI elements.
-        *   [Title.tsx](src/components/Title.tsx): Reusable title component.
-        *   [LearnMoreLink.tsx](src/components/LearnMoreLink.tsx): "Learn More" link component.
-        *   [Loader.tsx](src/components/Loader.tsx): Loading spinner.
-*   **External Relationships**:
-    *   Receive `props` from parent components (pages or other components).
-    *   Utilize custom hooks from [src/hooks](src/hooks/).
-    *   Apply styles from [src/styles](src/styles/).
-    *   Fetch data from [src/data](src/data/) or potentially API routes.
-
-### Static Assets (`public`)
-
-The [public](public/) directory serves static assets directly.
-
-*   **Purpose**: Stores images, documents, and internationalization JSON files that are served directly by Next.js.
-*   **Internal Parts**:
-    *   [images/](public/images/): Contains various images used throughout the website, categorized by section (e.g., [news](public/images/news/), [portfolio](public/images/portfolio/), [principles](public/images/principles/), [services](public/images/services/)).
-    *   [files/](public/files/): Contains downloadable files, e.g., [integration.pdf](public/files/integration.pdf).
-    *   [locales/](public/locales/): Contains JSON files for internationalization, e.g., [en.json](public/locales/en.json), [ua.json](public/locales/ua.json).
-*   **External Relationships**:
-    *   Accessed directly by the browser via URLs (e.g., `/images/bg_hero.png`).
-    *   [locales/](public/locales/) files are loaded by the i18n system.
-
-### Data Management (`src/data`)
-
-The [src/data](src/data/) directory holds static JSON data used across the application.
-
-*   **Purpose**: Provides structured data for various sections of the website.
-*   **Internal Parts**:
-    *   [cases.json](src/data/cases.json): Likely contains data for portfolio cases.
-    *   [company-stats.json](src/data/company-stats.json): Contains company statistics.
-    *   [news.json](src/data/news.json): Contains data for news articles.
-*   **External Relationships**:
-    *   Data is imported and used by React components (e.g., [NewsCard.tsx](src/components/NewsCard.tsx) using [news.json](src/data/news.json)).
-
-### Internationalization (`src/i18n`)
-
-The [src/i18n](src/i18n/) directory configures and manages the application's internationalization.
-
-*   **Purpose**: Enables the website to display content in multiple languages.
-*   **Internal Parts**:
-    *   [navigation.ts](src/i18n/navigation.ts): Defines navigation routes for different locales.
-    *   [request.ts](src/i18n/request.ts): Likely handles locale-specific requests.
-    *   [routing.ts](src/i18n/routing.ts): Manages routing logic related to locales.
-*   **External Relationships**:
-    *   Works in conjunction with the `[locale]` segment in [src/app](src/app/).
-    *   Loads translation files from [public/locales](public/locales/).
-    *   Integrated with [middleware.ts](src/middleware.ts) for locale detection.
-
-### Custom Hooks (`src/hooks`)
-
-The [src/hooks](src/hooks/) directory contains reusable custom React hooks.
-
-*   **Purpose**: Encapsulates reusable stateful logic for components.
-*   **Internal Parts**:
-    *   [useEscapeClose.ts](src/hooks/useEscapeClose.ts): Hook for closing elements on Escape key press.
-    *   [usePopStateClose.ts](src/hooks/usePopStateClose.ts): Hook for closing elements on browser history pop state.
-    *   [useScrollBlock.ts](src/hooks/useScrollBlock.ts): Hook to block body scrolling.
-    *   [useScrollBlockV2.ts](src/hooks/useScrollBlockV2.ts): An updated version of the scroll block hook.
-    *   [useWindowWidth.ts](src/hooks/useWindowWidth.ts): Hook to get the current window width.
-*   **External Relationships**:
-    *   Used by various [React components](src/components/) to manage UI behavior.
-
-### Utilities (`src/utils`)
-
-The [src/utils](src/utils/) directory provides general utility functions.
-
-*   **Purpose**: Contains helper functions and schemas used across the application.
-*   **Internal Parts**:
-    *   [api.ts](src/utils/api.ts): Utility functions for API interactions.
-    *   [constants.ts](src/utils/constants.ts): Defines application-wide constants.
-    *   [helpers.ts](src/utils/helpers.ts): General helper functions.
-    *   [local-storage-API.ts](src/utils/local-storage-API.ts): Utilities for interacting with local storage.
-    *   [schemas/](src/utils/schemas/): Contains validation schemas (e.g., for forms).
-*   **External Relationships**:
-    *   Functions are imported and used by components, pages, and other utilities.
-
-### Configuration (`src/configs`)
-
-The [src/configs](src/configs/) directory stores application-specific configurations.
-
-*   **Purpose**: Centralizes configuration settings.
-*   **Internal Parts**:
-    *   [animationConfig.ts](src/configs/animationConfig.ts): Configuration for animations.
-    *   [API.ts](src/configs/API.ts): API endpoint configurations.
-*   **External Relationships**:
-    *   Configuration values are imported and used by components and utility functions.
-
-### Styling (`src/styles`)
-
-The [src/styles](src/styles/) directory contains the application's CSS files.
-
-*   **Purpose**: Defines the visual appearance of the website.
-*   **Internal Parts**:
-    *   [globals.css](src/styles/globals.css): Global CSS styles.
-    *   [bgGradients.css](src/styles/bgGradients.css): Background gradient styles.
-    *   [how-we-work.css](src/styles/how-we-work.css): Styles specific to the "how we work" section.
-    *   [loader.css](src/styles/loader.css): Styles for the loader component.
-    *   [news.css](src/styles/news.css): Styles for news-related components.
-    *   [portfolio.css](src/styles/portfolio.css): Styles for portfolio-related components.
-    *   [principles.css](src/styles/principles.css): Styles for the principles section.
-    *   [services-page.css](src/styles/services-page.css): Styles for the services page.
-*   **External Relationships**:
-    *   CSS files are imported into [layout.tsx](src/app/[locale]/layout.tsx) or specific components.
-
-## Low-Level Implementation Specifics
-
-### Next.js Configuration
-
-The [next.config.ts](next.config.ts) file is the primary configuration for the Next.js application, handling aspects like image optimization, internationalization domains, and build settings.
-
-### Middleware
-
-The [middleware.ts](src/middleware.ts) file is used for running code before a request is completed, specifically for handling internationalization routing and locale detection.
-
-### Package Management
-
-The [package.json](package.json) file lists all project dependencies (e.g., `react`, `next`, `typescript`, `framer-motion`, `i18next`) and defines scripts for development, building, and linting. [package-lock.json](package-lock.json) ensures consistent dependency installations.
-
-### Linting and Formatting
-
-The project uses [ESLint](eslint.config.mjs) for code linting and [Prettier](.prettierrc.json) for code formatting, ensuring code quality and consistency.
-
-### TypeScript Configuration
-
-The [tsconfig.json](tsconfig.json) file configures the TypeScript compiler settings for the project.
-
+## CRITICAL: No Over-Verification & Strict Task Scope
+- **Do not over-verify:** When asked to create, update, or write code in a specific file, do
+  **not** run full builds (`npm run build`) or full lints unless the change touches
+  dependencies, config, or routing. `npm run typecheck` on the changed code is enough.
+- **Stop at the task:** Once the requested code or file change is successfully written, finish
+  the task immediately. Do not audit git status or run global checks unless explicitly requested.
+- **Zero Extra Scope:** If the task is "add a section", only add the section. Do not refactor
+  neighbouring components or perform audits on files you weren't asked to touch.

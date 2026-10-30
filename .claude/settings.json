@@ -1,0 +1,36 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Edit(./**)",
+      "Read(//tmp/**)",
+      "Edit(//tmp/**)",
+      "mcp__claude_ai_Figma__create_session",
+      "Bash(npm run lint*)",
+      "Bash(npm run typecheck*)",
+      "Bash(npm run build*)",
+      "Bash(npm outdated*)",
+      "Bash(npx prettier *)",
+      "Bash(grep -cE *)",
+      "Bash(grep -nE *)",
+      "Bash(curl -s -o /dev/null -w * http://localhost:3000/*)",
+      "Skill(loop)",
+      "Skill(loop:*)"
+    ],
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Edit(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Edit(~/.aws/**)",
+      "Read(~/.env)",
+      "Edit(~/.env)",
+      "Read(./.env*)",
+      "Edit(./.env*)"
+    ]
+  }
+}

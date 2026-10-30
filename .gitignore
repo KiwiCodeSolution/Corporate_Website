@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Claude Code runtime
+.claude/scheduled_tasks.lock
